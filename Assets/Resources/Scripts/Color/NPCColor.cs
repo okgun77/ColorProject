@@ -17,7 +17,7 @@ public class NPCColor : MonoBehaviour
     public Color StealColor()
     {
         Color stolenColor = npcColor;
-        // 색상이 뺏겨갔으므로 NPC의 색상을 변경하거나 비활성화 할 수 있음.
+        // 색상이 뺏겨갔으므로 NPC의 색상을 변경하거나 비활성화 할 수 있음..
         // rend.material.color = Color.gray;    // 회색으로 변경
         // gameObject.SetActive(false);    // NPC를 비활성화
 
