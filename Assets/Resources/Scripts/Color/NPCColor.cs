@@ -8,6 +8,7 @@ public class NPCColor : MonoBehaviour
 
     private Renderer rend;
 
+    
     public void Init()
     {
         rend = GetComponent<Renderer>();
