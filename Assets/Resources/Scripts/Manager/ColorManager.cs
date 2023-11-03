@@ -9,6 +9,7 @@ public class ColorManager : MonoBehaviour
 
     private void Start()
     {
+        // √ ±‚»≠
         Init();
     }
 
