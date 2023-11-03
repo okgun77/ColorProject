@@ -15,13 +15,22 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Arrow",
-                    "type": "Value",
-                    "id": "e55e5a19-ed69-4aa2-b176-42a3775ee75e",
-                    "expectedControlType": "Vector2",
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "63fc0f6c-d6c8-4b6a-b520-f8adea823d61",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "8642e8c5-861b-46ea-95c5-058233b4a2a4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -81,70 +90,92 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "2D Vector",
-                    "id": "98becbb7-8f60-48ef-ac77-275c43afa270",
+                    "name": "Arrow",
+                    "id": "e06d4d8c-ffb6-4852-884e-b3d418fc6085",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow",
+                    "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "up",
-                    "id": "90ae5806-319a-4a82-9ced-ad7c17afc8da",
+                    "id": "164a0e2f-d230-4a03-8e9a-552eb52ea943",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PC",
-                    "action": "Arrow",
+                    "groups": "",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
-                    "id": "4642ce02-a21f-486b-9147-e251a142f025",
+                    "id": "d6f3049f-50ad-45ae-acca-3a1e2fd794f4",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PC",
-                    "action": "Arrow",
+                    "groups": "",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "185c4ee2-3f86-43c2-ae4e-b3c0c8d71ed8",
+                    "id": "1f3375e9-427e-4e7d-99db-f6a219840fde",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PC",
-                    "action": "Arrow",
+                    "groups": "",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "7e9ff9dc-5eb0-4f94-aecf-3645b036b80c",
+                    "id": "4f532c38-58ca-4542-bd48-07b87062e22f",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PC",
-                    "action": "Arrow",
+                    "groups": "",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "bfa4659e-cb7a-4520-8f7b-adae3e7043d2",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39fe62ce-1587-44c0-8155-f9410ce55c4c",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
         {
-            "name": "CameraMoveZoom",
+            "name": "CameraControl",
             "id": "6e44e4c3-a14b-45ae-aab8-2d3a7d9697ad",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "Look",
                     "type": "Value",
-                    "id": "c5bf959d-9dc0-4957-95a1-6d148942c28d",
+                    "id": "b428282d-5ac6-49bd-b3eb-312dc4553fda",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -153,7 +184,7 @@
                 {
                     "name": "Zoom",
                     "type": "Value",
-                    "id": "24eab3f6-f17a-4d8e-b339-d3bfb19e2567",
+                    "id": "d629e511-9a27-4c36-bf10-94aba470ee64",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -163,22 +194,22 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "c158fd27-0006-4528-ab51-8011f8d9241f",
+                    "id": "cbc5371a-8c8b-41cc-b2b3-b2c3ad7b4914",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PC",
-                    "action": "Move",
+                    "groups": "",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "becfe634-9f12-458e-81db-fda6fb7575de",
-                    "path": "<Mouse>/scroll",
+                    "id": "0ca46740-8430-4293-97ea-74b87c9f7a1b",
+                    "path": "<Mouse>/scroll/y",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PC",
+                    "groups": "",
                     "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": false
