@@ -1,61 +1,117 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private float moveSpeed = 5.0f;
-    [SerializeField]
-    private float runMultiplier = 2.0f; // ´Ş¸®±â ¼Óµµ ¹èÀ²
-    [SerializeField]
-    private float jumpForce = 5.0f;
 
-    private Vector2 moveInput;
-    private bool isRunning = false;
-    private bool isGrounded; // ¶¥¿¡ ´ê¾Ò´ÂÁö ¿©ºÎ
-    private Rigidbody rb;
+    // ìŠ¤í”¼ë“œ ì¡°ì • ë³€ìˆ˜
+    [SerializeField]
+    private float walkSpeed;
+    [SerializeField]
+    private float runSpeed;
 
-    private void Awake()
+    private float applySpeed;
+
+    [SerializeField]
+    private float jumpForce;
+
+
+    // ìƒíƒœ ë³€ìˆ˜
+    private bool isRun = false;
+    private bool isGround = true;
+
+    // ë•… ì°©ì§€ ì—¬ë¶€
+    private CapsuleCollider capsuleCollider;
+
+    //í•„ìš”í•œ ì»´í¬ë„ŒíŠ¸
+
+    private Rigidbody myRigid;
+
+
+    // Use this for initialization
+    void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
+        myRigid = GetComponent<Rigidbody>();
+        applySpeed = walkSpeed;
     }
 
-    public void OnMove(InputAction.CallbackContext _context)
+    // Update is called once per frame
+    void Update()
     {
-        moveInput = _context.ReadValue<Vector2>();
+        IsGround();
+        TryJump();
+        TryRun();
+        Move();
+
     }
 
-    public void OnRun(InputAction.CallbackContext _context)
+    // ì§€ë©´ ì²´í¬.
+    private void IsGround()
     {
-        isRunning = _context.ReadValue<float>() > 0.5f; // ´Ş¸®±â ¹öÆ°ÀÌ ´­·È´ÂÁö ¿©ºÎ
+        isGround = Physics.Raycast(transform.position, Vector3.down, capsuleCollider.bounds.extents.y + 0.1f);
     }
 
-    public void OnJump(InputAction.CallbackContext _context)
+
+    // ì í”„ ì‹œë„
+    private void TryJump()
     {
-        if (isGrounded && _context.started)
+        if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
+            Jump();
         }
     }
 
-    private void FixedUpdate()
+
+    // ì í”„
+    private void Jump()
     {
-        float speed = (isRunning) ? moveSpeed * runMultiplier : moveSpeed;
-        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y) * speed;
+        myRigid.velocity = transform.up * jumpForce;
+    }
 
-        // ÇÃ·¹ÀÌ¾îÀÇ ¹æÇâÀ» ¼³Á¤
-        if (move != Vector3.zero)
+
+    // ë‹¬ë¦¬ê¸° ì‹œë„
+    private void TryRun()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            Quaternion targetRotation = Quaternion.LookRotation(move);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5.0f);
+            Running();
         }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            RunningCancel();
+        }
+    }
 
-        transform.position += move * Time.fixedDeltaTime;
+    // ë‹¬ë¦¬ê¸° ì‹¤í–‰
+    private void Running()
+    {
+        isRun = true;
+        applySpeed = runSpeed;
+    }
 
-        // ¶¥¿¡ ´ê¾Ò´ÂÁö ¿©ºÎ È®ÀÎ
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
+
+    // ë‹¬ë¦¬ê¸° ì·¨ì†Œ
+    private void RunningCancel()
+    {
+        isRun = false;
+        applySpeed = walkSpeed;
+    }
+
+
+    // ì›€ì§ì„ ì‹¤í–‰
+    private void Move()
+    {
+
+        float _moveDirX = Input.GetAxisRaw("Horizontal");
+        float _moveDirZ = Input.GetAxisRaw("Vertical");
+
+        Vector3 _moveHorizontal = transform.right * _moveDirX;
+        Vector3 _moveVertical = transform.forward * _moveDirZ;
+
+        Vector3 _velocity = (_moveHorizontal + _moveVertical).normalized * applySpeed;
+
+        myRigid.MovePosition(transform.position + _velocity * Time.deltaTime);
     }
 }

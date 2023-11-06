@@ -1,36 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NPCColor : MonoBehaviour
 {
-    [SerializeField] private Color npcColor;  // NPCÀÇ »ö»ó
+    public enum NPCType { NPC_COLOR, NPC_WATER } // NPCì˜ ìœ í˜•ì„ ì •ì˜í•©ë‹ˆë‹¤.
 
-    private Renderer rend;
+    public NPCType npcType; // NPCì˜ ìœ í˜•.
+    public Color colorNPCToPlayer; // NPC COLOR ìƒ‰ìƒ.
+    private Renderer npcRenderer; // NPC ë Œë”ëŸ¬
 
-    
-    public void Init()
+    void Start()
     {
-        rend = GetComponent<Renderer>();
-        rend.material.color = npcColor; // ÃÊ±â »ö»ó ¼³Á¤
-    }
-
-    public Color StealColor()
-    {
-        Color stolenColor = npcColor;
-        // »ö»óÀÌ »¯°Ü°¬À¸¹Ç·Î NPCÀÇ »ö»óÀ» º¯°æÇÏ°Å³ª ºñÈ°¼ºÈ­ ÇÒ ¼ö ÀÖÀ½.
-        // rend.material.color = Color.gray;    // È¸»öÀ¸·Î º¯°æ
-        // gameObject.SetActive(false);    // NPC¸¦ ºñÈ°¼ºÈ­
-
-        return stolenColor;
-    }
-
-    void OnCollisionEnter(Collision _collision)
-    {
-        if (_collision.gameObject.CompareTag("Player"))
+        npcRenderer = GetComponentInChildren<Renderer>();
+        if (npcRenderer == null)
         {
-            Color stolenColor = StealColor();
-            _collision.gameObject.GetComponent<PlayerColor>().MixPlayerColor(stolenColor);
+            Debug.LogError("NPC Renderer not found on " + gameObject.name);
+        }
+        else
+        {
+            // NPCì˜ ìƒ‰ìƒì„ ì„¤ì •.
+            npcRenderer.material.color = colorNPCToPlayer;
         }
     }
+    
+    private void OnTriggerEnter(Collider _other)
+    {
+        
+        Debug.Log("OnTriggerEnter called with: " + _other.gameObject.name); // í˜¸ì¶œ ë¡œê·¸
+        
+        // 'Player' íƒœê·¸ë¥¼ ê°€ì§„ ì˜¤ë¸Œì íŠ¸ì™€ì˜ ì¶©ëŒì„ í™•ì¸.
+        if (_other.CompareTag("Player"))
+        {
+            Debug.Log("Player tagged object entered the trigger"); // í”Œë ˆì´ì–´ íƒœê·¸ í™•ì¸ ë¡œê·¸
+            PlayerColor playerColor = _other.GetComponent<PlayerColor>();
+
+            if (playerColor != null)
+            {
+                Debug.Log("PlayerColor component found. Adding color: " + colorNPCToPlayer); // ìƒ‰ìƒ ì¶”ê°€ í™•ì¸ ë¡œê·¸ 
+                switch (npcType)
+                {
+                    case NPCType.NPC_COLOR:
+                        playerColor.AddColor(colorNPCToPlayer);
+                        break;
+                    case NPCType.NPC_WATER:
+                        playerColor.ResetColor();
+                        break;
+                }
+            }
+            else
+            {
+                Debug.LogError("PlayerColor component not found in " + _other.gameObject.name);
+            }
+        }
+    }
+
+
 }
