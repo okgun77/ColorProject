@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.2158925, b: 0.29782626, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -342,12 +342,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd02e11bb8643144bd4e5e88cf0b6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerColor: {fileID: 0}
   colorImages:
   - {fileID: 1768066957}
   - {fileID: 666452591}
   - {fileID: 756411813}
   - {fileID: 237480217}
   - {fileID: 1462969566}
+  colorTable: {fileID: 0}
 --- !u!4 &104959202
 Transform:
   m_ObjectHideFlags: 0
@@ -2087,107 +2089,141 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicColors:
   - colorCode: B01
+    colorNo: 
     colorName: RED
     colorValue: {r: 1, g: 0, b: 0, a: 0}
   - colorCode: B02
+    colorNo: 
     colorName: GREEN
     colorValue: {r: 0, g: 1, b: 0, a: 0}
   - colorCode: B03
+    colorNo: 
     colorName: BLUE
     colorValue: {r: 0, g: 0, b: 1, a: 0}
   - colorCode: B04
+    colorNo: 
     colorName: YELLOW
     colorValue: {r: 1, g: 1, b: 0, a: 0}
   - colorCode: B05
+    colorNo: 
     colorName: MAGENTA
     colorValue: {r: 1, g: 0, b: 1, a: 0}
   targetColors:
   - colorCode: T01
+    colorNo: 
     colorName: OLIVE
     colorValue: {r: 0.5019608, g: 0.5019608, b: 0, a: 0}
   - colorCode: T02
+    colorNo: 
     colorName: PURPLE
     colorValue: {r: 0.5019608, g: 0, b: 0.5019608, a: 0}
   - colorCode: T03
+    colorNo: 
     colorName: ORANGE
     colorValue: {r: 1, g: 0.5019608, b: 0, a: 0}
   - colorCode: T04
+    colorNo: 
     colorName: PINK
     colorValue: {r: 1, g: 0, b: 0.5019608, a: 0}
   - colorCode: T05
+    colorNo: 
     colorName: TEAL
     colorValue: {r: 0, g: 0.5019608, b: 0.5019608, a: 0}
   - colorCode: T06
+    colorNo: 
     colorName: LIME
     colorValue: {r: 0.5019608, g: 1, b: 0, a: 0}
   - colorCode: T07
+    colorNo: 
     colorName: VIOLET
     colorValue: {r: 0.5019608, g: 0, b: 1, a: 0}
   - colorCode: T08
+    colorNo: 
     colorName: CONGOPINK
     colorValue: {r: 1, g: 0.5019608, b: 0.5019608, a: 0}
   - colorCode: T09
+    colorNo: 
     colorName: GRAY
     colorValue: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0}
   mixColors:
   - colorCode: M21
+    colorNo: 
     colorName: OLIVE
     colorValue: {r: 0.5019608, g: 0.5019608, b: 0, a: 0}
   - colorCode: M22
+    colorNo: 
     colorName: PURPLE
     colorValue: {r: 0.5019608, g: 0, b: 0.5019608, a: 0}
   - colorCode: M23
+    colorNo: 
     colorName: ORANGE
     colorValue: {r: 1, g: 0.5019608, b: 0, a: 0}
   - colorCode: M24
+    colorNo: 
     colorName: PINK
     colorValue: {r: 1, g: 0, b: 0.5019608, a: 0}
   - colorCode: M25
+    colorNo: 
     colorName: TEAL
     colorValue: {r: 0, g: 0.5019608, b: 0.5019608, a: 0}
   - colorCode: M26
+    colorNo: 
     colorName: LIME
     colorValue: {r: 0.5019608, g: 1, b: 0, a: 0}
   - colorCode: M27
+    colorNo: 
     colorName: VIOLET
     colorValue: {r: 0.5019608, g: 0, b: 1, a: 0}
   - colorCode: M28
+    colorNo: 
     colorName: CONGO_PINK
     colorValue: {r: 1, g: 0.5019608, b: 0.5019608, a: 0}
   - colorCode: M29
+    colorNo: 
     colorName: GRAY
     colorValue: {r: 0, g: 0, b: 0, a: 0}
   - colorCode: M31
+    colorNo: 
     colorName: GRAY3
     colorValue: {r: 0.33333334, g: 0.33333334, b: 0.33333334, a: 0}
   - colorCode: M32
+    colorNo: 
     colorName: LIGHT_GOLD
     colorValue: {r: 0.6666667, g: 0.6666667, b: 0, a: 0}
   - colorCode: M33
+    colorNo: 
     colorName: RED_PURPLE
     colorValue: {r: 0.6666667, g: 0.33333334, b: 0.33333334, a: 0}
   - colorCode: M34
+    colorNo: 
     colorName: DEEP_PURPLE
     colorValue: {r: 0.6666667, g: 0, b: 0.6666667, a: 0}
   - colorCode: M35
+    colorNo: 
     colorName: SUNSET_ORANGE
     colorValue: {r: 1, g: 0.33333334, b: 0.33333334, a: 0}
   - colorCode: M36
+    colorNo: 
     colorName: APPLE
     colorValue: {r: 0.33333334, g: 0.6666667, b: 0.33333334, a: 0}
   - colorCode: M37
+    colorNo: 
     colorName: LIBERTY
     colorValue: {r: 0.33333334, g: 0.33333334, b: 0.6666667, a: 0}
   - colorCode: M38
+    colorNo: 
     colorName: OLIVE_GREEN
     colorValue: {r: 0.6666667, g: 0.6666667, b: 0.33333334, a: 0}
   - colorCode: M39
+    colorNo: 
     colorName: PURPUREUS
     colorValue: {r: 0.6666667, g: 0.33333334, b: 0.6666667, a: 0}
   - colorCode: M41
+    colorNo: 
     colorName: MOSS_GREEN
     colorValue: {r: 0.5019608, g: 0.5019608, b: 0.2509804, a: 0}
   - colorCode: M42
+    colorNo: 
     colorName: PLUM
     colorValue: {r: 0.5019608, g: 0.2509804, b: 0.5019608, a: 0}
 --- !u!4 &889448937
@@ -3770,6 +3806,115 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1001 &1498617776
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2008489640}
+    m_Modifications:
+    - target: {fileID: 1823762280260016, guid: 0b3a21dbd74a00f44b3d0574cd873e76, type: 3}
+      propertyPath: m_Name
+      value: Pig (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720235642244354, guid: 0b3a21dbd74a00f44b3d0574cd873e76, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720235642244354, guid: 0b3a21dbd74a00f44b3d0574cd873e76, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720235642244354, guid: 0b3a21dbd74a00f44b3d0574cd873e76, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720235642244354, guid: 0b3a21dbd74a00f44b3d0574cd873e76, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720235642244354, guid: 0b3a21dbd74a00f44b3d0574cd873e76, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720235642244354, guid: 0b3a21dbd74a00f44b3d0574cd873e76, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720235642244354, guid: 0b3a21dbd74a00f44b3d0574cd873e76, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.4771588
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720235642244354, guid: 0b3a21dbd74a00f44b3d0574cd873e76, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720235642244354, guid: 0b3a21dbd74a00f44b3d0574cd873e76, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.87881714
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720235642244354, guid: 0b3a21dbd74a00f44b3d0574cd873e76, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720235642244354, guid: 0b3a21dbd74a00f44b3d0574cd873e76, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 123
+      objectReference: {fileID: 0}
+    - target: {fileID: 114246792872865396, guid: 0b3a21dbd74a00f44b3d0574cd873e76,
+        type: 3}
+      propertyPath: viewAngle
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 114246792872865396, guid: 0b3a21dbd74a00f44b3d0574cd873e76,
+        type: 3}
+      propertyPath: viewDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114246792872865396, guid: 0b3a21dbd74a00f44b3d0574cd873e76,
+        type: 3}
+      propertyPath: targetMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 114812835922534246, guid: 0b3a21dbd74a00f44b3d0574cd873e76,
+        type: 3}
+      propertyPath: waitTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114812835922534246, guid: 0b3a21dbd74a00f44b3d0574cd873e76,
+        type: 3}
+      propertyPath: walkTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114812835922534246, guid: 0b3a21dbd74a00f44b3d0574cd873e76,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 143833293573816901, guid: 0b3a21dbd74a00f44b3d0574cd873e76,
+        type: 3}
+      propertyPath: colorNPCToPlayer.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 143833293573816901, guid: 0b3a21dbd74a00f44b3d0574cd873e76,
+        type: 3}
+      propertyPath: colorNPCToPlayer.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 143833293573816901, guid: 0b3a21dbd74a00f44b3d0574cd873e76,
+        type: 3}
+      propertyPath: colorNPCToPlayer.r
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 82100341146709162, guid: 0b3a21dbd74a00f44b3d0574cd873e76, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 0b3a21dbd74a00f44b3d0574cd873e76, type: 3}
+--- !u!4 &1498617777 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4720235642244354, guid: 0b3a21dbd74a00f44b3d0574cd873e76,
+    type: 3}
+  m_PrefabInstance: {fileID: 1498617776}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1513653501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4261,9 +4406,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb682c88dfd56d409be0a1762768e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorList: []
+  playerRenderers: []
+  colorTable: {fileID: 0}
   uiManager: {fileID: 0}
-  defaultColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!4 &1703912241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4495825184710616, guid: 73c65a7d3f266e54eac1758806f44ed8,
@@ -4775,6 +4920,7 @@ Transform:
   - {fileID: 260847873}
   - {fileID: 2142796897}
   - {fileID: 1266741553}
+  - {fileID: 1498617777}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
