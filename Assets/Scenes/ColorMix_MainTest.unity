@@ -154,107 +154,141 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicColors:
   - colorCode: B01
+    colorNo: 01
     colorName: RED
     colorValue: {r: 1, g: 0, b: 0, a: 0}
   - colorCode: B02
+    colorNo: 02
     colorName: GREEN
     colorValue: {r: 0, g: 1, b: 0, a: 0}
   - colorCode: B03
+    colorNo: 03
     colorName: BLUE
     colorValue: {r: 0, g: 0, b: 1, a: 0}
   - colorCode: B04
+    colorNo: 04
     colorName: YELLOW
     colorValue: {r: 1, g: 1, b: 0, a: 0}
   - colorCode: B05
+    colorNo: 05
     colorName: MAGENTA
     colorValue: {r: 1, g: 0, b: 1, a: 0}
   targetColors:
   - colorCode: T01
+    colorNo: 0102
     colorName: OLIVE
     colorValue: {r: 0.5019608, g: 0.5019608, b: 0, a: 0}
   - colorCode: T02
+    colorNo: 0103
     colorName: PURPLE
     colorValue: {r: 0.5019608, g: 0, b: 0.5019608, a: 0}
   - colorCode: T03
+    colorNo: 0104
     colorName: ORANGE
     colorValue: {r: 1, g: 0.5019608, b: 0, a: 0}
   - colorCode: T04
+    colorNo: 0105
     colorName: PINK
     colorValue: {r: 1, g: 0, b: 0.5019608, a: 0}
   - colorCode: T05
+    colorNo: 0203
     colorName: TEAL
     colorValue: {r: 0, g: 0.5019608, b: 0.5019608, a: 0}
   - colorCode: T06
+    colorNo: 0204
     colorName: LIME
     colorValue: {r: 0.5019608, g: 1, b: 0, a: 0}
   - colorCode: T07
+    colorNo: 0305
     colorName: VIOLET
     colorValue: {r: 0.5019608, g: 0, b: 1, a: 0}
   - colorCode: T08
+    colorNo: 0405
     colorName: CONGOPINK
     colorValue: {r: 1, g: 0.5019608, b: 0.5019608, a: 0}
   - colorCode: T09
+    colorNo: 0205
     colorName: GRAY
     colorValue: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0}
   mixColors:
   - colorCode: M21
+    colorNo: 0102
     colorName: OLIVE
     colorValue: {r: 0.5019608, g: 0.5019608, b: 0, a: 0}
   - colorCode: M22
+    colorNo: 0103
     colorName: PURPLE
     colorValue: {r: 0.5019608, g: 0, b: 0.5019608, a: 0}
   - colorCode: M23
+    colorNo: 0104
     colorName: ORANGE
     colorValue: {r: 1, g: 0.5019608, b: 0, a: 0}
   - colorCode: M24
+    colorNo: 0105
     colorName: PINK
     colorValue: {r: 1, g: 0, b: 0.5019608, a: 0}
   - colorCode: M25
+    colorNo: 0203
     colorName: TEAL
     colorValue: {r: 0, g: 0.5019608, b: 0.5019608, a: 0}
   - colorCode: M26
+    colorNo: 0204
     colorName: LIME
     colorValue: {r: 0.5019608, g: 1, b: 0, a: 0}
   - colorCode: M27
+    colorNo: 0305
     colorName: VIOLET
     colorValue: {r: 0.5019608, g: 0, b: 1, a: 0}
   - colorCode: M28
+    colorNo: 0405
     colorName: CONGO_PINK
     colorValue: {r: 1, g: 0.5019608, b: 0.5019608, a: 0}
   - colorCode: M29
+    colorNo: 0205
     colorName: GRAY
-    colorValue: {r: 0, g: 0, b: 0, a: 0}
+    colorValue: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0}
   - colorCode: M31
+    colorNo: 010203
     colorName: GRAY3
     colorValue: {r: 0.33333334, g: 0.33333334, b: 0.33333334, a: 0}
   - colorCode: M32
+    colorNo: 010204
     colorName: LIGHT_GOLD
     colorValue: {r: 0.6666667, g: 0.6666667, b: 0, a: 0}
   - colorCode: M33
+    colorNo: 010205
     colorName: RED_PURPLE
     colorValue: {r: 0.6666667, g: 0.33333334, b: 0.33333334, a: 0}
   - colorCode: M34
+    colorNo: 010305
     colorName: DEEP_PURPLE
     colorValue: {r: 0.6666667, g: 0, b: 0.6666667, a: 0}
   - colorCode: M35
+    colorNo: 010405
     colorName: SUNSET_ORANGE
     colorValue: {r: 1, g: 0.33333334, b: 0.33333334, a: 0}
   - colorCode: M36
+    colorNo: 020304
     colorName: APPLE
     colorValue: {r: 0.33333334, g: 0.6666667, b: 0.33333334, a: 0}
   - colorCode: M37
+    colorNo: 020305
     colorName: LIBERTY
     colorValue: {r: 0.33333334, g: 0.33333334, b: 0.6666667, a: 0}
   - colorCode: M38
+    colorNo: 020405
     colorName: OLIVE_GREEN
     colorValue: {r: 0.6666667, g: 0.6666667, b: 0.33333334, a: 0}
   - colorCode: M39
+    colorNo: 030405
     colorName: PURPUREUS
     colorValue: {r: 0.6666667, g: 0.33333334, b: 0.6666667, a: 0}
   - colorCode: M41
+    colorNo: 01020304
     colorName: MOSS_GREEN
     colorValue: {r: 0.5019608, g: 0.5019608, b: 0.2509804, a: 0}
   - colorCode: M42
+    colorNo: 01020305
     colorName: PLUM
     colorValue: {r: 0.5019608, g: 0.2509804, b: 0.5019608, a: 0}
 --- !u!4 &47739517
@@ -656,6 +690,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 780495978, guid: 30648d08f4012844280637f08991005f, type: 3}
+      propertyPath: colorNo
+      value: 04
+      objectReference: {fileID: 0}
+    - target: {fileID: 780495978, guid: 30648d08f4012844280637f08991005f, type: 3}
       propertyPath: colorNPCToPlayer.b
       value: 1
       objectReference: {fileID: 0}
@@ -964,6 +1002,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 780495978, guid: 30648d08f4012844280637f08991005f, type: 3}
+      propertyPath: colorNo
+      value: 01
+      objectReference: {fileID: 0}
     - target: {fileID: 780495981, guid: 30648d08f4012844280637f08991005f, type: 3}
       propertyPath: m_Mass
       value: 100
@@ -1091,6 +1133,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 780495978, guid: 30648d08f4012844280637f08991005f, type: 3}
+      propertyPath: colorNo
+      value: 03
+      objectReference: {fileID: 0}
     - target: {fileID: 780495978, guid: 30648d08f4012844280637f08991005f, type: 3}
       propertyPath: colorNPCToPlayer.b
       value: 1
@@ -1257,6 +1303,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 780495978, guid: abfd33a92123c8c48b2f2597068fda3a, type: 3}
+      propertyPath: colorNo
+      value: 0205
+      objectReference: {fileID: 0}
+    - target: {fileID: 780495978, guid: abfd33a92123c8c48b2f2597068fda3a, type: 3}
       propertyPath: npcType
       value: 1
       objectReference: {fileID: 0}
@@ -1342,6 +1392,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 780495978, guid: abfd33a92123c8c48b2f2597068fda3a, type: 3}
+      propertyPath: colorNo
+      value: 0205
+      objectReference: {fileID: 0}
+    - target: {fileID: 780495978, guid: abfd33a92123c8c48b2f2597068fda3a, type: 3}
       propertyPath: npcType
       value: 1
       objectReference: {fileID: 0}
@@ -1426,6 +1480,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 780495978, guid: 30648d08f4012844280637f08991005f, type: 3}
+      propertyPath: colorNo
+      value: 02
+      objectReference: {fileID: 0}
     - target: {fileID: 780495978, guid: 30648d08f4012844280637f08991005f, type: 3}
       propertyPath: colorNPCToPlayer.g
       value: 1
@@ -2125,6 +2183,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 780495978, guid: 30648d08f4012844280637f08991005f, type: 3}
+      propertyPath: colorNo
+      value: 05
+      objectReference: {fileID: 0}
     - target: {fileID: 780495978, guid: 30648d08f4012844280637f08991005f, type: 3}
       propertyPath: colorNPCToPlayer.b
       value: 1
