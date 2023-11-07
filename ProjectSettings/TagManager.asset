@@ -6,6 +6,8 @@ TagManager:
   tags:
   - NPC_Color
   - NPC_Water
+  - WeakAnimal
+  - StrongAnimal
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
