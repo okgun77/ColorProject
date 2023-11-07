@@ -1,57 +1,54 @@
 using UnityEngine;
 
+public enum NPCType { NPC_COLOR, NPC_WATER } // NPC의 유형 정의
+
 public class NPCColor : MonoBehaviour
 {
-    public enum NPCType { NPC_COLOR, NPC_WATER } // NPC의 유형을 정의합니다.
+    [SerializeField] private Renderer npcRenderer; // NPC의 Renderer 컴포넌트
+    [SerializeField] private string colorNo; // NPC가 가지고 있는 색상 번호
+    [SerializeField] private NPCType type; // NPC의 유형
+    [SerializeField] private ColorTable colorTable; // 색상 테이블 참조
 
-    public NPCType npcType; // NPC의 유형.
-    public Color colorNPCToPlayer; // NPC COLOR 색상.
-    private Renderer npcRenderer; // NPC 렌더러
-
-    void Start()
+    // NPC의 기본 색상 설정
+    private void Start()
     {
-        npcRenderer = GetComponentInChildren<Renderer>();
-        if (npcRenderer == null)
+        ApplyColor();
+    }
+
+    // NPC와 플레이어가 닿을 때의 상호작용
+    private void OnTriggerEnter(Collider other)
+    {
+        // 플레이어와의 충돌 확인
+        if (other.CompareTag("Player"))
         {
-            Debug.LogError("NPC Renderer not found on " + gameObject.name);
+            PlayerColor playerColor = other.GetComponent<PlayerColor>();
+
+            // NPC 유형에 따른 조치
+            switch (type)
+            {
+                case NPCType.NPC_COLOR:
+                    // 플레이어에게 색상 추가
+                    playerColor.GetColor(colorNo);
+                    break;
+                case NPCType.NPC_WATER:
+                    // 플레이어 색상 초기화
+                    playerColor.ResetColor();
+                    break;
+            }
+        }
+    }
+
+    // NPC의 색상 적용
+    private void ApplyColor()
+    {
+        ColorBasicInfo colorInfo = colorTable.GetBasicColor(colorNo);
+        if (colorInfo != null)
+        {
+            npcRenderer.material.color = colorInfo.ColorValue;
         }
         else
         {
-            // NPC의 색상을 설정.
-            npcRenderer.material.color = colorNPCToPlayer;
+            Debug.LogWarning("Color No not found in color table: " + colorNo);
         }
     }
-    
-    private void OnTriggerEnter(Collider _other)
-    {
-        
-        Debug.Log("OnTriggerEnter called with: " + _other.gameObject.name); // 호출 로그
-        
-        // 'Player' 태그를 가진 오브젝트와의 충돌을 확인.
-        if (_other.CompareTag("Player"))
-        {
-            Debug.Log("Player tagged object entered the trigger"); // 플레이어 태그 확인 로그
-            PlayerColor playerColor = _other.GetComponent<PlayerColor>();
-
-            if (playerColor != null)
-            {
-                Debug.Log("PlayerColor component found. Adding color: " + colorNPCToPlayer); // 색상 추가 확인 로그 
-                switch (npcType)
-                {
-                    case NPCType.NPC_COLOR:
-                        playerColor.AddColor(colorNPCToPlayer);
-                        break;
-                    case NPCType.NPC_WATER:
-                        playerColor.ResetColor();
-                        break;
-                }
-            }
-            else
-            {
-                Debug.LogError("PlayerColor component not found in " + _other.gameObject.name);
-            }
-        }
-    }
-
-
 }

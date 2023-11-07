@@ -5,7 +5,7 @@ using System.Linq;
 [System.Serializable]
 public class ColorTable : MonoBehaviour
 {
-    // 색상 정보를 저장하는 리스트들을 정의합니다.
+    // 색상 정보를 저장하는 리스트
     [SerializeField]
     private List<ColorBasicInfo> basicColors; // 기본 색상 목록
     [SerializeField]
@@ -13,71 +13,41 @@ public class ColorTable : MonoBehaviour
     [SerializeField]
     private List<ColorBasicInfo> mixColors; // 섞인 결과 색상 목록
 
-    // 색상을 추가하는 메서드들
-    public void AddBasicColor(ColorBasicInfo _colorInfo)
+    // 색상 번호로 기본 색상을 검색
+    public ColorBasicInfo GetBasicColor(string _colorNo)
     {
-        if (!basicColors.Any(c => c.ColorName == _colorInfo.ColorName))
+        return basicColors.FirstOrDefault(color => color.ColorNo == _colorNo);
+    }
+
+    // 색상 번호로 혼합 색상을 검색
+    public ColorBasicInfo GetMixColor(string _colorNo)
+    {
+        return mixColors.FirstOrDefault(color => color.ColorNo == _colorNo);
+    }
+
+    // 색상 번호로 목표 색상을 검색
+    public ColorBasicInfo GetTargetColor(string _colorNo)
+    {
+        return targetColors.FirstOrDefault(color => color.ColorNo == _colorNo);
+    }
+    
+    public ColorBasicInfo MixColors(string _colorNo1, string _colorNo2)
+    {
+        // 두 색상 번호를 정렬하여 새로운 혼합 색상 번호 생성
+        var colorNos = new List<string> { _colorNo1, _colorNo2 };
+        colorNos.Sort();
+        var combinedColorNo = string.Join("", colorNos);
+
+        // 혼합 색상 목록에서 해당 혼합 색상 번호를 가진 색상 정보를 찾음
+        var mixedColor = GetMixColor(combinedColorNo);
+        if (mixedColor != null) // 혼합 색상이 목록에 있으면 반환
         {
-            basicColors.Add(_colorInfo);
+            return mixedColor;
         }
-    }
+        
+        // 혼합 색상이 없을 경우, 기본 색상을 찾아 혼합을 시도할 수 있는 로직을 추가할 수 있습니다.
+        // 그러나 이 예시에서는 미리 정의된 혼합 색상만 사용합니다.
 
-    public void AddTargetColor(ColorBasicInfo _colorInfo)
-    {
-        if (!targetColors.Any(c => c.ColorName == _colorInfo.ColorName))
-        {
-            targetColors.Add(_colorInfo);
-        }
+        return null; // 혼합 색상을 찾을 수 없는 경우
     }
-
-    public void AddMixColor(ColorBasicInfo _colorInfo)
-    {
-        if (!mixColors.Any(c => c.ColorName == _colorInfo.ColorName))
-        {
-            mixColors.Add(_colorInfo);
-        }
-    }
-
-    // 색상을 이름으로 검색하는 메서드
-    public ColorBasicInfo GetColorByName(string _name)
-    {
-        return basicColors.Concat(targetColors).Concat(mixColors).FirstOrDefault(colorInfo => colorInfo.ColorName == _name);
-    }
-
-    // 색상을 RGB 값으로 검색하는 메서드
-    public ColorBasicInfo GetColorByValue(Color _colorValue)
-    {
-        return basicColors.Concat(targetColors).Concat(mixColors).FirstOrDefault(colorInfo => colorInfo.ColorValue == _colorValue);
-    }
-
-    // 두 색상을 입력으로 받아 섞어서 새로운 색상을 만드는 메서드
-    // 이 메서드는 두 색상을 섞는 실제 로직을 구현해야 합니다.
-    public Color MixTwoColors(Color color1, Color color2)
-    {
-        // 이 부분은 색상을 섞는 실제 알고리즘으로 구현되어야 합니다.
-        // 예제는 단순히 평균을 사용합니다.
-        Color mixResult = (color1 + color2) / 2;
-        mixResult.a = 1; // 알파 값을 최대로 설정하여 불투명하게 만듭니다.
-        return mixResult;
-    }
-
-    // 기본 색상 리스트를 반환하는 메서드
-    public List<ColorBasicInfo> GetBasicColors()
-    {
-        return basicColors;
-    }
-
-    // 목표 색상 리스트를 반환하는 메서드
-    public List<ColorBasicInfo> GetTargetColors()
-    {
-        return targetColors;
-    }
-
-    // 섞인 색상 리스트를 반환하는 메서드
-    public List<ColorBasicInfo> GetMixColors()
-    {
-        return mixColors;
-    }
-
-    // 기타 필요한 메서드들...
 }

@@ -18,7 +18,7 @@ public class ColorBasicInfo
     public ColorBasicInfo(string _code, string _no, string _name, int _r, int _g, int _b)
     {
         colorCode = _code;
-        colorCode = _no;
+        colorNo = _no;
         colorName = _name;
         colorValue = new Color(_r / 255f, _g / 255f, _b / 255f);
     }
@@ -27,7 +27,7 @@ public class ColorBasicInfo
     public ColorBasicInfo(string _code, string _no, string _name, Color _value)
     {
         colorCode = _code;
-        colorCode = _no;
+        colorNo = _no;
         colorName = _name;
         colorValue = _value;
     }
