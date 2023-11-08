@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,13 +8,14 @@ public class TPSPlayerController : MonoBehaviour
 {
     [SerializeField] private LayerMask groundLayer; // 바닥을 식별하기 위한 레이어 마스크.
     [SerializeField] private Transform Character;
-    [SerializeField] private Transform Camera;
+    [SerializeField] private Transform ViewCamera;
     [SerializeField] private float movementSpeed = 5f; // 이동 속도
     [SerializeField] private float rotationSpeed = 10f; // 회전 속도
     [SerializeField] private float jumpPower = 5f; // 점프 힘
     [SerializeField] private float distanceToGround = 0.2f; // 바닥과의 거리
     [SerializeField] private float Run = 7f;
 
+  
     private Animator anim;
     private Rigidbody rb;
     private bool _jump;
@@ -45,12 +47,19 @@ public class TPSPlayerController : MonoBehaviour
         bool isMoving = moveInput.magnitude > 0;
         anim.SetBool("isMove", isMoving);
 
+        //Vector3 moveDirection = CalculateMoveDirection(moveInput);
+        //moveDirection.y = 0f;
+        //if (isMoving)
+        //{
+        //    MoveCharacter(moveDirection);
+        //}
+        //RotateCharacter(isMoving ? moveDirection : camera.forward);
         if (isMoving)
         {
             Vector3 moveDirection = CalculateMoveDirection(moveInput);
             MoveCharacter(moveDirection);
             RotateCharacter(moveDirection);
-           
+
         }
     }
 
@@ -76,9 +85,9 @@ public class TPSPlayerController : MonoBehaviour
     // 이동 방향을 계산합니다.
     private Vector3 CalculateMoveDirection(Vector2 input)
     {
-        Vector3 forward = Camera.forward.FlattenVector();
-        Vector3 right = Camera.right.FlattenVector();
-        return forward * input.y + right * input.x;
+        Vector3 forward = ViewCamera.forward.FlattenVector();
+        Vector3 right = ViewCamera.right.FlattenVector();
+        return (forward * input.y + right * input.x).normalized;
     }
 
     // 캐릭터를 이동시킵니다.
@@ -100,8 +109,10 @@ public class TPSPlayerController : MonoBehaviour
     // 캐릭터를 회전시킵니다.
     private void RotateCharacter(Vector3 direction)
     {
+        direction.y = 0f; // 플레이어도 머리박고싶으면 활성화
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         Character.rotation = Quaternion.Slerp(Character.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        //character.rotation = targetRotation;
     }
 
     // 캐릭터가 바닥에 있는지 확인합니다.
