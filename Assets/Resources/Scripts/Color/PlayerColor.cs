@@ -125,9 +125,6 @@ public class PlayerColor : MonoBehaviour
         
     }
 
-    
-    
-
     // 플레이어의 색상을 초기화하는 함수
     public void ResetColor()
     {

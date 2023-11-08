@@ -1,22 +1,47 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.PlayerLoop;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private PlayerColor playerColor; // 플레이어 색상 스크립트 참조
     [SerializeField] private Image[] colorImages; // UI에 표시할 이미지 배열
     [SerializeField] private ColorTable colorTable; // 색상 테이블 참조
+    [SerializeField] private GameObject ingameMainMenu;
+    [SerializeField] private GameObject ingameOptionMenu;
+    [SerializeField] private GameObject graphicOptionMenu;
+    [SerializeField] private GameObject soundOptionMenu;
+    [SerializeField] private GameObject keyboardOptionMenu;
+    
+    public static UIManager Instance { get; private set; }
 
-    void Start()
+    public void Init()
     {
-        // UpdateColorUI(); // 게임 시작 시 UI 업데이트
+        ingameMainMenu.SetActive(false);
+        ingameOptionMenu.SetActive(false);
+    }
+    public void ShowPauseMenu()
+    {
+        ingameMainMenu.SetActive(true);
+        ingameOptionMenu.SetActive(false);
     }
 
-    void Update()
+    public void HidePauseMenu()
     {
-        // 여기서는 플레이어의 색상 리스트에 변동이 있는지를 체크하지 않고 있습니다.
-        // 실제 게임에서는 플레이어의 색상 리스트 변동을 감지하는 다른 메커니즘이 필요할 수 있습니다.
+        ingameMainMenu.SetActive(false);
+    }
+
+    public void ShowOptionMenu()
+    {
+        ingameOptionMenu.SetActive(true);
+        ingameMainMenu.SetActive(false);
+    }
+
+    public void BackToingameMainMenu()
+    {
+        ingameOptionMenu.SetActive(false);
+        ingameMainMenu.SetActive(true);
     }
 
     // 플레이어의 색상 리스트를 UI에 업데이트하는 메소드

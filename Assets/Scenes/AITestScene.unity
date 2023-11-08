@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.2158925, b: 0.29782626, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -342,12 +342,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd02e11bb8643144bd4e5e88cf0b6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerColor: {fileID: 0}
   colorImages:
   - {fileID: 1768066957}
   - {fileID: 666452591}
   - {fileID: 756411813}
   - {fileID: 237480217}
   - {fileID: 1462969566}
+  colorTable: {fileID: 0}
 --- !u!4 &104959202
 Transform:
   m_ObjectHideFlags: 0
@@ -2087,107 +2089,141 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicColors:
   - colorCode: B01
+    colorNo: 
     colorName: RED
     colorValue: {r: 1, g: 0, b: 0, a: 0}
   - colorCode: B02
+    colorNo: 
     colorName: GREEN
     colorValue: {r: 0, g: 1, b: 0, a: 0}
   - colorCode: B03
+    colorNo: 
     colorName: BLUE
     colorValue: {r: 0, g: 0, b: 1, a: 0}
   - colorCode: B04
+    colorNo: 
     colorName: YELLOW
     colorValue: {r: 1, g: 1, b: 0, a: 0}
   - colorCode: B05
+    colorNo: 
     colorName: MAGENTA
     colorValue: {r: 1, g: 0, b: 1, a: 0}
   targetColors:
   - colorCode: T01
+    colorNo: 
     colorName: OLIVE
     colorValue: {r: 0.5019608, g: 0.5019608, b: 0, a: 0}
   - colorCode: T02
+    colorNo: 
     colorName: PURPLE
     colorValue: {r: 0.5019608, g: 0, b: 0.5019608, a: 0}
   - colorCode: T03
+    colorNo: 
     colorName: ORANGE
     colorValue: {r: 1, g: 0.5019608, b: 0, a: 0}
   - colorCode: T04
+    colorNo: 
     colorName: PINK
     colorValue: {r: 1, g: 0, b: 0.5019608, a: 0}
   - colorCode: T05
+    colorNo: 
     colorName: TEAL
     colorValue: {r: 0, g: 0.5019608, b: 0.5019608, a: 0}
   - colorCode: T06
+    colorNo: 
     colorName: LIME
     colorValue: {r: 0.5019608, g: 1, b: 0, a: 0}
   - colorCode: T07
+    colorNo: 
     colorName: VIOLET
     colorValue: {r: 0.5019608, g: 0, b: 1, a: 0}
   - colorCode: T08
+    colorNo: 
     colorName: CONGOPINK
     colorValue: {r: 1, g: 0.5019608, b: 0.5019608, a: 0}
   - colorCode: T09
+    colorNo: 
     colorName: GRAY
     colorValue: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0}
   mixColors:
   - colorCode: M21
+    colorNo: 
     colorName: OLIVE
     colorValue: {r: 0.5019608, g: 0.5019608, b: 0, a: 0}
   - colorCode: M22
+    colorNo: 
     colorName: PURPLE
     colorValue: {r: 0.5019608, g: 0, b: 0.5019608, a: 0}
   - colorCode: M23
+    colorNo: 
     colorName: ORANGE
     colorValue: {r: 1, g: 0.5019608, b: 0, a: 0}
   - colorCode: M24
+    colorNo: 
     colorName: PINK
     colorValue: {r: 1, g: 0, b: 0.5019608, a: 0}
   - colorCode: M25
+    colorNo: 
     colorName: TEAL
     colorValue: {r: 0, g: 0.5019608, b: 0.5019608, a: 0}
   - colorCode: M26
+    colorNo: 
     colorName: LIME
     colorValue: {r: 0.5019608, g: 1, b: 0, a: 0}
   - colorCode: M27
+    colorNo: 
     colorName: VIOLET
     colorValue: {r: 0.5019608, g: 0, b: 1, a: 0}
   - colorCode: M28
+    colorNo: 
     colorName: CONGO_PINK
     colorValue: {r: 1, g: 0.5019608, b: 0.5019608, a: 0}
   - colorCode: M29
+    colorNo: 
     colorName: GRAY
     colorValue: {r: 0, g: 0, b: 0, a: 0}
   - colorCode: M31
+    colorNo: 
     colorName: GRAY3
     colorValue: {r: 0.33333334, g: 0.33333334, b: 0.33333334, a: 0}
   - colorCode: M32
+    colorNo: 
     colorName: LIGHT_GOLD
     colorValue: {r: 0.6666667, g: 0.6666667, b: 0, a: 0}
   - colorCode: M33
+    colorNo: 
     colorName: RED_PURPLE
     colorValue: {r: 0.6666667, g: 0.33333334, b: 0.33333334, a: 0}
   - colorCode: M34
+    colorNo: 
     colorName: DEEP_PURPLE
     colorValue: {r: 0.6666667, g: 0, b: 0.6666667, a: 0}
   - colorCode: M35
+    colorNo: 
     colorName: SUNSET_ORANGE
     colorValue: {r: 1, g: 0.33333334, b: 0.33333334, a: 0}
   - colorCode: M36
+    colorNo: 
     colorName: APPLE
     colorValue: {r: 0.33333334, g: 0.6666667, b: 0.33333334, a: 0}
   - colorCode: M37
+    colorNo: 
     colorName: LIBERTY
     colorValue: {r: 0.33333334, g: 0.33333334, b: 0.6666667, a: 0}
   - colorCode: M38
+    colorNo: 
     colorName: OLIVE_GREEN
     colorValue: {r: 0.6666667, g: 0.6666667, b: 0.33333334, a: 0}
   - colorCode: M39
+    colorNo: 
     colorName: PURPUREUS
     colorValue: {r: 0.6666667, g: 0.33333334, b: 0.6666667, a: 0}
   - colorCode: M41
+    colorNo: 
     colorName: MOSS_GREEN
     colorValue: {r: 0.5019608, g: 0.5019608, b: 0.2509804, a: 0}
   - colorCode: M42
+    colorNo: 
     colorName: PLUM
     colorValue: {r: 0.5019608, g: 0.2509804, b: 0.5019608, a: 0}
 --- !u!4 &889448937
@@ -4261,9 +4297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb682c88dfd56d409be0a1762768e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorList: []
+  playerRenderers: []
+  colorTable: {fileID: 0}
   uiManager: {fileID: 0}
-  defaultColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!4 &1703912241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4495825184710616, guid: 73c65a7d3f266e54eac1758806f44ed8,
