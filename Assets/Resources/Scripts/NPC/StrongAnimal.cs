@@ -15,7 +15,7 @@ public class StrongAnimal : Animal
         isChasing = true;
         destination = _targetPos;
         nav.speed = runSpeed;
-        anim.SetBool("Running", isRunning);
+        // anim.SetBool("Running", isRunning);
         nav.SetDestination(destination);
     }
 }

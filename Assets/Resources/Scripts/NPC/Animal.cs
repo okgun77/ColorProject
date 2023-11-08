@@ -26,7 +26,7 @@ public class Animal : MonoBehaviour
 
 
     // 필요한 컴포넌트
-    [SerializeField] protected Animator anim;
+    // [SerializeField] protected Animator anim;
     [SerializeField] protected Rigidbody rigid;
     [SerializeField] protected BoxCollider boxCol;
     protected NavMeshAgent nav;
@@ -71,14 +71,14 @@ public class Animal : MonoBehaviour
         isWalking = false; isRunning = false; isAction = true;
         nav.speed = walkSpeed;
         nav.ResetPath();
-        anim.SetBool("Walking", isWalking); anim.SetBool("Running", isRunning);
+        // anim.SetBool("Walking", isWalking); anim.SetBool("Running", isRunning);
         destination.Set(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
     }
 
     protected void TryWalk()
     {
         isWalking = true;
-        anim.SetBool("Walking", isWalking);
+        // anim.SetBool("Walking", isWalking);
         currentTime = walkTime;
         nav.speed = walkSpeed;
         Debug.Log("걷기");

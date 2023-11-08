@@ -9,6 +9,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TimerManager timerManager;
     [SerializeField] private float elapseTime;
     [SerializeField] private UIManager uiManager;
+
+    [SerializeField] private ColorTable colorTable;
+    [SerializeField] private Image targetColorImage;
+    // [SerializeField] private TextMeshProUGUI resultText;
+    private ColorBasicInfo targetColorInfo;
+
+    [SerializeField] private GameObject winScreen;
+    [SerializeField] private GameObject loseScreen;
     
     public static GameManager Instance { get; private set; }
     
@@ -35,8 +43,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 
-        Application.targetFrameRate = 144;
-        QualitySettings.vSyncCount = 1;
+        // Application.targetFrameRate = 144;
+        // QualitySettings.vSyncCount = 1;
             
         // 이미 SerializeField를 통해 할당했으므로 이 줄은 필요 없습니다.
         // timerManager = GetComponent<TimerManager>();
@@ -50,6 +58,8 @@ public class GameManager : MonoBehaviour
         {
             StartGame();
         }
+        
+        SelectAndDisplayTargetColor();
     }
 
     private void Update()
@@ -85,6 +95,7 @@ public class GameManager : MonoBehaviour
     {
         timerManager.StopTimer(); // 타이머 중지
         gameOverScreen.SetActive(true); // 게임 오버 화면 표시
+        
     }
 
     public void RestartGame()
@@ -107,6 +118,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenuScene");
     }
+
+    private void SelectAndDisplayTargetColor()
+    {
+        targetColorInfo = colorTable.GetRandomTargetColor();
+        if (targetColorInfo != null)
+        {
+            targetColorImage.color = targetColorInfo.ColorValue;
+        }
+    }
+
 }
 
 

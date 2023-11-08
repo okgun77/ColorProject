@@ -457,7 +457,6 @@ GameObject:
   - component: {fileID: 65245568043165518}
   - component: {fileID: 114812835922534246}
   - component: {fileID: 143833293573816901}
-  - component: {fileID: 82100341146709162}
   - component: {fileID: 114246792872865396}
   - component: {fileID: 195052592031034794}
   m_Layer: 0
@@ -528,8 +527,8 @@ MonoBehaviour:
   hp: 2
   walkSpeed: 1
   runSpeed: 4
-  walkTime: 5
-  waitTime: 4
+  walkTime: 2
+  waitTime: 0.1
   runTime: 5
   anim: {fileID: 95259094091893648}
   rigid: {fileID: 54720816621227174}
@@ -546,104 +545,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073e782b9d06cc94891f3badefd5c198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcType: 0
-  colorNPCToPlayer: {r: 0, g: 0, b: 0, a: 0}
---- !u!82 &82100341146709162
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823762280260016}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.2
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 5
-  MaxDistance: 30
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.0024347287
-      value: 0.99918115
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  npcRenderer: {fileID: 137506696785666972}
+  colorNo: 01
+  type: 0
+  colorTable: {fileID: 0}
 --- !u!114 &114246792872865396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,11 +561,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65133d882457b8d4789e5218b63d3b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewAngle: 130
+  viewAngle: 360
   viewDistance: 10
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!195 &195052592031034794
 NavMeshAgent:
   m_ObjectHideFlags: 0

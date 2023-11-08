@@ -430,11 +430,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65133d882457b8d4789e5218b63d3b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewAngle: 130
-  viewDistance: 10
+  viewAngle: 360
+  viewDistance: 15
   targetMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 64
 --- !u!195 &195473695788772132
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -472,14 +472,14 @@ MonoBehaviour:
   animalName: PigWild
   hp: 2
   walkSpeed: 1
-  runSpeed: 4
+  runSpeed: 2
   walkTime: 5
-  waitTime: 4
+  waitTime: 0.1
   runTime: 5
   anim: {fileID: 95443709578937224}
   rigid: {fileID: 54528638149399292}
   boxCol: {fileID: 65200704824567456}
-  ChaseDelayTime: 0
+  ChaseDelayTime: 2
 --- !u!114 &7901522140254510821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,8 +492,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073e782b9d06cc94891f3badefd5c198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcType: 0
-  colorNPCToPlayer: {r: 0, g: 0, b: 0, a: 0}
+  npcRenderer: {fileID: 137495468742088126}
+  colorNo: 0205
+  type: 1
+  colorTable: {fileID: 0}
 --- !u!1 &1680058916057582
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +699,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f7a6088714f3400438fa7d17825f066e, type: 2}
+  - {fileID: 2100000, guid: b7c534ae48805a4478c4e3472d6dda35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

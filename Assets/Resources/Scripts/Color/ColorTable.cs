@@ -50,4 +50,23 @@ public class ColorTable : MonoBehaviour
 
         return null; // 혼합 색상을 찾을 수 없는 경우
     }
+    
+    // 외부에서 접근 가능한 public 메소드
+    public ColorBasicInfo GetRandomTargetColor()
+    {
+        if (targetColors.Count == 0)
+        {
+            Debug.LogError("Target colors list is empty.");
+            return null; // 또는 기본 ColorBasicInfo 반환
+        }
+        int randomIndex = Random.Range(0, targetColors.Count);
+        return targetColors[randomIndex];
+    }
+
+    // 모든 목표 색상의 리스트를 반환하는 메소드
+    public List<ColorBasicInfo> GetAllTargetColors()
+    {
+        return targetColors;
+    }
+    
 }
