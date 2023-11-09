@@ -38,7 +38,7 @@ public class TimerManager : MonoBehaviour
 
     private string FormatTime(float _time)
     {
-        // ½Ã°£À» ºĞ:ÃÊ ÇüÅÂ·Î Æ÷¸ËÇÏ¿© ¹İÈ¯
+        // ì‹œê°„ì„ ë¶„:ì´ˆ í˜•íƒœë¡œ í¬ë§·í•˜ì—¬ ë°˜í™˜
         int minutes = (int)(_time / 60);
         int seconds = (int)(_time % 60);
         return string.Format("{0:00}:{1:00}", minutes, seconds);

@@ -5,15 +5,19 @@ using UnityEngine.PlayerLoop;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private PlayerColor playerColor; // ÇÃ·¹ÀÌ¾î »ö»ó ½ºÅ©¸³Æ® ÂüÁ¶
-    [SerializeField] private Image[] colorImages; // UI¿¡ Ç¥½ÃÇÒ ÀÌ¹ÌÁö ¹è¿­
-    [SerializeField] private ColorTable colorTable; // »ö»ó Å×ÀÌºí ÂüÁ¶
+    [SerializeField] private PlayerColor playerColor; // í”Œë ˆì´ì–´ ìƒ‰ìƒ ìŠ¤í¬ë¦½íŠ¸ ì°¸ì¡°
+    [SerializeField] private Image[] colorImages; // UIì— í‘œì‹œí•  ì´ë¯¸ì§€ ë°°ì—´
+    [SerializeField] private ColorTable colorTable; // ìƒ‰ìƒ í…Œì´ë¸” ì°¸ì¡°
     [SerializeField] private GameObject ingameMainMenu;
     [SerializeField] private GameObject ingameOptionMenu;
     [SerializeField] private GameObject graphicOptionMenu;
     [SerializeField] private GameObject soundOptionMenu;
     [SerializeField] private GameObject keyboardOptionMenu;
     
+    [SerializeField] private Image targetColorDisplay;
+    [SerializeField] private Image[] requiredColorDisplays;
+
+
     public static UIManager Instance { get; private set; }
 
     public void Init()
@@ -44,26 +48,72 @@ public class UIManager : MonoBehaviour
         ingameMainMenu.SetActive(true);
     }
 
-    // ÇÃ·¹ÀÌ¾îÀÇ »ö»ó ¸®½ºÆ®¸¦ UI¿¡ ¾÷µ¥ÀÌÆ®ÇÏ´Â ¸Ş¼Òµå
+
+    // ê²Œì„ ê²°ê³¼ í‘œì‹œ ë©”ì†Œë“œ (ì„±ê³µ, ì‹¤íŒ¨ UI ì—…ë°ì´íŠ¸)
+    public void ShowGameResult(bool _isSuccess)
+    {
+        // ì„±ê³µ ë˜ëŠ” ì‹¤íŒ¨ì— ë”°ë¼ UI ìƒíƒœ ì—…ë°ì´íŠ¸
+        // ì˜ˆë¥¼ ë“¤ì–´, ì„±ê³µ/ì‹¤íŒ¨ ë©”ì‹œì§€ë¥¼ ë³´ì—¬ì£¼ê±°ë‚˜ ê´€ë ¨ ì• ë‹ˆë©”ì´ì…˜ì„ ì¬ìƒ
+    }
+
+    public void SetTargetColor(Color _color)
+    {
+        if (targetColorDisplay != null)
+        {
+            _color.a = 1f;
+            targetColorDisplay.color = _color; // íƒ€ê²Ÿ ìƒ‰ìƒ ì´ë¯¸ì§€ì˜ ìƒ‰ìƒì„ ì„¤ì •
+        }
+        else
+        {
+            Debug.LogError("Target color display is not set in the inspector");
+        }
+    }
+
+
+    public void DisplayRequiredColors(List<ColorBasicInfo> requiredColors)
+    {
+        for (int i = 0; i < requiredColorDisplays.Length; i++)
+        {
+            if (i < requiredColors.Count)
+            {
+                // Color ê°ì²´ì˜ ë³µì‚¬ë³¸ì„ ë§Œë“¤ì–´ì„œ ì•ŒíŒŒê°’ì„ 1ë¡œ ì„¤ì •
+                Color colorWithAlpha = requiredColors[i].ColorValue;
+                colorWithAlpha.a = 1f; // ì•ŒíŒŒê°’ì„ 1ë¡œ ì„¤ì •í•˜ì—¬ ë¶ˆíˆ¬ëª…í•˜ê²Œ ë§Œë“¦
+
+                requiredColorDisplays[i].color = colorWithAlpha; // ìƒ‰ìƒ ì„¤ì •
+                requiredColorDisplays[i].gameObject.SetActive(true); // í•´ë‹¹ ì´ë¯¸ì§€ í™œì„±í™”
+            }
+            else
+            {
+                requiredColorDisplays[i].gameObject.SetActive(false); // ì—†ëŠ” ìƒ‰ìƒì€ ë¹„í™œì„±í™”
+            }
+        }
+    }
+
+
+
+    // í”Œë ˆì´ì–´ì˜ ìƒ‰ìƒ ë¦¬ìŠ¤íŠ¸ë¥¼ UIì— ì—…ë°ì´íŠ¸í•˜ëŠ” ë©”ì†Œë“œ
     public void UpdateColorUI(List<string> _playerColors)
     {
-        // ¸ğµç »ö»ó ÀÌ¹ÌÁö¸¦ ¼û±è
+        // ëª¨ë“  ìƒ‰ìƒ ì´ë¯¸ì§€ë¥¼ ìˆ¨ê¹€
+        /*
         foreach (var image in colorImages)
         {
             image.gameObject.SetActive(false);
         }
+        */
 
-        // ÇÃ·¹ÀÌ¾î »ö»ó ¸®½ºÆ®¿¡ ÀÖ´Â »ö»óÀ¸·Î ÀÌ¹ÌÁö¸¦ ¾÷µ¥ÀÌÆ®
+        // í”Œë ˆì´ì–´ ìƒ‰ìƒ ë¦¬ìŠ¤íŠ¸ì— ìˆëŠ” ìƒ‰ìƒìœ¼ë¡œ ì´ë¯¸ì§€ë¥¼ ì—…ë°ì´íŠ¸
         for (int i = 0; i < _playerColors.Count && i < colorImages.Length; ++i)
         // for (int i = 0; i < colorImages.Length; ++i)
         {
             ColorBasicInfo colorInfo = colorTable.GetBasicColor(_playerColors[i]);
             if (colorInfo != null)
             {
-                // »ö»ó °ªÀ» °¡Á®¿À°í ¾ËÆÄ °ªÀ» 1·Î ¼³Á¤
+                // ìƒ‰ìƒ ê°’ì„ ê°€ì ¸ì˜¤ê³  ì•ŒíŒŒ ê°’ì„ 1ë¡œ ì„¤ì •
                 colorImages[i].gameObject.SetActive(true);
                 Color colorToApply = colorInfo.ColorValue;
-                colorToApply.a = 1f; // ¾ËÆÄ °ªÀ» 1·Î ¼³Á¤
+                colorToApply.a = 1f; // ì•ŒíŒŒ ê°’ì„ 1ë¡œ ì„¤ì •
                 colorImages[i].color = colorToApply;
                 
             }

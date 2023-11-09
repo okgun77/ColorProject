@@ -30,7 +30,9 @@ public class ColorTable : MonoBehaviour
     {
         return targetColors.FirstOrDefault(color => color.ColorNo == _colorNo);
     }
-    
+
+
+
     public ColorBasicInfo MixColors(string _colorNo1, string _colorNo2)
     {
         // 두 색상 번호를 정렬하여 새로운 혼합 색상 번호 생성
@@ -50,7 +52,8 @@ public class ColorTable : MonoBehaviour
 
         return null; // 혼합 색상을 찾을 수 없는 경우
     }
-    
+
+
     // 외부에서 접근 가능한 public 메소드
     public ColorBasicInfo GetRandomTargetColor()
     {

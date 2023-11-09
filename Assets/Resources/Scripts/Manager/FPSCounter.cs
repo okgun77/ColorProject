@@ -3,11 +3,11 @@ using TMPro;
 
 public class FPSCounter : MonoBehaviour
 {
-    [SerializeField] private float updateInterval = 0.5f; // 0.5ÃÊ¸¶´Ù FPS¸¦ ¾÷µ¥ÀÌÆ®
+    [SerializeField] private float updateInterval = 0.5f; // 0.5ì´ˆë§ˆë‹¤ FPSë¥¼ ì—…ë°ì´íŠ¸
     [SerializeField] private TextMeshProUGUI framerateText;
-    private float accum = 0; // ½Ã°£ ´©ÀûÀ» À§ÇÑ º¯¼ö
-    private int frames = 0; // ´©ÀûµÈ ÇÁ·¹ÀÓ ¼ö
-    private float timeLeft; // ¾÷µ¥ÀÌÆ®±îÁö ³²Àº ½Ã°£
+    private float accum = 0; // ì‹œê°„ ëˆ„ì ì„ ìœ„í•œ ë³€ìˆ˜
+    private int frames = 0; // ëˆ„ì ëœ í”„ë ˆì„ ìˆ˜
+    private float timeLeft; // ì—…ë°ì´íŠ¸ê¹Œì§€ ë‚¨ì€ ì‹œê°„
     
     void Start()
     {
@@ -27,10 +27,10 @@ public class FPSCounter : MonoBehaviour
         accum += Time.timeScale / Time.deltaTime;
         ++frames;
 
-        // °»½Å ½Ã°£ÀÌ Áö³µ´ÂÁö È®ÀÎ
+        // ê°±ì‹  ì‹œê°„ì´ ì§€ë‚¬ëŠ”ì§€ í™•ì¸
         if (timeLeft <= 0.0)
         {
-            // Æò±Õ FPS °è»ê
+            // í‰ê·  FPS ê³„ì‚°
             float fps = accum / frames;
             string format = System.String.Format("{0:F0} FPS", fps);
             framerateText.text = format;
@@ -42,7 +42,7 @@ public class FPSCounter : MonoBehaviour
             else
                 framerateText.color = Color.green;
 
-            // º¯¼öµéÀ» Àç¼³Á¤
+            // ë³€ìˆ˜ë“¤ì„ ì¬ì„¤ì •
             timeLeft = updateInterval;
             accum = 0.0F;
             frames = 0;

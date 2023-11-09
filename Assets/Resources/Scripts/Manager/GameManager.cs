@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,26 +15,29 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ColorTable colorTable;
     [SerializeField] private Image targetColorImage;
     // [SerializeField] private TextMeshProUGUI resultText;
+    
+    [SerializeField] private PlayerColor playerColor;
     private ColorBasicInfo targetColorInfo;
 
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject loseScreen;
     
+    
     public static GameManager Instance { get; private set; }
     
-    public TextMeshProUGUI timeText; // UI¿¡ ½Ã°£À» Ç¥½ÃÇÒ Text ÄÄÆ÷³ÍÆ® ÂüÁ¶
-    public GameObject gameOverScreen; // °ÔÀÓ ¿À¹ö È­¸éÀÇ ÂüÁ¶
+    public TextMeshProUGUI timeText; // UIì— ì‹œê°„ì„ í‘œì‹œí•  Text ì»´í¬ë„ŒíŠ¸ ì°¸ì¡°
+    public GameObject gameOverScreen; // ê²Œì„ ì˜¤ë²„ í™”ë©´ì˜ ì°¸ì¡°
 
     private bool isPaused = false;
 
 
     private void Awake()
     {
-        // ½Ì±ÛÅÏ ÆĞÅÏ GameManager ÀÎ½ºÅÏ½º¸¦
+        // ì‹±ê¸€í„´ íŒ¨í„´ GameManager ì¸ìŠ¤í„´ìŠ¤ë¥¼
         if (Instance == null)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // ¾ÀÀÌ º¯°æµÇ¾îµµ ÆÄ±«¾ÈµÊ
+            Instance = this; 
+            DontDestroyOnLoad(gameObject); // ì”¬ì´ ë³€ê²½ë˜ì–´ë„ íŒŒê´´ì•ˆë¨
         }
         else
         {
@@ -46,10 +51,10 @@ public class GameManager : MonoBehaviour
         // Application.targetFrameRate = 144;
         // QualitySettings.vSyncCount = 1;
             
-        // ÀÌ¹Ì SerializeField¸¦ ÅëÇØ ÇÒ´çÇßÀ¸¹Ç·Î ÀÌ ÁÙÀº ÇÊ¿ä ¾ø½À´Ï´Ù.
+        // ì´ë¯¸ SerializeFieldë¥¼ í†µí•´ í• ë‹¹í–ˆìœ¼ë¯€ë¡œ ì´ ì¤„ì€ í•„ìš” ì—†ìŠµë‹ˆë‹¤.
         // timerManager = GetComponent<TimerManager>();
     
-        // ´ë½Å, timerManager°¡ ÇÒ´çµÇ¾ú´ÂÁö È®ÀÎÇÕ´Ï´Ù.
+        // ëŒ€ì‹ , timerManagerê°€ í• ë‹¹ë˜ì—ˆëŠ”ì§€ í™•ì¸í•©ë‹ˆë‹¤.
         if (timerManager == null)
         {
             Debug.LogError("TimerManager is not assigned in the inspector!");
@@ -59,7 +64,6 @@ public class GameManager : MonoBehaviour
             StartGame();
         }
         
-        SelectAndDisplayTargetColor();
     }
 
     private void Update()
@@ -75,32 +79,92 @@ public class GameManager : MonoBehaviour
         isPaused = !isPaused;
         if (isPaused)
         {
-            Time.timeScale = 0f; // °ÔÀÓ ½Ã°£À» Á¤ÁöÇÕ´Ï´Ù.
-            uiManager.ShowPauseMenu(); // ÀÏ½Ã Á¤Áö ¸Ş´º¸¦ Ç¥½ÃÇÕ´Ï´Ù.
+            Time.timeScale = 0f; // ê²Œì„ ì‹œê°„ì„ ì •ì§€í•©ë‹ˆë‹¤.
+            uiManager.ShowPauseMenu(); // ì¼ì‹œ ì •ì§€ ë©”ë‰´ë¥¼ í‘œì‹œí•©ë‹ˆë‹¤.
         }
         else
         {
-            Time.timeScale = 1f; // °ÔÀÓ ½Ã°£À» Àç°³ÇÕ´Ï´Ù.
-            uiManager.HidePauseMenu(); // ÀÏ½Ã Á¤Áö ¸Ş´º¸¦ ¼û±é´Ï´Ù.
+            Time.timeScale = 1f; // ê²Œì„ ì‹œê°„ì„ ì¬ê°œí•©ë‹ˆë‹¤.
+            uiManager.HidePauseMenu(); // ì¼ì‹œ ì •ì§€ ë©”ë‰´ë¥¼ ìˆ¨ê¹ë‹ˆë‹¤.
         }
     }
-    
+
+    public void PauseGame()
+    {
+        isPaused = false;
+        Time.timeScale = 0f; // ê²Œì„ ì‹œê°„ì„ ì •ì§€í•©ë‹ˆë‹¤.
+
+    }
+
+
 
     public void StartGame()
     {
-        timerManager.StartTimer(elapseTime); // Å¸ÀÌ¸Ó ½ÃÀÛ
+        // ëœë¤ íƒ€ê²Ÿ ìƒ‰ìƒ ì„ íƒ
+        targetColorInfo = colorTable.GetRandomTargetColor();
+        if (targetColorInfo != null) // Null ì²´í¬
+        {
+            // íƒ€ê²Ÿ ìƒ‰ìƒì˜ ì¡°í•©ì„ ì°¾ê¸° ìœ„í•´ colorNo ë¶„ë¦¬
+            string targetColorNo = targetColorInfo.ColorNo; // ì˜ˆë¥¼ ë“¤ì–´ "0104"
+            List<ColorBasicInfo> requiredColors = new List<ColorBasicInfo>();
+
+            // ë‘ ìë¦¬ì”© ë¶„ë¦¬í•˜ì—¬ ê¸°ë³¸ ìƒ‰ìƒ ì¡°í•© ì°¾ê¸°
+            for (int i = 0; i < targetColorNo.Length; i += 2)
+            {
+                string basicColorNo = targetColorNo.Substring(i, 2);
+                ColorBasicInfo basicColorInfo = colorTable.GetBasicColor(basicColorNo);
+                if (basicColorInfo != null)
+                {
+                    requiredColors.Add(basicColorInfo);
+                }
+            }
+
+            // UIManagerì— í•„ìš”í•œ ê¸°ë³¸ ìƒ‰ìƒë“¤ í‘œì‹œ ìš”ì²­
+            uiManager.DisplayRequiredColors(requiredColors);
+        }
+        else
+        {
+            // ì˜¤ë¥˜ ì²˜ë¦¬: íƒ€ê²Ÿ ìƒ‰ìƒì´ ì—†ìŒ
+        }
+        // UIì— íƒ€ê²Ÿ ìƒ‰ìƒ í‘œì‹œ
+        uiManager.SetTargetColor(targetColorInfo.ColorValue);
+
+        timerManager.StartTimer(elapseTime); // íƒ€ì´ë¨¸ ì‹œì‘
     }
 
     public void EndGame()
     {
-        timerManager.StopTimer(); // Å¸ÀÌ¸Ó ÁßÁö
-        gameOverScreen.SetActive(true); // °ÔÀÓ ¿À¹ö È­¸é Ç¥½Ã
+        timerManager.StopTimer(); // íƒ€ì´ë¨¸ ì¤‘ì§€
         
+        List<string> playerColorCodes = playerColor.GetCurrentColorList();
+        string playerCombinedColorNo = string.Join("", playerColorCodes.OrderBy(c => c)); // ì •ë ¬í•˜ì—¬ í•˜ë‚˜ì˜ ë¬¸ìì—´ë¡œ ê²°í•©
+        string targetColorNo = targetColorInfo.ColorNo; // ëª©í‘œ ìƒ‰ìƒ ë²ˆí˜¸
+
+        Debug.Log($"Player's combined color: {playerCombinedColorNo}, Target color: {targetColorNo}");
+
+        bool success = playerCombinedColorNo.Equals(targetColorNo);
+
+        if(success)
+        {
+            Debug.Log("Player matched the target color.");
+            // ì„±ê³µ í™”ë©´ í‘œì‹œ
+            Screen.lockCursor = false;
+            winScreen.SetActive(true);
+            loseScreen.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Player did not match the target color.");
+            // ì‹¤íŒ¨ í™”ë©´ í‘œì‹œ
+            Screen.lockCursor = false;
+            winScreen.SetActive(false);
+            loseScreen.SetActive(true);
+        }
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // ÇöÀç ¾ÀÀ» ¸®·ÎµåÇÏ¿© °ÔÀÓ Àç½ÃÀÛ
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // í˜„ì¬ ì”¬ì„ ë¦¬ë¡œë“œí•˜ì—¬ ê²Œì„ ì¬ì‹œì‘
     }
 
     public void ReturnToGame()
@@ -117,15 +181,6 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenuScene");
-    }
-
-    private void SelectAndDisplayTargetColor()
-    {
-        targetColorInfo = colorTable.GetRandomTargetColor();
-        if (targetColorInfo != null)
-        {
-            targetColorImage.color = targetColorInfo.ColorValue;
-        }
     }
 
 }
