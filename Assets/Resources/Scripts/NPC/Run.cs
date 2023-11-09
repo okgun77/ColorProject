@@ -1,17 +1,18 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PigWild : StrongAnimal
-{
-	protected override void Update()
-	{
-		base.Update();
-		if (theViewAngle.View())
-		{
-			Chase(theViewAngle.GetTargetPos());
-		}
-	}
+public class Run : Enemy
+{ 
+    protected override void Update()
+    {
+        base.Update();
+        if(theViewAngle.View())
+        {
+            Run(theViewAngle.GetTargetPos());
+        }
+    }
+
     protected override void ReSet()
     {
         base.ReSet();
@@ -33,6 +34,5 @@ public class PigWild : StrongAnimal
     {
         currentTime = waitTime;
         Debug.Log("대기");
-    }
-
+    }    
 }

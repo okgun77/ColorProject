@@ -1,12 +1,12 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Animal : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    [SerializeField] protected string animalName; // 동물의 이름
-    [SerializeField] protected int hp; // 동물의 체력.
+    [SerializeField] protected string EnemyName; // 적의 이름
+    [SerializeField] protected int hp; // 적의 체력.
 
     [SerializeField] protected float walkSpeed; // 걷기 스피드.
     [SerializeField] protected float runSpeed; // 뛰기 스피드.
@@ -31,6 +31,12 @@ public class Animal : MonoBehaviour
     [SerializeField] protected BoxCollider boxCol;
     protected NavMeshAgent nav;
     protected FieldOfViewAngle theViewAngle;
+
+    [SerializeField]
+    protected float ChaseTime; // 총 추격 시간
+    protected float CurrentChaseTime; // 계산
+    [SerializeField]
+    protected float ChaseDelayTime; // 추격 딜레이
 
     // Use this for initialization
     void Start()
@@ -83,5 +89,24 @@ public class Animal : MonoBehaviour
         nav.speed = walkSpeed;
         Debug.Log("걷기");
     }
-    
+
+    public void Run(Vector3 _targetPos)
+    {
+        destination = new Vector3(transform.position.x - _targetPos.x, 0f, transform.position.z - _targetPos.z).normalized;
+        currentTime = runTime;
+        isWalking = false;
+        isRunning = true;
+        nav.speed = runSpeed;
+        // anim.SetBool("Running", isRunning);
+    }
+
+    public void Chase(Vector3 _targetPos)
+    {
+        isChasing = true;
+        destination = _targetPos;
+        nav.speed = runSpeed;
+        // anim.SetBool("Running", isRunning);
+        nav.SetDestination(destination);
+    }
+
 }
