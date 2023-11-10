@@ -6,25 +6,25 @@ using UnityEngine.EventSystems;
 
 public class TPSPlayerController : MonoBehaviour
 {
-    [SerializeField] private LayerMask groundLayer; // ë°”ë‹¥ì„ ì‹ë³„í•˜ê¸° ìœ„í•œ ë ˆì´ì–´ ë§ˆìŠ¤í¬.
+    [SerializeField] private LayerMask groundLayer; // ¹Ù´ÚÀ» ½Äº°ÇÏ±â À§ÇÑ ·¹ÀÌ¾î ¸¶½ºÅ©.
     [SerializeField] private Transform Character;
     [SerializeField] private Transform ViewCamera;
-    [SerializeField] private float movementSpeed = 5f; // ì´ë™ ì†ë„
-    [SerializeField] private float rotationSpeed = 10f; // íšŒì „ ì†ë„
-    [SerializeField] private float jumpPower = 5f; // ì í”„ í˜
-    [SerializeField] private float distanceToGround = 0.2f; // ë°”ë‹¥ê³¼ì˜ ê±°ë¦¬
+    [SerializeField] private float movementSpeed = 5f; // ÀÌµ¿ ¼Óµµ
+    [SerializeField] private float rotationSpeed = 10f; // È¸Àü ¼Óµµ
+    [SerializeField] private float jumpPower = 5f; // Á¡ÇÁ Èû
+    [SerializeField] private float distanceToGround = 0.2f; // ¹Ù´Ú°úÀÇ °Å¸®
     [SerializeField] private float Run = 7f;
 
   
-    // private Animator anim;
+    private Animator anim;
     private Rigidbody rb;
     private bool _jump;
 
-    private const string JumpButton = "Jump"; // ì í”„ ë²„íŠ¼
+    private const string JumpButton = "Jump"; // Á¡ÇÁ ¹öÆ°
 
     private void Awake()
     {
-        // anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -40,12 +40,12 @@ public class TPSPlayerController : MonoBehaviour
         PerformJump();
     }
 
-    // ì´ë™ ì…ë ¥ì„ ì²˜ë¦¬í•©ë‹ˆë‹¤.
+    // ÀÌµ¿ ÀÔ·ÂÀ» Ã³¸®ÇÕ´Ï´Ù.
     private void HandleMovementInput()
     {
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         bool isMoving = moveInput.magnitude > 0;
-        // anim.SetBool("isMove", isMoving);
+        anim.SetBool("isMove", isMoving);
 
         //Vector3 moveDirection = CalculateMoveDirection(moveInput);
         //moveDirection.y = 0f;
@@ -63,7 +63,7 @@ public class TPSPlayerController : MonoBehaviour
         }
     }
 
-    // ì í”„ ì…ë ¥ì„ ì²˜ë¦¬í•©ë‹ˆë‹¤.
+    // Á¡ÇÁ ÀÔ·ÂÀ» Ã³¸®ÇÕ´Ï´Ù.
     private void HandleJumpInput()
     {
         if (Input.GetButtonDown(JumpButton) && IsGrounded())
@@ -72,7 +72,7 @@ public class TPSPlayerController : MonoBehaviour
         }
     }
 
-    // ë¬¼ë¦¬ ê¸°ë°˜ ì í”„ë¥¼ ìˆ˜í–‰í•©ë‹ˆë‹¤.
+    // ¹°¸® ±â¹İ Á¡ÇÁ¸¦ ¼öÇàÇÕ´Ï´Ù.
     private void PerformJump()
     {
         if (_jump)
@@ -82,7 +82,7 @@ public class TPSPlayerController : MonoBehaviour
         }
     }
 
-    // ì´ë™ ë°©í–¥ì„ ê³„ì‚°í•©ë‹ˆë‹¤.
+    // ÀÌµ¿ ¹æÇâÀ» °è»êÇÕ´Ï´Ù.
     private Vector3 CalculateMoveDirection(Vector2 input)
     {
         Vector3 forward = ViewCamera.forward.FlattenVector();
@@ -90,7 +90,7 @@ public class TPSPlayerController : MonoBehaviour
         return (forward * input.y + right * input.x).normalized;
     }
 
-    // ìºë¦­í„°ë¥¼ ì´ë™ì‹œí‚µë‹ˆë‹¤.
+    // Ä³¸¯ÅÍ¸¦ ÀÌµ¿½ÃÅµ´Ï´Ù.
     private void MoveCharacter(Vector3 direction)
     {
         transform.position += direction * movementSpeed * Time.deltaTime;
@@ -100,22 +100,22 @@ public class TPSPlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            // ë‹¨ í•œ ë²ˆ í˜„ì¬ ë°©í–¥ìœ¼ë¡œ ë¹ ë¥´ê²Œ ì´ë™í•©ë‹ˆë‹¤.
+            // ´Ü ÇÑ ¹ø ÇöÀç ¹æÇâÀ¸·Î ºü¸£°Ô ÀÌµ¿ÇÕ´Ï´Ù.
             Vector3 direction = CalculateMoveDirection(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
             transform.position += direction * Run * Time.deltaTime;
         }
     }
 
-    // ìºë¦­í„°ë¥¼ íšŒì „ì‹œí‚µë‹ˆë‹¤.
+    // Ä³¸¯ÅÍ¸¦ È¸Àü½ÃÅµ´Ï´Ù.
     private void RotateCharacter(Vector3 direction)
     {
-        direction.y = 0f; // í”Œë ˆì´ì–´ë„ ë¨¸ë¦¬ë°•ê³ ì‹¶ìœ¼ë©´ í™œì„±í™”
+        direction.y = 0f; // ÇÃ·¹ÀÌ¾îµµ ¸Ó¸®¹Ú°í½ÍÀ¸¸é È°¼ºÈ­
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         Character.rotation = Quaternion.Slerp(Character.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         //character.rotation = targetRotation;
     }
 
-    // ìºë¦­í„°ê°€ ë°”ë‹¥ì— ìˆëŠ”ì§€ í™•ì¸í•©ë‹ˆë‹¤.
+    // Ä³¸¯ÅÍ°¡ ¹Ù´Ú¿¡ ÀÖ´ÂÁö È®ÀÎÇÕ´Ï´Ù.
     private bool IsGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, distanceToGround, groundLayer);
@@ -124,7 +124,7 @@ public class TPSPlayerController : MonoBehaviour
 
 public static class VectorExtensions
 {
-    // ë²¡í„°ë¥¼ í‰íƒ„í™”í•©ë‹ˆë‹¤. (Yì¶• ê°’ì„ ì œê±°)
+    // º¤ÅÍ¸¦ ÆòÅºÈ­ÇÕ´Ï´Ù. (YÃà °ªÀ» Á¦°Å)
     public static Vector3 FlattenVector(this Vector3 vector)
     {
         return new Vector3(vector.x, 0f, vector.z).normalized;
