@@ -1,18 +1,17 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pig : WeakAnimal
-{ 
-    protected override void Update()
-    {
-        base.Update();
-        if(theViewAngle.View())
-        {
-            Run(theViewAngle.GetTargetPos());
-        }
-    }
-
+public class Chase : Enemy
+{
+	protected override void Update()
+	{
+		base.Update();
+		if (theViewAngle.View())
+		{
+			Chase(theViewAngle.GetTargetPos());
+		}
+	}
     protected override void ReSet()
     {
         base.ReSet();
@@ -34,5 +33,6 @@ public class Pig : WeakAnimal
     {
         currentTime = waitTime;
         Debug.Log("대기");
-    }    
+    }
+
 }
