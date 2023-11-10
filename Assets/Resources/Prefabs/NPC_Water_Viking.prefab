@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edab0fd9a57fdbd4dafd732908ec638d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalName: PigWild
+  EnemyName: 
   hp: 2
   walkSpeed: 1
   runSpeed: 2
@@ -87,6 +87,7 @@ MonoBehaviour:
   runTime: 0
   rigid: {fileID: 4566534056913391399}
   boxCol: {fileID: 1335375717303530284}
+  ChaseTime: 0
   ChaseDelayTime: 0
 --- !u!195 &6554247240387632610
 NavMeshAgent:
@@ -247,7 +248,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 88
+  m_Constraints: 16
   m_CollisionDetection: 0
 --- !u!65 &1676136307960743307
 BoxCollider:
