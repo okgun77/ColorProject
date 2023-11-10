@@ -45,7 +45,7 @@ public class TPSPlayerController : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         bool isMoving = moveInput.magnitude > 0;
-        anim.SetBool("isMove", isMoving);
+        // anim.SetBool("isMove", isMoving);
 
         //Vector3 moveDirection = CalculateMoveDirection(moveInput);
         //moveDirection.y = 0f;
