@@ -166,13 +166,16 @@ GameObject:
   m_Component:
   - component: {fileID: 46691704}
   - component: {fileID: 46691703}
-  m_Layer: 0
+  - component: {fileID: 46691705}
+  - component: {fileID: 46691707}
+  - component: {fileID: 46691706}
+  m_Layer: 12
   m_Name: 'Npc ragdoll '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &46691703
 Animator:
   serializedVersion: 5
@@ -212,6 +215,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &46691705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46691702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f190c08f418e3f649b9ddcf5764e857e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  Character: {fileID: 46691704}
+  ViewCamera: {fileID: 1361844694}
+  movementSpeed: 5
+  rotationSpeed: 10
+  jumpPower: 5
+  distanceToGround: 0.2
+  Run: 7
+--- !u!65 &46691706
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46691702}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.49488997, y: 0.7552237, z: 1}
+  m_Center: {x: -1.2159728, y: 0.39970735, z: 0}
+--- !u!54 &46691707
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46691702}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &64167273
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +607,10 @@ GameObject:
   m_Component:
   - component: {fileID: 111350982}
   - component: {fileID: 111350983}
-  m_Layer: 0
+  - component: {fileID: 111350985}
+  - component: {fileID: 111350984}
+  - component: {fileID: 111350986}
+  m_Layer: 12
   m_Name: Npc ragdoll Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,6 +657,57 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &111350984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111350981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f190c08f418e3f649b9ddcf5764e857e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  Character: {fileID: 111350982}
+  ViewCamera: {fileID: 1361844694}
+  movementSpeed: 3
+  rotationSpeed: 10
+  jumpPower: 5
+  distanceToGround: 0.2
+  Run: 4
+--- !u!54 &111350985
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111350981}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &111350986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111350981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.66368943, y: 0.8191589, z: 1}
+  m_Center: {x: -0.013476223, y: 0.3778314, z: 0}
 --- !u!1 &126162864
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,6 +1040,12 @@ CapsuleCollider:
   m_Height: 0.1418671
   m_Direction: 0
   m_Center: {x: 0.0006735474, y: -1.6674863e-11, z: -0.00087173696}
+--- !u!4 &146241811 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8708022323581199993, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+    type: 3}
+  m_PrefabInstance: {fileID: 1733985764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &157875258 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 259ab5b10bc714e4b9dfa594ebce3819,
@@ -1167,7 +1281,7 @@ GameObject:
   - component: {fileID: 196999996}
   - component: {fileID: 196999995}
   - component: {fileID: 196999994}
-  - component: {fileID: 196999993}
+  - component: {fileID: 196999997}
   m_Layer: 0
   m_Name: Bip001 R Calf
   m_TagString: Untagged
@@ -1191,19 +1305,6 @@ Transform:
   m_Father: {fileID: 535244565}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 185.479, y: 180.869, z: 178.202}
---- !u!114 &196999993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196999991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5065455c5f0d3a341b6e80de34ca0c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1022128439657045975}
 --- !u!153 &196999994
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -1326,10 +1427,24 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &196999997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196999991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9544c32ed7b4b9f4198306473f334604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationObject: {fileID: 1249686411}
+  ragdollObject: {fileID: 196999992}
 --- !u!1 &197152545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2674,7 +2789,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.2297387, y: -0.017546976, z: -0.000000029136675}
+  m_ConnectedAnchor: {x: -0.22973864, y: -0.017547006, z: 0.00000006027027}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2862,7 +2977,6 @@ GameObject:
   - component: {fileID: 527261949}
   - component: {fileID: 527261948}
   - component: {fileID: 527261947}
-  - component: {fileID: 527261946}
   m_Layer: 0
   m_Name: chest
   m_TagString: Untagged
@@ -2888,19 +3002,6 @@ Transform:
   m_Father: {fileID: 603043878}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &527261946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527261944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5065455c5f0d3a341b6e80de34ca0c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 908276782254992163}
 --- !u!153 &527261947
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -2913,7 +3014,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.039577343, y: -0.00008207908, z: 0.00000005960465}
+  m_ConnectedAnchor: {x: -0.039577343, y: -0.00008209398, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3090,6 +3191,12 @@ Transform:
   m_Father: {fileID: 1471568160}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &542558927 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1764910268326094525, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+    type: 3}
+  m_PrefabInstance: {fileID: 1733985764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &545173679
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,7 +3244,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.08869224, y: -0.000000017054846, z: 0.0000000055879354}
+  m_ConnectedAnchor: {x: -0.08869216, y: 0.00000007273048, z: 0.00000005075708}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3350,7 +3457,6 @@ GameObject:
   - component: {fileID: 603043882}
   - component: {fileID: 603043881}
   - component: {fileID: 603043880}
-  - component: {fileID: 603043879}
   m_Layer: 0
   m_Name: hips
   m_TagString: Untagged
@@ -3374,28 +3480,6 @@ Transform:
   m_Father: {fileID: 1843822813}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &603043879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603043877}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f190c08f418e3f649b9ddcf5764e857e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  Character: {fileID: 46691704}
-  ViewCamera: {fileID: 1361844694}
-  movementSpeed: 5
-  rotationSpeed: 10
-  jumpPower: 50
-  distanceToGround: 0.2
-  Run: 7
 --- !u!153 &603043880
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -3408,7 +3492,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.012000026, y: -0.096251845, z: 0.000000014901163}
+  m_ConnectedAnchor: {x: -1.7399998, y: 0.5957482, z: -0.0000016848443}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: 0}
   m_XMotion: 2
@@ -3600,7 +3684,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.08869224, y: 0.000000014610125, z: -0.0000000055879354}
+  m_ConnectedAnchor: {x: -0.08869226, y: 0.000000074069256, z: 0.0000000088475645}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -4652,6 +4736,7 @@ GameObject:
   - component: {fileID: 897417554}
   - component: {fileID: 897417557}
   - component: {fileID: 897417556}
+  - component: {fileID: 897417558}
   m_Layer: 0
   m_Name: Bip001 L UpperArm
   m_TagString: Untagged
@@ -4801,6 +4886,20 @@ CapsuleCollider:
   m_Height: 0.08869226
   m_Direction: 0
   m_Center: {x: -0.04434613, y: 0, z: 0}
+--- !u!114 &897417558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897417552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9544c32ed7b4b9f4198306473f334604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationObject: {fileID: 146241811}
+  ragdollObject: {fileID: 897417553}
 --- !u!1 &900575470
 GameObject:
   m_ObjectHideFlags: 0
@@ -4880,7 +4979,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.021016747, y: -0.005677235, z: 0.05847624}
+  m_ConnectedAnchor: {x: 0.021016747, y: -0.005677328, z: 0.058476225}
   serializedVersion: 2
   m_SecondaryAxis: {x: 1, y: 0, z: 0}
   m_XMotion: 0
@@ -5079,7 +5178,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -5201,19 +5300,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 928478472}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f190c08f418e3f649b9ddcf5764e857e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9544c32ed7b4b9f4198306473f334604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  Character: {fileID: 111350982}
-  ViewCamera: {fileID: 1361844694}
-  movementSpeed: 5
-  rotationSpeed: 10
-  jumpPower: 50
-  distanceToGround: 0.2
-  Run: 7
+  animationObject: {fileID: 542558927}
+  ragdollObject: {fileID: 928478473}
 --- !u!1 &933340175
 GameObject:
   m_ObjectHideFlags: 0
@@ -5532,6 +5623,12 @@ Transform:
   m_Father: {fileID: 1734238995}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1208734441 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8075957436024654702, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+    type: 3}
+  m_PrefabInstance: {fileID: 1733985764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1225803062
 GameObject:
   m_ObjectHideFlags: 0
@@ -5854,6 +5951,12 @@ CapsuleCollider:
   m_Height: 0.12943275
   m_Direction: 0
   m_Center: {x: -0.0052857096, y: 6.4428e-11, z: 0.00020351015}
+--- !u!4 &1249686411 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8201243596049249177, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+    type: 3}
+  m_PrefabInstance: {fileID: 1733985764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1270786138
 GameObject:
   m_ObjectHideFlags: 0
@@ -6716,7 +6819,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.20952418, y: -0.0013054413, z: -0.14023302}
+  m_ConnectedAnchor: {x: -0.20952421, y: -0.0013055158, z: -0.14023295}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -7000,7 +7103,7 @@ GameObject:
   - component: {fileID: 1471568161}
   - component: {fileID: 1471568164}
   - component: {fileID: 1471568163}
-  - component: {fileID: 1471568162}
+  - component: {fileID: 1471568165}
   m_Layer: 0
   m_Name: chest
   m_TagString: Untagged
@@ -7042,19 +7145,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1471568162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471568159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5065455c5f0d3a341b6e80de34ca0c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 908276782254992163}
 --- !u!153 &1471568163
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -7164,6 +7254,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.14727888, y: 0.07150126, z: 0.21226266}
   m_Center: {x: -0.18737839, y: -0.034963608, z: -0.0035812983}
+--- !u!114 &1471568165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471568159}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9544c32ed7b4b9f4198306473f334604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationObject: {fileID: 1715144101}
+  ragdollObject: {fileID: 1471568160}
 --- !u!1 &1481428879
 GameObject:
   m_ObjectHideFlags: 0
@@ -7458,6 +7562,12 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.1049445, y: -0.0033646673, z: 0.00000047683716}
     m_Extent: {x: 0.20223328, y: 0.15180245, z: 0.33691698}
   m_DirtyAABB: 0
+--- !u!4 &1505864973 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8896563786012999581, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+    type: 3}
+  m_PrefabInstance: {fileID: 1733985764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!136 &1518076464
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7983,7 +8093,6 @@ GameObject:
   - component: {fileID: 1641743291}
   - component: {fileID: 1641743293}
   - component: {fileID: 1641743292}
-  - component: {fileID: 1641743294}
   m_Layer: 12
   m_Name: Balance
   m_TagString: Untagged
@@ -7998,14 +8107,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641743290}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.95195264, z: -0, w: -0.30624536}
   m_LocalPosition: {x: -0.012000024, y: 0.19300002, z: -0.000000014901161}
   m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 111350982}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -215.666, z: 0}
 --- !u!54 &1641743292
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8018,7 +8127,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -8035,28 +8144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 928478473}
---- !u!114 &1641743294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641743290}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f190c08f418e3f649b9ddcf5764e857e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  Character: {fileID: 111350982}
-  ViewCamera: {fileID: 1361844694}
-  movementSpeed: 5
-  rotationSpeed: 10
-  jumpPower: 5
-  distanceToGround: 0.2
-  Run: 7
 --- !u!1 &1647192605
 GameObject:
   m_ObjectHideFlags: 0
@@ -8195,6 +8282,12 @@ Transform:
   m_Father: {fileID: 211842832}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1715144101 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 908276781140129939, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+    type: 3}
+  m_PrefabInstance: {fileID: 1733985764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1721269192
 GameObject:
   m_ObjectHideFlags: 0
@@ -8440,6 +8533,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8201243596049249177, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8201243596049249177, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8201243596049249177, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8201243596049249177, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8201243596049249177, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8201243596049249177, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 259ab5b10bc714e4b9dfa594ebce3819,
         type: 3}
       propertyPath: m_Name
@@ -8468,6 +8591,36 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: 259ab5b10bc714e4b9dfa594ebce3819,
         type: 3}
       propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896563786012999581, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896563786012999581, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896563786012999581, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896563786012999581, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896563786012999581, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896563786012999581, guid: 259ab5b10bc714e4b9dfa594ebce3819,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8836,6 +8989,7 @@ GameObject:
   - component: {fileID: 1872332751}
   - component: {fileID: 1872332754}
   - component: {fileID: 1872332753}
+  - component: {fileID: 1872332755}
   m_Layer: 0
   m_Name: Bip001 R UpperArm
   m_TagString: Untagged
@@ -8985,6 +9139,20 @@ CapsuleCollider:
   m_Height: 0.08869224
   m_Direction: 0
   m_Center: {x: -0.04434612, y: 0, z: 0}
+--- !u!114 &1872332755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872332749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9544c32ed7b4b9f4198306473f334604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationObject: {fileID: 1208734441}
+  ragdollObject: {fileID: 1872332750}
 --- !u!1 &1878649470
 GameObject:
   m_ObjectHideFlags: 0
@@ -9032,7 +9200,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.019116595, y: 0.0055965153, z: -0.059161782}
+  m_ConnectedAnchor: {x: 0.019116655, y: 0.0055964594, z: -0.059161678}
   serializedVersion: 2
   m_SecondaryAxis: {x: 1, y: 0, z: 0}
   m_XMotion: 0
@@ -9933,7 +10101,7 @@ GameObject:
   - component: {fileID: 2025825066}
   - component: {fileID: 2025825065}
   - component: {fileID: 2025825064}
-  - component: {fileID: 2025825063}
+  - component: {fileID: 2025825067}
   m_Layer: 0
   m_Name: Bip001 L Calf
   m_TagString: Untagged
@@ -9957,19 +10125,6 @@ Transform:
   m_Father: {fileID: 1585884330}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -5.571, y: 0.858, z: -1.534}
---- !u!114 &2025825063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025825061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5065455c5f0d3a341b6e80de34ca0c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 8896563787162987565}
 --- !u!153 &2025825064
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -10092,10 +10247,24 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2025825067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025825061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9544c32ed7b4b9f4198306473f334604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationObject: {fileID: 1505864973}
+  ragdollObject: {fileID: 2025825062}
 --- !u!1 &2034730086
 GameObject:
   m_ObjectHideFlags: 0
@@ -10679,7 +10848,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.20952424, y: -0.0013059973, z: 0.14023297}
+  m_ConnectedAnchor: {x: -0.20952421, y: -0.0013060718, z: 0.14023295}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
