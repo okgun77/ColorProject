@@ -43,9 +43,13 @@ public class TPSPlayerController : MonoBehaviour
     // 이동 입력을 처리합니다.
     private void HandleMovementInput()
     {
+        if (anim.GetBool("isJumping"))
+        {
+            return;
+        }
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         bool isMoving = moveInput.magnitude > 0;
-        //anim.SetBool("isMove", isMoving);
+        anim.SetBool("isWalking", isMoving);
 
         //Vector3 moveDirection = CalculateMoveDirection(moveInput);
         //moveDirection.y = 0f;
@@ -69,6 +73,7 @@ public class TPSPlayerController : MonoBehaviour
         if (Input.GetButtonDown(JumpButton) && IsGrounded())
         {
             _jump = true;
+            anim.SetBool("isJumping", true); // 점프 시작 시 애니메이션 활성화
         }
     }
 
@@ -79,6 +84,10 @@ public class TPSPlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
             _jump = false;
+        }
+        if (IsGrounded() && anim.GetBool("isJumping"))
+        {
+            anim.SetBool("isJumping", false); // 캐릭터가 땅에 닿으면 점프 상태 해제
         }
     }
 
