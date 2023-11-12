@@ -93,29 +93,34 @@ public class UIManager : MonoBehaviour
 
 
     // 플레이어의 색상 리스트를 UI에 업데이트하는 메소드
+    
     public void UpdateColorUI(List<string> _playerColors)
     {
-        // 모든 색상 이미지를 숨김
+        
+        // 모든 색상 이미지를 비활성화합니다.
         /*
-        foreach (var image in colorImages)
+        foreach (Image img in colorImages)
         {
-            image.gameObject.SetActive(false);
+            img.gameObject.SetActive(false);
         }
         */
-
-        // 플레이어 색상 리스트에 있는 색상으로 이미지를 업데이트
-        for (int i = 0; i < _playerColors.Count && i < colorImages.Length; ++i)
-        // for (int i = 0; i < colorImages.Length; ++i)
+        
+        // 플레이어 색상 리스트에 있는 색상으로 이미지를 업데이트합니다.
+        for (int i = 0; i < _playerColors.Count; i++)
         {
             ColorBasicInfo colorInfo = colorTable.GetBasicColor(_playerColors[i]);
             if (colorInfo != null)
             {
-                // 색상 값을 가져오고 알파 값을 1로 설정
-                colorImages[i].gameObject.SetActive(true);
+                // 색상 값을 가져오고 알파 값을 1로 설정합니다.
+                colorImages[i].gameObject.SetActive(true); // 이미지를 활성화합니다.
                 Color colorToApply = colorInfo.ColorValue;
-                colorToApply.a = 1f; // 알파 값을 1로 설정
-                colorImages[i].color = colorToApply;
-                
+                colorToApply.a = 1f; // 알파 값을 1로 설정합니다.
+                colorImages[i].color = colorToApply; // 색상을 적용합니다.
+            }
+            // _playerColors.Count가 colorImages.Length보다 클 때를 대비해 예외 처리를 추가합니다.
+            else if(i < colorImages.Length)
+            {
+                colorImages[i].gameObject.SetActive(false); // 해당 이미지를 비활성화합니다.
             }
         }
     }

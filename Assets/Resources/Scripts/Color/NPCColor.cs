@@ -16,27 +16,32 @@ public class NPCColor : MonoBehaviour
     }
 
     // NPC와 플레이어가 닿을 때의 상호작용
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider _other)
     {
-        // 플레이어와의 충돌 확인
-        if (other.CompareTag("Player"))
+        Debug.Log("Triggered with: " + _other.name);
+
+        if (_other.CompareTag("Player"))
         {
-            PlayerColor playerColor = other.GetComponent<PlayerColor>();
+            PlayerColor playerColor = _other.GetComponent<PlayerColor>();
+            if (playerColor == null)
+            {
+                Debug.LogError("PlayerColor component not found on " + _other.name);
+                return; // 여기서 함수 실행을 중단합니다.
+            }
 
             // NPC 유형에 따른 조치
             switch (type)
             {
                 case NPCType.NPC_COLOR:
-                    // 플레이어에게 색상 추가
                     playerColor.GetColor(colorNo);
                     break;
                 case NPCType.NPC_WATER:
-                    // 플레이어 색상 초기화
                     playerColor.ResetColor();
                     break;
             }
         }
     }
+
 
     // NPC의 색상 적용
     private void ApplyColor()

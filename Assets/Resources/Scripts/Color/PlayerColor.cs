@@ -70,7 +70,16 @@ public class PlayerColor : MonoBehaviour
     {
         foreach (var renderer in playerRenderers)
         {
-            renderer.material.color = _color;
+            // renderer.material.color = _color;
+            
+            if(renderer is SkinnedMeshRenderer)
+            {
+                (renderer as SkinnedMeshRenderer).material.color = _color;
+            }
+            else if(renderer is MeshRenderer)
+            {
+                (renderer as MeshRenderer).material.color = _color;
+            }
         }
     }
     
@@ -131,6 +140,7 @@ public class PlayerColor : MonoBehaviour
         isColorLocked = false; // 색상 고정 해제
         getColors.Clear();
         UpdatePlayerColor();
+        uiManager.UpdateColorUI(getColors);
     }
 
 }
