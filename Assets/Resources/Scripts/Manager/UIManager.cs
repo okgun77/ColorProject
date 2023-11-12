@@ -98,12 +98,12 @@ public class UIManager : MonoBehaviour
     {
         
         // 모든 색상 이미지를 비활성화합니다.
-        /*
+        
         foreach (Image img in colorImages)
         {
             img.gameObject.SetActive(false);
         }
-        */
+        
         
         // 플레이어 색상 리스트에 있는 색상으로 이미지를 업데이트합니다.
         for (int i = 0; i < _playerColors.Count; i++)
