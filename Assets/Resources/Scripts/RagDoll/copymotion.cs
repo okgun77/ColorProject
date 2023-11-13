@@ -18,7 +18,7 @@ public class copymotion : MonoBehaviour
     }
 
     // Update 함수에서 레그돌 객체의 움직임을 애니메이션용 객체의 움직임에 따라 적용
-    void FixedUpdate()
+    void Update()
     {
         // 애니메이션용 객체의 위치와 회전을 읽어와 레그돌 객체에 적용
         ragdollObject.position = animationObject.position + initialPositionOffset;
