@@ -1003,6 +1003,7 @@ GameObject:
   - component: {fileID: 4796169790788417322}
   - component: {fileID: 2089725632}
   - component: {fileID: 3647179049259345573}
+  - component: {fileID: 6404346898801246804}
   m_Layer: 0
   m_Name: P_NPCPlayer_Anim
   m_TagString: Player
@@ -1135,6 +1136,19 @@ MonoBehaviour:
   rb: {fileID: 4796169790788417364}
   shipTransform: {fileID: 0}
   slidingCoefficient: 4
+--- !u!114 &6404346898801246804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5642450488341853088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b53d9a08b09544e8b9f8d01f11ffd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceMultiplier: 4
 --- !u!1 &6784311775281986070
 GameObject:
   m_ObjectHideFlags: 0
