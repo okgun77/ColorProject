@@ -234,6 +234,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_NPC_Anim
       objectReference: {fileID: 0}
+    - target: {fileID: 5642450488341853088, guid: 2693e861947d5d84c9dcc72e095b8ddb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2693e861947d5d84c9dcc72e095b8ddb, type: 3}
 --- !u!1 &46691702
@@ -6704,7 +6709,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 259ab5b10bc714e4b9dfa594ebce3819,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 259ab5b10bc714e4b9dfa594ebce3819,
         type: 3}
@@ -9713,15 +9718,65 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2407210321229481457, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_XMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321229481457, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_YMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321229481457, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_ZMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321229481457, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_AngularYMotion
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321229481457, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_AngularXDrive.positionSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321229481457, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_AngularYZDrive.positionSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321229481458, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2407210321229481458, guid: 146abc1c818094143b11035cfb290269,
         type: 3}
       propertyPath: ragdollObject
       value: 
       objectReference: {fileID: 28223690}
+    - target: {fileID: 2407210321229481459, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321229481459, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2407210321494362868, guid: 146abc1c818094143b11035cfb290269,
         type: 3}
       propertyPath: m_Name
       value: Npc ragdoll Stand
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321494362868, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2407210321494362871, guid: 146abc1c818094143b11035cfb290269,
         type: 3}
@@ -9780,6 +9835,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2407210321494362873, guid: 146abc1c818094143b11035cfb290269,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321494362873, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
       propertyPath: ViewCamera
       value: 
       objectReference: {fileID: 1361844694}
@@ -9793,6 +9853,51 @@ PrefabInstance:
       propertyPath: animationObject
       value: 
       objectReference: {fileID: 542558927}
+    - target: {fileID: 2407210321816969059, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321816969059, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321816969061, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_XMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321816969061, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_YMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321816969061, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_ZMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321816969061, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_AngularYMotion
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321816969061, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_AngularXDrive.positionSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321816969061, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_AngularYZDrive.positionSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210321816969063, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2407210321816969063, guid: 146abc1c818094143b11035cfb290269,
         type: 3}
       propertyPath: animationObject
@@ -9803,6 +9908,76 @@ PrefabInstance:
       propertyPath: animationObject
       value: 
       objectReference: {fileID: 1715144101}
+    - target: {fileID: 2407210322315577109, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.1472787
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210322315577109, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.16950555
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210322315577109, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.18738009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210322315577109, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.014038426
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210322315577109, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.0035813013
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210322964446758, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_XMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210322964446758, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_YMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210322964446758, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_ZMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210322964446758, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_AngularYMotion
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210322964446758, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_AngularXDrive.positionSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210322964446758, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_AngularYZDrive.positionSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210322964446760, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210322964446760, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210322964446763, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2407210322964446763, guid: 146abc1c818094143b11035cfb290269,
         type: 3}
       propertyPath: ragdollObject
@@ -9813,11 +9988,56 @@ PrefabInstance:
       propertyPath: animationObject
       value: 
       objectReference: {fileID: 1505864973}
+    - target: {fileID: 2407210323257448928, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_XMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210323257448928, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_YMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210323257448928, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_ZMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210323257448928, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_AngularYMotion
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210323257448928, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_AngularXDrive.positionSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210323257448928, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_AngularYZDrive.positionSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210323257448930, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2407210323257448930, guid: 146abc1c818094143b11035cfb290269,
         type: 3}
       propertyPath: animationObject
       value: 
       objectReference: {fileID: 1208734441}
+    - target: {fileID: 2407210323257448958, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407210323257448958, guid: 146abc1c818094143b11035cfb290269,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 146abc1c818094143b11035cfb290269, type: 3}
 --- !u!1 &2482720257655449918
