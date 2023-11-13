@@ -523,11 +523,11 @@ MonoBehaviour:
     m_Bits: 64
   Character: {fileID: 115452154}
   ViewCamera: {fileID: 1361844694}
-  movementSpeed: 5
+  movementSpeed: 1.5
   rotationSpeed: 10
   jumpPower: 5
   distanceToGround: 0.2
-  Run: 7
+  Run: 2
 --- !u!1 &126162864
 GameObject:
   m_ObjectHideFlags: 0
@@ -4072,6 +4072,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: b03484a244a545d4c8a0af3e98de661b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 52514077b3f4f4b4f8baba8aa20e0538, type: 2}
+    - target: {fileID: 5866666021909216657, guid: b03484a244a545d4c8a0af3e98de661b,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b03484a244a545d4c8a0af3e98de661b, type: 3}
 --- !u!1 &979363231
@@ -7602,7 +7612,7 @@ Transform:
   m_GameObject: {fileID: 1960424232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
