@@ -8,6 +8,7 @@ TagManager:
   - NPC_Water
   - WeakAnimal
   - StrongAnimal
+  - RotateObject
   layers:
   - Default
   - TransparentFX

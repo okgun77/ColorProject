@@ -23,12 +23,15 @@ public class NPCColor : MonoBehaviour
         if (_other.CompareTag("Player"))
         {
             PlayerColor playerColor = _other.GetComponent<PlayerColor>();
+            
+            /*
             if (playerColor == null)
             {
                 Debug.LogError("PlayerColor component not found on " + _other.name);
                 return; // 여기서 함수 실행을 중단합니다.
             }
-
+            */
+            
             // NPC 유형에 따른 조치
             switch (type)
             {

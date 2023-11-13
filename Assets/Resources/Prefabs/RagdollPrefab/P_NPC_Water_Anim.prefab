@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 2296465974023199826}
   m_Layer: 0
   m_Name: Viking_head
-  m_TagString: Player
+  m_TagString: NPC_Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -739,7 +739,7 @@ GameObject:
   - component: {fileID: 583945896830266906}
   m_Layer: 0
   m_Name: Viking_body_Water
-  m_TagString: Player
+  m_TagString: NPC_Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -962,7 +962,7 @@ GameObject:
   - component: {fileID: 4721348096224281300}
   m_Layer: 0
   m_Name: (NPC)
-  m_TagString: Untagged
+  m_TagString: NPC_Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -995,9 +995,10 @@ GameObject:
   - component: {fileID: 4796169790788417364}
   - component: {fileID: 4796169790788417365}
   - component: {fileID: 7939487833139839578}
+  - component: {fileID: 3415617680517492456}
   m_Layer: 0
   m_Name: P_NPC_Water_Anim
-  m_TagString: Player
+  m_TagString: NPC_Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1056,7 +1057,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 16
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &4796169790788417365
 BoxCollider:
@@ -1087,6 +1088,21 @@ MonoBehaviour:
   colorNo: 0205
   type: 1
   colorTable: {fileID: 0}
+--- !u!114 &3415617680517492456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5642450488341853088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628c090c1de14534480e30b803356f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 4796169790788417364}
+  shipTransform: {fileID: 0}
+  slidingCoefficient: 4
 --- !u!1 &6784311775281986070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,7 +1364,7 @@ GameObject:
   - component: {fileID: 5329555089555168300}
   m_Layer: 0
   m_Name: Bip001
-  m_TagString: Untagged
+  m_TagString: NPC_Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
