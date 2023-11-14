@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class PlayerColor : MonoBehaviour
 {
@@ -66,6 +67,7 @@ public class PlayerColor : MonoBehaviour
     }
     
     // 지정된 색상으로 플레이어의 모든 Renderer를 업데이트
+    
     private void SetColor(Color _color)
     {
         foreach (var renderer in playerRenderers)
@@ -83,6 +85,49 @@ public class PlayerColor : MonoBehaviour
         }
     }
     
+    
+    /*
+    private void SetColor(Color _color)
+    {
+        float alpha = 0.05f; // 예시로 설정한 임의의 알파값 (0.0 완전 투명 ~ 1.0 완전 불투명)
+
+        foreach (var renderer in playerRenderers)
+        {
+            // 주어진 색상에 임의의 알파값을 적용
+            Color colorWithAlpha = new Color(_color.r, _color.g, _color.b, alpha);
+
+            if(renderer is SkinnedMeshRenderer skinnedMeshRenderer)
+            {
+                skinnedMeshRenderer.material.color = colorWithAlpha;
+            }
+            else if(renderer is MeshRenderer meshRenderer)
+            {
+                meshRenderer.material.color = colorWithAlpha;
+            }
+        }
+    }
+    */
+
+    
+    // URP
+    private void SetColor_URP(Color _color)
+    {
+        foreach (var renderer in playerRenderers)
+        {
+            if(renderer is SkinnedMeshRenderer skinnedMeshRenderer)
+            {
+                var material = skinnedMeshRenderer.material;
+                material.SetColor("_BaseColor", _color); // 텍스처와 혼합되는 색상 변경
+            }
+            else if(renderer is MeshRenderer meshRenderer)
+            {
+                var material = meshRenderer.material;
+                material.SetColor("_BaseColor", _color); // 텍스처와 혼합되는 색상 변경
+            }
+        }
+    }
+    
+
     // 플레이어 색상 업데이트 함수
     private void UpdatePlayerColor()
     {
@@ -143,4 +188,23 @@ public class PlayerColor : MonoBehaviour
         uiManager.UpdateColorUI(getColors);
     }
 
+    public bool IsTargetColorAchieved(ColorBasicInfo targetColorInfo)
+    {
+        // 습득한 색상이 없거나 리스트가 null인 경우, 목표 색상이 달성되지 않음을 반환
+        if (getColors == null || getColors.Count == 0)
+        {
+            return false;
+        }
+
+        // 습득한 색상을 정렬하여 문자열로 합치기
+        string playerCombinedColorNo = string.Join("", getColors.OrderBy(c => c));
+        // 목표 색상 번호 가져오기
+        string targetColorNo = targetColorInfo.ColorNo;
+
+        // 플레이어의 조합된 색상과 목표 색상을 비교
+        return playerCombinedColorNo.Equals(targetColorNo);
+    }
+
+
+    
 }

@@ -72,6 +72,15 @@ public class GameManager : MonoBehaviour
         {
             TogglePause();
         }
+        
+        // 플레이어가 목표 색상을 매칭했는지 확인
+        if (playerColor.IsTargetColorAchieved(targetColorInfo))
+        {
+            // 목표 색상 매칭 성공 시 UI 업데이트
+            uiManager.ShowTargetColorMatchedIndicator();
+        }
+        
+        
     }
     
     public void TogglePause()

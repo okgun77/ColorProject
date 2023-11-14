@@ -16,6 +16,9 @@ public class UIManager : MonoBehaviour
     
     [SerializeField] private Image targetColorDisplay;
     [SerializeField] private Image[] requiredColorDisplays;
+    
+    [SerializeField] private GameObject targetColorCompletedIndicator; // 목표 색상 완성 표시용 GameObject
+
 
 
     public static UIManager Instance { get; private set; }
@@ -122,6 +125,18 @@ public class UIManager : MonoBehaviour
             {
                 colorImages[i].gameObject.SetActive(false); // 해당 이미지를 비활성화합니다.
             }
+        }
+    }
+    
+    public void ShowTargetColorMatchedIndicator()
+    {
+        if (targetColorCompletedIndicator != null)
+        {
+            targetColorCompletedIndicator.SetActive(true); // UI 요소 활성화
+        }
+        else
+        {
+            Debug.LogError("Target color completed indicator is not set in the inspector");
         }
     }
 }
