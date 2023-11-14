@@ -9,11 +9,11 @@ public class FieldOfViewAngle : MonoBehaviour
     [SerializeField] private float viewDistance; // 시야거리 (10미터);
     [SerializeField] private LayerMask targetMask; // 타겟 마스크 (플레이어)
 
-    private PlayerController thePlayer;
+    private TPSPlayerController thePlayer;
 
     void Start()
     {
-        thePlayer = FindObjectOfType<PlayerController>();   
+        thePlayer = FindObjectOfType<TPSPlayerController>();   
     }
 
     public Vector3 GetTargetPos()
