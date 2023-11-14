@@ -123,28 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &11010631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148397626255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f190c08f418e3f649b9ddcf5764e857e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  Character: {fileID: 543450652317157685}
-  ViewCamera: {fileID: 1361844694}
-  movementSpeed: 1.5
-  rotationSpeed: 10
-  jumpPower: 5
-  distanceToGround: 0.2
-  Run: 2
 --- !u!114 &11010636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10029,7 +10007,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450652317157685}
-  - component: {fileID: 11010631}
   - component: {fileID: 11010636}
   m_Layer: 12
   m_Name: RagDoll
