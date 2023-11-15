@@ -10,6 +10,10 @@ public class NPCColor : MonoBehaviour
     [SerializeField] private ColorTable colorTable; // 색상 테이블 참조
     
 
+    // 프로퍼티
+    public string ColorNo => colorNo;
+    public NPCType Type => type;
+    
     // NPC의 기본 색상 설정
     private void Start()
     {
@@ -17,11 +21,14 @@ public class NPCColor : MonoBehaviour
     }
 
     // NPC와 플레이어가 닿을 때의 상호작용
+    /*
     private void OnTriggerEnter(Collider _other)
     {
+        Debug.Log(_other.name);
+        
         if (!_other.CompareTag("Player"))
         {
-            Debug.Log("PlayerTag아님 : " + _other.name);
+            //Debug.Log("PlayerTag아님 : " + _other.name);
             return;
         }
 
@@ -45,7 +52,7 @@ public class NPCColor : MonoBehaviour
                 break;
         }
     }
-
+    */
 
 
     // NPC의 색상 적용

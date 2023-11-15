@@ -11,6 +11,8 @@ public class PlayerColor : MonoBehaviour
     private List<string> getColors = new List<string>(); // 플레이어가 습득한 색상 번호 목록
     private bool isColorLocked; // 색상 고정
 
+    private NPCColor npcColor;
+    
     void Start()
     {
         getColors = new List<string>();
@@ -238,6 +240,29 @@ public class PlayerColor : MonoBehaviour
         return playerCombinedColorNo.Equals(targetColorNo);
     }
 
+
+    private void OnTriggerEnter(Collider _other)
+    {
+        if (_other.CompareTag("NPC_Color"))
+        {
+            NPCColor npcColor = _other.GetComponent<NPCColor>();
+            if (npcColor == null)
+            {
+                Debug.Log("NPCColor 없음 " + _other.name);
+                return;
+            }
+
+            switch (npcColor.Type)
+            {
+                case NPCType.NPC_COLOR:
+                    GetColor(npcColor.ColorNo);
+                    break;
+                case NPCType.NPC_WATER:
+                    ResetColor();
+                    break;
+            }
+        }
+    }
 
 
 
