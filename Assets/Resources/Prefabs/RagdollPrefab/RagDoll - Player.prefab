@@ -1003,9 +1003,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5814815071492242100}
+  - component: {fileID: 5512279271103049639}
+  - component: {fileID: 4574449058133316015}
   m_Layer: 12
-  m_Name: Ragdoll
-  m_TagString: Untagged
+  m_Name: Player_Ragdoll
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1027,6 +1029,35 @@ Transform:
   m_Father: {fileID: 4100663543784969477}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5512279271103049639
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3224890063259654590}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3.2, z: 1.5}
+  m_Center: {x: 0, y: 1.6, z: 0}
+--- !u!114 &4574449058133316015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3224890063259654590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb682c88dfd56d409be0a1762768e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRenderers:
+  - {fileID: 4257693930380862762}
+  colorTable: {fileID: 0}
+  uiManager: {fileID: 0}
 --- !u!1 &3721006183860064191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2598,7 +2629,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b03484a244a545d4c8a0af3e98de661b,
         type: 3}
       propertyPath: m_Name
-      value: PlayerAnim - target
+      value: Player_Anim_Target
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b03484a244a545d4c8a0af3e98de661b,
         type: 3}
@@ -2613,7 +2644,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b03484a244a545d4c8a0af3e98de661b,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3037579990537324050, guid: b03484a244a545d4c8a0af3e98de661b,
         type: 3}

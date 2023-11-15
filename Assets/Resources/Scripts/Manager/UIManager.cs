@@ -139,4 +139,12 @@ public class UIManager : MonoBehaviour
             Debug.LogError("Target color completed indicator is not set in the inspector");
         }
     }
+    
+    public void HideTargetColorMatchedIndicator()
+    {
+        if (targetColorCompletedIndicator != null)
+        {
+            targetColorCompletedIndicator.SetActive(false);
+        }
+    }
 }

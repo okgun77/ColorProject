@@ -7,6 +7,12 @@ public class TimerManager : MonoBehaviour
     public float TimeRemaining { get; private set; }
     public bool TimerIsRunning { get; private set; }
 
+    public void Init(float _duration)
+    {
+        TimeRemaining = _duration;
+        TimerIsRunning = true;
+    }
+    
     public void StartTimer(float _duration)
     {
         TimeRemaining = _duration;

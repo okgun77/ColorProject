@@ -5,87 +5,94 @@ using TMPro;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class MainSceneManager : MonoBehaviour
 {
-    [SerializeField] private MainSceneUIManager mainsceneUIManager;
-    [SerializeField] private ColorTable colorTable;
-        
-    // [SerializeField] private PlayerColor playerColor;
-    
-    private bool isPaused = false;
+    [SerializeField] private GameObject mainMenu; // 메인 메뉴 UI
+    [SerializeField] private GameObject optionMenu; // 옵션 메뉴 UI
+    [SerializeField] private GameObject exitGameMenu;
+    [SerializeField] private GameObject graphicOptionMenu;
+    [SerializeField] private GameObject soundOptionMenu;
+    [SerializeField] private GameObject backToMainMenuButton;
 
-
-    private void Awake()
-    {
-
-    }
 
     private void Start()
     {
-        
+        Init();
     }
 
-    private void Update()
+    public void Init()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TogglePause();
-        }
+        mainMenu.SetActive(true);
+        optionMenu.SetActive(false);
+        backToMainMenuButton.SetActive(false);
+        soundOptionMenu.SetActive(false);
+        graphicOptionMenu.SetActive(false);
+        exitGameMenu.SetActive(false);
     }
-    
-    public void TogglePause()
+
+    // 메인 메뉴를 다시 표시하고 옵션 메뉴를 숨기는 메소드
+    public void BackToMainMenu()
     {
-        isPaused = !isPaused;
-        if (isPaused)
-        {
-            Time.timeScale = 0f; // 게임 시간을 정지합니다.
-            // mainsceneUIManager.ShowPauseMenu(); // 일시 정지 메뉴를 표시합니다.
-        }
-        else
-        {
-            Time.timeScale = 1f; // 게임 시간을 재개합니다.
-            // mainsceneUIManager.HidePauseMenu(); // 일시 정지 메뉴를 숨깁니다.
-        }
+        mainMenu.SetActive(true);
+        optionMenu.SetActive(false);
+        backToMainMenuButton.SetActive(false);
+        soundOptionMenu.SetActive(false);
+        graphicOptionMenu.SetActive(false);
+        exitGameMenu.SetActive(false);
     }
-
-    public void PauseGame()
-    {
-        isPaused = false;
-        Time.timeScale = 0f; // 게임 시간을 정지합니다.
-
-    }
-
-
 
     public void StartGame()
     {
-
-
+        SceneManager.LoadScene("_GameScene");
     }
 
-    public void EndGame()
+    public void ShowOptions()
     {
+        mainMenu.SetActive(false);
+        optionMenu.SetActive(true);
+        backToMainMenuButton.SetActive(true);
+        soundOptionMenu.SetActive(true);
+        graphicOptionMenu.SetActive(true);
+    }
+
+
+    public void ShowGraphicOption()
+    {
+        graphicOptionMenu.SetActive(true);
+        backToMainMenuButton.SetActive(true);
+        soundOptionMenu.SetActive(false);
+    }
+
+    public void ShowSoundOption()
+    {
+        soundOptionMenu.SetActive(true);
+        backToMainMenuButton.SetActive(true);
+        graphicOptionMenu.SetActive(false);
+    }
+    
+    // 게임 종료 버튼 누름
+    public void ExitGame()
+    {
+        mainMenu.SetActive(false);
+        exitGameMenu.SetActive(true);
+    }
+
+    // 게임을 종료하시겠습니까? - NO 게임 돌아가기
+    public void ExitGameNo()
+    {
+        mainMenu.SetActive(true);
+    }
+    
+    // 게임을 종료하시겠습니까? - YES 바탕화면 가기
+    public void ExitGameYes()
+    {
+        Application.Quit();
         
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
-    
-    public void QuitGame()
-    {
-        
-    }
-    
-    
-    public void ReturnToGame()
-    {
-        TogglePause();
-    }
-
-    public void OpenOptions()
-    {
-        UIManager.Instance.ShowOptionMenu();
-    }
-
-
-
 }

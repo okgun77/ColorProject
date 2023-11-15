@@ -8,7 +8,7 @@ public class PlayerColor : MonoBehaviour
     [SerializeField] private ColorTable colorTable; // 색상 테이블
     [SerializeField] private UIManager uiManager; // UIManager
     
-    private List<string> getColors; // 플레이어가 습득한 색상 번호 목록
+    private List<string> getColors = new List<string>(); // 플레이어가 습득한 색상 번호 목록
     private bool isColorLocked; // 색상 고정
 
     void Start()
@@ -21,11 +21,18 @@ public class PlayerColor : MonoBehaviour
     // 색상 습득 함수
     public void GetColor(string _colorNo)
     {
+        
+        // 습득한 색상 코드 출력
+        Debug.Log($"습득한 색상: {_colorNo}");
+        
         // 색상이 검은색으로 고정되었다면 새로운 색상 추가를 하지 않음
         if (isColorLocked || getColors.Contains(_colorNo)) // 이미 가진 색상인지 확인
             return;
 
         getColors.Add(_colorNo);
+        
+        Debug.Log($"색상 {_colorNo} 추가 후 getColors 리스트: {string.Join(", ", getColors)}");
+        
         if (getColors.Count >= 5) // 색상 수가 5개 이상이면 검은색으로 설정
         {
             LockColorToBlack();
@@ -39,8 +46,27 @@ public class PlayerColor : MonoBehaviour
     // 플레이어가 현재 가진 색상 번호 리스트를 반환하는 메소드
     public List<string> GetCurrentColorList()
     {
-        return new List<string>(getColors); // 현재 getColors 리스트의 복사본을 반환
+        // getColors 리스트가 null인 경우 초기화
+        // if (getColors == null)
+        // {
+        //     getColors = new List<string>();
+        // }
+
+        Debug.Log($"getColors 리스트 내용: {string.Join(", ", getColors)}");
+        var currentColorList = new List<string>(getColors);
+        Debug.Log($"currentColorList 반환 리스트: {string.Join(", ", currentColorList)}");
+        return currentColorList;
+        
+        // var currentColorList = new List<string>();
+        // foreach (var color in getColors)
+        // {
+        //     currentColorList.Add(color);
+        // }
+        // Debug.Log($"currentColorList 반환 리스트: {string.Join(", ", currentColorList)}");
+        // return currentColorList;
+        
     }
+
     
     // 주어진 색상 번호에 해당하는 Color 값을 반환하는 메소드
     public Color GetColorValue(string _colorNo)
@@ -133,6 +159,9 @@ public class PlayerColor : MonoBehaviour
     {
         if (isColorLocked) return; // 색상이 고정되었다면 업데이트하지 않음
         
+        // 현재 getColors 리스트의 내용 출력
+        Debug.Log($"현재 getColors 리스트: {string.Join(", ", getColors)}");
+        
         // 기본 색상으로 초기화
         Color colorToApply = Color.white;
 
@@ -190,20 +219,26 @@ public class PlayerColor : MonoBehaviour
 
     public bool IsTargetColorAchieved(ColorBasicInfo targetColorInfo)
     {
-        // 습득한 색상이 없거나 리스트가 null인 경우, 목표 색상이 달성되지 않음을 반환
-        if (getColors == null || getColors.Count == 0)
+        if (targetColorInfo == null)
         {
+            Debug.LogError("목표색상이 현재 없음");
             return false;
         }
 
-        // 습득한 색상을 정렬하여 문자열로 합치기
-        string playerCombinedColorNo = string.Join("", getColors.OrderBy(c => c));
-        // 목표 색상 번호 가져오기
+        List<string> playerColorCodes = GetCurrentColorList();
+        string playerCombinedColorNo = string.Join("", playerColorCodes.OrderBy(c => c));
         string targetColorNo = targetColorInfo.ColorNo;
 
-        // 플레이어의 조합된 색상과 목표 색상을 비교
+        // 로그 추가: 습득한 색상 코드 리스트 출력
+        Debug.Log($"습득한 색상 코드 리스트: {string.Join(", ", playerColorCodes)}");
+
+        // 로그 추가: 목표 색상과 플레이어 조합 색상 출력
+        Debug.Log($"목표색상: {targetColorNo}, 플레이어 조합 색상: {playerCombinedColorNo}");
+
         return playerCombinedColorNo.Equals(targetColorNo);
     }
+
+
 
 
     

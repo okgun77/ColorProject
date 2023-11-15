@@ -8,13 +8,13 @@ public class PlayerController_InputSystem : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 5.0f;
     [SerializeField]
-    private float runMultiplier = 2.0f; // ´Ş¸®±â ¼Óµµ ¹èÀ²
+    private float runMultiplier = 2.0f; // ë‹¬ë¦¬ê¸° ì†ë„ ë°°ìœ¨
     [SerializeField]
     private float jumpForce = 5.0f;
 
     private Vector2 moveInput;
     private bool isRunning = false;
-    private bool isGrounded; // ¶¥¿¡ ´ê¾Ò´ÂÁö ¿©ºÎ
+    private bool isGrounded; // ë•…ì— ë‹¿ì•˜ëŠ”ì§€ ì—¬ë¶€
     private Rigidbody rb;
 
     private void Awake()
@@ -29,7 +29,7 @@ public class PlayerController_InputSystem : MonoBehaviour
 
     public void OnRun(InputAction.CallbackContext _context)
     {
-        isRunning = _context.ReadValue<float>() > 0.5f; // ´Ş¸®±â ¹öÆ°ÀÌ ´­·È´ÂÁö ¿©ºÎ
+        isRunning = _context.ReadValue<float>() > 0.5f; // ë‹¬ë¦¬ê¸° ë²„íŠ¼ì´ ëˆŒë ¸ëŠ”ì§€ ì—¬ë¶€
     }
 
     public void OnJump(InputAction.CallbackContext _context)
@@ -46,7 +46,7 @@ public class PlayerController_InputSystem : MonoBehaviour
         float speed = (isRunning) ? moveSpeed * runMultiplier : moveSpeed;
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y) * speed;
 
-        // ÇÃ·¹ÀÌ¾îÀÇ ¹æÇâÀ» ¼³Á¤
+        // í”Œë ˆì´ì–´ì˜ ë°©í–¥ì„ ì„¤ì •
         if (move != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(move);
@@ -55,7 +55,7 @@ public class PlayerController_InputSystem : MonoBehaviour
 
         transform.position += move * Time.fixedDeltaTime;
 
-        // ¶¥¿¡ ´ê¾Ò´ÂÁö ¿©ºÎ È®ÀÎ
+        // ë•…ì— ë‹¿ì•˜ëŠ”ì§€ ì—¬ë¶€ í™•ì¸
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
     }
 }

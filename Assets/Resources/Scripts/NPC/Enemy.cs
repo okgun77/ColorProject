@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour
 
     public void Run(Vector3 _targetPos)
     {
-        destination = new Vector3(transform.position.x - _targetPos.x, 30f, transform.position.z - _targetPos.z).normalized;
+        destination = new Vector3(transform.position.x - _targetPos.x, 1f, transform.position.z - _targetPos.z).normalized;
         currentTime = runTime;
         isWalking = false;
         isRunning = true;
