@@ -36,8 +36,7 @@ public class TPSPlayerController : MonoBehaviour
         
         HandleMovementInput();
         HandleJumpInput();
-        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        bool isMoving = moveInput.magnitude > 0;
+       
         //if (isMoving)
         //{
         //    // 움직임이 감지되면 움직임 방향을 계산하고 캐릭터를 움직입니다.
@@ -108,11 +107,13 @@ public class TPSPlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
             _jump = false;
+            anim.SetBool("isJumping", true); // 점프를 시작할 때 애니메이션 상태를 설정
         }
-        if (IsGrounded() && anim.GetBool("isJumping"))
+        else
         {
-            anim.SetBool("isJumping", false); // 罹먮┃곌 낆뿉 우쑝硫먰봽 곹깭 댁젣
+            anim.SetBool("isJumping", false); // 캐릭터가 땅에 닿으면 점프 애니메이션 상태를 해제
         }
+
     }
 
     // 대룞 諛⑺뼢怨꾩궛⑸땲
