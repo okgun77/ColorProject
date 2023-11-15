@@ -23,9 +23,9 @@ TagManager:
   - Ragdoll2
   - NonRaycast
   - Capsule
+  - PlayerCapsule
   - 
-  - 
-  - 
+  - NPC
   - 
   - 
   - 
