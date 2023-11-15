@@ -22,6 +22,9 @@ public class TPSPlayerController : MonoBehaviour
 
     private const string JumpButton = "Jump"; // 먰봽 踰꾪듉
 
+
+    //Sound
+    public string WalkSound;
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -30,8 +33,27 @@ public class TPSPlayerController : MonoBehaviour
 
     private void Update()
     {
+        
         HandleMovementInput();
         HandleJumpInput();
+        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        bool isMoving = moveInput.magnitude > 0;
+        //if (isMoving)
+        //{
+        //    // 움직임이 감지되면 움직임 방향을 계산하고 캐릭터를 움직입니다.
+        //    Vector3 moveDirection = CalculateMoveDirection(moveInput);
+        //    MoveCharacter(moveDirection);
+        //    WalkSound = SoundManager.Instance.PlayerWalkSound;
+        //    SoundManager.Instance.PlaySE(WalkSound);
+        //}
+        //else
+        //{
+        //    // 움직임이 없을 경우 필요한 처리를 합니다 (예: 걷는 소리 정지 등).
+        //    WalkSound = SoundManager.Instance.PlayerWalkSound;
+        //    SoundManager.Instance.StopSE(WalkSound);
+        //}
+
+       
         RunCharacter();
     }
 
@@ -51,6 +73,7 @@ public class TPSPlayerController : MonoBehaviour
         bool isMoving = moveInput.magnitude > 0;
         anim.SetBool("isWalking", isMoving);
 
+     
         //Vector3 moveDirection = CalculateMoveDirection(moveInput);
         //moveDirection.y = 0f;
         //if (isMoving)
@@ -75,6 +98,7 @@ public class TPSPlayerController : MonoBehaviour
             _jump = true;
             anim.SetBool("isJumping", true); // 먰봽 쒖옉 좊땲硫붿씠쒖꽦
         }
+
     }
 
     // 臾쇰━ 湲곕컲 먰봽瑜섑뻾⑸땲
@@ -145,5 +169,7 @@ public static class VectorExtensions
     {
         return new Vector3(vector.x, 0f, vector.z).normalized;
     }
+   
+
 }
 

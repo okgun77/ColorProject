@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class RagdollOnOFF : MonoBehaviour
 {
-    public Animator ThisGuysAnimator; // 전체 캐릭터 애니메이터
-    public Transform ragdollPart; // 레그돌을 적용할 부위의 Transform
+    public BoxCollider mainCollider; // 전체 캐릭터 애니메이터
+    public GameObject PlayerRagdollOj;
+    public Animator playerAnimatorOj;
 
     private Collider[] ragdollColliders;
     private Rigidbody[] ragdollRigidbodies;
@@ -26,6 +27,7 @@ public class RagdollOnOFF : MonoBehaviour
 
     void RagdollModeOn()
     {
+        playerAnimatorOj.enabled = false;
         // 레그돌 활성화
         foreach (Collider col in ragdollColliders)
         {
@@ -38,7 +40,9 @@ public class RagdollOnOFF : MonoBehaviour
         }
 
         // 해당 부위의 애니메이션 비활성화
-        ThisGuysAnimator.enabled = false;
+        
+        mainCollider.enabled = false;
+        GetComponent<Rigidbody>().isKinematic = true;
     }
 
     void RagdollModeOff()
@@ -55,12 +59,14 @@ public class RagdollOnOFF : MonoBehaviour
         }
 
         // 애니메이션 활성화
-        ThisGuysAnimator.enabled = true;
+        playerAnimatorOj.enabled = true;
+        mainCollider.enabled = true;
+        GetComponent<Rigidbody>().isKinematic = false;
     }
 
     void GetRagdollBits()
     {
-        ragdollColliders = ragdollPart.GetComponentsInChildren<Collider>();
-        ragdollRigidbodies = ragdollPart.GetComponentsInChildren<Rigidbody>();
+        ragdollColliders = PlayerRagdollOj.GetComponentsInChildren<Collider>();
+        ragdollRigidbodies = PlayerRagdollOj.GetComponentsInChildren<Rigidbody>();
     }
 }
