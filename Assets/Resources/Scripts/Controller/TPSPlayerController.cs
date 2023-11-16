@@ -36,7 +36,7 @@ public class TPSPlayerController : MonoBehaviour
         
         HandleMovementInput();
         HandleJumpInput();
-       
+
         //if (isMoving)
         //{
         //    // 움직임이 감지되면 움직임 방향을 계산하고 캐릭터를 움직입니다.
@@ -52,8 +52,16 @@ public class TPSPlayerController : MonoBehaviour
         //    SoundManager.Instance.StopSE(WalkSound);
         //}
 
-       
-        RunCharacter();
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Debug.Log("LeftShift pressed");
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            Debug.Log("LeftShift released");
+        }
+
     }
 
     private void FixedUpdate()
@@ -68,24 +76,25 @@ public class TPSPlayerController : MonoBehaviour
         {
             return;
         }
+
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         bool isMoving = moveInput.magnitude > 0;
         anim.SetBool("isWalking", isMoving);
 
-     
-        //Vector3 moveDirection = CalculateMoveDirection(moveInput);
-        //moveDirection.y = 0f;
-        //if (isMoving)
-        //{
-        //    MoveCharacter(moveDirection);
-        //}
-        //RotateCharacter(isMoving ? moveDirection : camera.forward);
         if (isMoving)
         {
             Vector3 moveDirection = CalculateMoveDirection(moveInput);
-            MoveCharacter(moveDirection);
+            bool isRunning = Input.GetKey(KeyCode.LeftShift);
+            float currentSpeed = isRunning ? Run : movementSpeed; // LeftShift가 눌려있으면 Run 속도, 아니면 기본 이동 속도 사용
+
+            MoveCharacter(moveDirection, currentSpeed);
             RotateCharacter(moveDirection);
 
+            anim.SetBool("isRunning", isRunning); // 달리기 상태 애니메이션 업데이트
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
         }
     }
 
@@ -125,27 +134,12 @@ public class TPSPlayerController : MonoBehaviour
     }
 
     // 罹먮┃곕 대룞쒗궢덈떎.
-    private void MoveCharacter(Vector3 direction)
+    private void MoveCharacter(Vector3 direction, float speed)
     {
-        transform.position += direction * movementSpeed * Time.deltaTime;
+        transform.position += direction * speed * Time.deltaTime;
     }
 
-    private void RunCharacter()
-    {
-        
-            if (Input.GetKey(KeyCode.LeftShift))
-        {
-            // 踰꾩옱 諛⑺뼢쇰줈 鍮좊Ⅴ寃대룞⑸땲
-            Vector3 direction = CalculateMoveDirection(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-            transform.position += direction * Run * Time.deltaTime;
-                anim.SetBool("isRunning", true);
-        }
-        else
-        {
-            if(Input.GetKeyUp(KeyCode.LeftShift))
-            anim.SetBool("isRunning", false);
-        }
-    }
+  
 
     // 罹먮┃곕 뚯쟾쒗궢덈떎.
     private void RotateCharacter(Vector3 direction)
