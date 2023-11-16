@@ -113,31 +113,7 @@ public class PlayerColor : MonoBehaviour
         }
     }
     
-    
-    /*
-    private void SetColor(Color _color)
-    {
-        float alpha = 0.05f; // 예시로 설정한 임의의 알파값 (0.0 완전 투명 ~ 1.0 완전 불투명)
-
-        foreach (var renderer in playerRenderers)
-        {
-            // 주어진 색상에 임의의 알파값을 적용
-            Color colorWithAlpha = new Color(_color.r, _color.g, _color.b, alpha);
-
-            if(renderer is SkinnedMeshRenderer skinnedMeshRenderer)
-            {
-                skinnedMeshRenderer.material.color = colorWithAlpha;
-            }
-            else if(renderer is MeshRenderer meshRenderer)
-            {
-                meshRenderer.material.color = colorWithAlpha;
-            }
-        }
-    }
-    */
-
-    
-    // URP
+    // URP Test
     private void SetColor_URP(Color _color)
     {
         foreach (var renderer in playerRenderers)
@@ -219,9 +195,9 @@ public class PlayerColor : MonoBehaviour
         uiManager.UpdateColorUI(getColors);
     }
 
-    public bool IsTargetColorAchieved(ColorBasicInfo targetColorInfo)
+    public bool IsTargetColorAchieved(ColorBasicInfo _targetColor)
     {
-        if (targetColorInfo == null)
+        if (_targetColor == null)
         {
             Debug.LogError("목표색상이 현재 없음");
             return false;
@@ -229,7 +205,7 @@ public class PlayerColor : MonoBehaviour
 
         List<string> playerColorCodes = GetCurrentColorList();
         string playerCombinedColorNo = string.Join("", playerColorCodes.OrderBy(c => c));
-        string targetColorNo = targetColorInfo.ColorNo;
+        string targetColorNo = _targetColor.ColorNo;
 
         // 로그 추가: 습득한 색상 코드 리스트 출력
         Debug.Log($"습득한 색상 코드 리스트: {string.Join(", ", playerColorCodes)}");
@@ -240,6 +216,16 @@ public class PlayerColor : MonoBehaviour
         return playerCombinedColorNo.Equals(targetColorNo);
     }
 
+    public void PlayerColorCombineInfo(ColorBasicInfo _targetColor)
+    {
+        List<string> playerColorCodes = GetCurrentColorList();
+        string playerCombinedColorNo = string.Join("", playerColorCodes.OrderBy(c => c));
+        string targetColorNo = _targetColor.ColorNo;
+
+        // 목표 색상과 플레이어 조합 색상 출력
+        Debug.Log($"목표색상: {targetColorNo}, 플레이어 조합 색상: {playerCombinedColorNo}");
+    }
+    
     
     private void OnTriggerEnter(Collider _other)
     {

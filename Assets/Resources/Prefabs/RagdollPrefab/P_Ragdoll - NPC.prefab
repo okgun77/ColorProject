@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6402822326534770181}
   m_Layer: 15
-  m_Name: Ragdoll - NPC
+  m_Name: P_Ragdoll - NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

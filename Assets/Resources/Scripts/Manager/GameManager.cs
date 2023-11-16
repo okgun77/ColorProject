@@ -84,6 +84,8 @@ public class GameManager : MonoBehaviour
         // }
         //
 
+        ColorMatchCheck();
+
     }
     
     public void TogglePause()
@@ -157,7 +159,8 @@ public class GameManager : MonoBehaviour
 
         
         Debug.Log($"(게임 종료) 플레이어 조합 색상: {playerCombinedColorNo}, Target color: {targetColorNo}");
-
+        Debug.Log($"(게임 종료) 플레이어 조합 색상: {playerCombinedColorNo}, 목표 색상: {targetColorNo}");
+        
         bool success = playerCombinedColorNo.Equals(targetColorNo);
 
         if(success)
