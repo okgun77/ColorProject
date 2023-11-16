@@ -240,12 +240,13 @@ public class PlayerColor : MonoBehaviour
         return playerCombinedColorNo.Equals(targetColorNo);
     }
 
-
+    
     private void OnTriggerEnter(Collider _other)
     {
-        if (_other.CompareTag("NPC_Color"))
+        Debug.Log("충돌 검사!");
+        if (_other.CompareTag("NPC"))
         {
-            NPCColor npcColor = _other.GetComponent<NPCColor>();
+            npcColor = _other.GetComponent<NPCColor>();
             if (npcColor == null)
             {
                 Debug.Log("NPCColor 없음 " + _other.name);
@@ -263,8 +264,5 @@ public class PlayerColor : MonoBehaviour
             }
         }
     }
-
-
-
     
 }

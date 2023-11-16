@@ -9,6 +9,7 @@ TagManager:
   - WeakAnimal
   - StrongAnimal
   - RotateObject
+  - NPC
   layers:
   - Default
   - TransparentFX
