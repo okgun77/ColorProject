@@ -8,14 +8,14 @@ public class PlayerColor : MonoBehaviour
     [SerializeField] private ColorTable colorTable; // 색상 테이블
     [SerializeField] private UIManager uiManager; // UIManager
     
-    private List<string> getColors = new List<string>(); // 플레이어가 습득한 색상 번호 목록
+    private List<string> playerColors = new List<string>(); // 플레이어가 습득한 색상 번호 목록
     private bool isColorLocked; // 색상 고정
 
     private NPCColor npcColor;
     
     void Start()
     {
-        getColors = new List<string>();
+        playerColors = new List<string>();
         // 초기 색상 설정을 위한 호출
         UpdatePlayerColor();
     }
@@ -28,14 +28,14 @@ public class PlayerColor : MonoBehaviour
         Debug.Log($"습득한 색상: {_colorNo}");
         
         // 색상이 검은색으로 고정되었다면 새로운 색상 추가를 하지 않음
-        if (isColorLocked || getColors.Contains(_colorNo)) // 이미 가진 색상인지 확인
+        if (isColorLocked || playerColors.Contains(_colorNo)) // 이미 가진 색상인지 확인
             return;
 
-        getColors.Add(_colorNo);
+        playerColors.Add(_colorNo);
         
-        Debug.Log($"색상 {_colorNo} 추가 후 getColors 리스트: {string.Join(", ", getColors)}");
+        Debug.Log($"색상 {_colorNo} 추가 후 getColors 리스트: {string.Join(", ", playerColors)}");
         
-        if (getColors.Count >= 5) // 색상 수가 5개 이상이면 검은색으로 설정
+        if (playerColors.Count >= 5) // 색상 수가 5개 이상이면 검은색으로 설정
         {
             LockColorToBlack();
         }
@@ -54,8 +54,8 @@ public class PlayerColor : MonoBehaviour
         //     getColors = new List<string>();
         // }
 
-        Debug.Log($"getColors 리스트 내용: {string.Join(", ", getColors)}");
-        var currentColorList = new List<string>(getColors);
+        Debug.Log($"playerColors 리스트 내용: {string.Join(", ", playerColors)}");
+        var currentColorList = new List<string>(playerColors);
         Debug.Log($"currentColorList 반환 리스트: {string.Join(", ", currentColorList)}");
         return currentColorList;
         
@@ -138,25 +138,25 @@ public class PlayerColor : MonoBehaviour
         if (isColorLocked) return; // 색상이 고정되었다면 업데이트하지 않음
         
         // 현재 getColors 리스트의 내용 출력
-        Debug.Log($"현재 getColors 리스트: {string.Join(", ", getColors)}");
+        Debug.Log($"현재 getColors 리스트: {string.Join(", ", playerColors)}");
         
         // 기본 색상으로 초기화
         Color colorToApply = Color.white;
 
         // 습득한 색상이 하나뿐인 경우 해당 색상을 적용
-        if (getColors.Count == 1)
+        if (playerColors.Count == 1)
         {
-            colorToApply = colorTable.GetBasicColor(getColors[0]).ColorValue;
+            colorToApply = colorTable.GetBasicColor(playerColors[0]).ColorValue;
         }
-        else if (getColors.Count > 1)
+        else if (playerColors.Count > 1)
         {
             // 혼합 색상 계산
-            string mixedColorNo = getColors[0]; // 초기 혼합 색상 번호를 첫 번째 습득한 색상으로 설정
+            string mixedColorNo = playerColors[0]; // 초기 혼합 색상 번호를 첫 번째 습득한 색상으로 설정
 
             // 혼합 색상을 반복하여 계산
-            for (int i = 1; i < getColors.Count; i++)
+            for (int i = 1; i < playerColors.Count; i++)
             {
-                ColorBasicInfo mixedColorInfo = colorTable.MixColors(mixedColorNo, getColors[i]);
+                ColorBasicInfo mixedColorInfo = colorTable.MixColors(mixedColorNo, playerColors[i]);
                 if (mixedColorInfo != null)
                 {
                     // 성공적으로 혼합된 색상을 적용
@@ -182,7 +182,7 @@ public class PlayerColor : MonoBehaviour
         SetColor(colorToApply);
      
         // 색상 업데이트 후 UIManager의 UI 업데이트 메소드 호출
-        uiManager.UpdateColorUI(getColors);
+        uiManager.UpdateColorUI(playerColors);
         
     }
 
@@ -190,11 +190,12 @@ public class PlayerColor : MonoBehaviour
     public void ResetColor()
     {
         isColorLocked = false; // 색상 고정 해제
-        getColors.Clear();
+        playerColors.Clear();
         UpdatePlayerColor();
-        uiManager.UpdateColorUI(getColors);
+        uiManager.UpdateColorUI(playerColors);
     }
 
+    /*
     public bool IsTargetColorAchieved(ColorBasicInfo _targetColor)
     {
         if (_targetColor == null)
@@ -215,6 +216,7 @@ public class PlayerColor : MonoBehaviour
 
         return playerCombinedColorNo.Equals(targetColorNo);
     }
+    */
 
     public void PlayerColorCombineInfo(ColorBasicInfo _targetColor)
     {

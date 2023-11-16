@@ -9,7 +9,6 @@ public class NPCColor : MonoBehaviour
     [SerializeField] private NPCType type; // NPC의 유형
     [SerializeField] private ColorTable colorTable; // 색상 테이블 참조
     
-
     // 프로퍼티
     public string ColorNo => colorNo;
     public NPCType Type => type;
@@ -53,7 +52,6 @@ public class NPCColor : MonoBehaviour
         }
     }
     */
-
 
     // NPC의 색상 적용
     private void ApplyColor()
