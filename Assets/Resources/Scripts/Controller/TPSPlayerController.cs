@@ -138,12 +138,12 @@ public class TPSPlayerController : MonoBehaviour
             // 踰꾩옱 諛⑺뼢쇰줈 鍮좊Ⅴ寃대룞⑸땲
             Vector3 direction = CalculateMoveDirection(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
             transform.position += direction * Run * Time.deltaTime;
-                anim.SetBool("isRuning", true);
+                anim.SetBool("isRunning", true);
         }
         else
         {
             if(Input.GetKeyUp(KeyCode.LeftShift))
-            anim.SetBool("isRuning", false);
+            anim.SetBool("isRunning", false);
         }
     }
 
