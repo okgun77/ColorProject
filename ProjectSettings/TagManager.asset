@@ -10,6 +10,7 @@ TagManager:
   - StrongAnimal
   - RotateObject
   - NPC
+  - KnockDownCube
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - PlayerCapsule
   - 
   - NPC
-  - 
+  - KnockBackCube
   - 
   - 
   - 

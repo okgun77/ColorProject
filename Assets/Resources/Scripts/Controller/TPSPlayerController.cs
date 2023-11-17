@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -36,7 +37,7 @@ public class TPSPlayerController : MonoBehaviour
         
         HandleMovementInput();
         HandleJumpInput();
-       
+
         //if (isMoving)
         //{
         //    // 움직임이 감지되면 움직임 방향을 계산하고 캐릭터를 움직입니다.
@@ -52,8 +53,16 @@ public class TPSPlayerController : MonoBehaviour
         //    SoundManager.Instance.StopSE(WalkSound);
         //}
 
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Debug.Log("LeftShift pressed");
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            Debug.Log("LeftShift released");
+        }
        
-        RunCharacter();
     }
 
     private void FixedUpdate()
@@ -61,31 +70,32 @@ public class TPSPlayerController : MonoBehaviour
         PerformJump();
     }
 
-    // 대룞 낅젰泥섎━⑸땲
+    
     private void HandleMovementInput()
     {
         if (anim.GetBool("isJumping"))
         {
             return;
         }
+
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         bool isMoving = moveInput.magnitude > 0;
         anim.SetBool("isWalking", isMoving);
 
-     
-        //Vector3 moveDirection = CalculateMoveDirection(moveInput);
-        //moveDirection.y = 0f;
-        //if (isMoving)
-        //{
-        //    MoveCharacter(moveDirection);
-        //}
-        //RotateCharacter(isMoving ? moveDirection : camera.forward);
         if (isMoving)
         {
             Vector3 moveDirection = CalculateMoveDirection(moveInput);
-            MoveCharacter(moveDirection);
+            bool isRunning = Input.GetKey(KeyCode.LeftShift);
+            float currentSpeed = isRunning ? Run : movementSpeed; // LeftShift가 눌려있으면 Run 속도, 아니면 기본 이동 속도 사용
+
+            MoveCharacter(moveDirection, currentSpeed);
             RotateCharacter(moveDirection);
 
+            anim.SetBool("isRunning", isRunning); // 달리기 상태 애니메이션 업데이트
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
         }
     }
 
@@ -100,6 +110,7 @@ public class TPSPlayerController : MonoBehaviour
 
     }
 
+    
     // 臾쇰━ 湲곕컲 먰봽瑜섑뻾⑸땲
     private void PerformJump()
     {
@@ -116,7 +127,7 @@ public class TPSPlayerController : MonoBehaviour
 
     }
 
-    // 대룞 諛⑺뼢怨꾩궛⑸땲
+   
     private Vector3 CalculateMoveDirection(Vector2 input)
     {
         Vector3 forward = ViewCamera.forward.FlattenVector();
@@ -124,40 +135,25 @@ public class TPSPlayerController : MonoBehaviour
         return (forward * input.y + right * input.x).normalized;
     }
 
-    // 罹먮┃곕 대룞쒗궢덈떎.
-    private void MoveCharacter(Vector3 direction)
+   
+    private void MoveCharacter(Vector3 direction, float speed)
     {
-        transform.position += direction * movementSpeed * Time.deltaTime;
+        transform.position += direction * speed * Time.deltaTime;
     }
 
-    private void RunCharacter()
-    {
-        
-            if (Input.GetKey(KeyCode.LeftShift))
-        {
-            // 踰꾩옱 諛⑺뼢쇰줈 鍮좊Ⅴ寃대룞⑸땲
-            Vector3 direction = CalculateMoveDirection(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-            transform.position += direction * Run * Time.deltaTime;
-                anim.SetBool("isRuning", true);
-        }
-        else
-        {
-            if(Input.GetKeyUp(KeyCode.LeftShift))
-            anim.SetBool("isRuning", false);
-        }
-    }
+  
 
-    // 罹먮┃곕 뚯쟾쒗궢덈떎.
+    
     private void RotateCharacter(Vector3 direction)
     {
-        direction.y = 0f; // 뚮젅댁뼱癒몃━諛뺢퀬띠쑝硫쒖꽦
+        direction.y = 0f; 
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         Character.rotation = Quaternion.Slerp(Character.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         //character.rotation = targetRotation;
     }
 
-    // 罹먮┃곌 諛붾떏덈뒗吏 뺤씤⑸땲
-    private bool IsGrounded()
+   
+    public bool IsGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, distanceToGround, groundLayer);
     }
