@@ -9,16 +9,16 @@ public class FieldOfViewAngle : MonoBehaviour
     [SerializeField] private float viewDistance; // 시야거리 (10미터);
     [SerializeField] private LayerMask targetMask; // 타겟 마스크 (플레이어)
 
-    private TPSPlayerController thePlayer;
+    private NPCColor npcColor;
 
     void Start()
     {
-        thePlayer = FindObjectOfType<TPSPlayerController>();   
+        npcColor = FindObjectOfType<NPCColor>();   
     }
 
     public Vector3 GetTargetPos()
     {
-        return thePlayer.transform.position;
+        return npcColor.transform.position;
     }
 
     public bool View()

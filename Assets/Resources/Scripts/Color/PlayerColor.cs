@@ -232,6 +232,7 @@ public class PlayerColor : MonoBehaviour
     private void OnTriggerEnter(Collider _other)
     {
         Debug.Log("충돌 검사!");
+        Debug.Log(_other.name);
         if (_other.CompareTag("NPC"))
         {
             npcColor = _other.GetComponent<NPCColor>();
