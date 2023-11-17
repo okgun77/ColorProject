@@ -4,52 +4,56 @@ using UnityEngine;
 
 public class CameraCT : MonoBehaviour
 {
-    public Transform Object; // Ä«¸Ş¶ó°¡ µû¶ó°¥ ´ë»ó °´Ã¼
+    public Transform Object; // ì¹´ë©”ë¼ê°€ ë”°ë¼ê°ˆ ëŒ€ìƒ ê°ì²´
 
-    public Vector3 PosCam; // Ä«¸Ş¶óÀÇ ÃÊ±â À§Ä¡
-    public float VelZoom; // ÁÜ ÀÎ/¾Æ¿ô ¼Óµµ
-    public float MinZoom; // ÃÖ¼Ò ÁÜ °Å¸®
-    public float MaxZoom; // ÃÖ´ë ÁÜ °Å¸®
-    public float VelRot = 100; // È¸Àü ¼Óµµ
-    private float ZoomActural = 1; // ÇöÀç ÁÜ ·¹º§
-    private float AlturaCam; // Ä«¸Ş¶óÀÇ ³ôÀÌ
-    public float AlturaCamInput = 1; // »ç¿ëÀÚ ÀÔ·Â¿¡ ÀÇÇÑ Ä«¸Ş¶ó ³ôÀÌ Á¶Á¤ °ª
-    public float Maxlutra = -10; // Ä«¸Ş¶óÀÇ ÃÖ´ë ³ôÀÌ Á¦ÇÑ
-    public float Minaltura = -0.5f; // Ä«¸Ş¶óÀÇ ÃÖ¼Ò ³ôÀÌ Á¦ÇÑ
-    private float Rotinput; // È¸Àü ÀÔ·Â °ª
+    public Vector3 PosCam; // ì¹´ë©”ë¼ì˜ ì´ˆê¸° ìœ„ì¹˜
+    public float VelZoom; // ì¤Œ ì¸/ì•„ì›ƒ ì†ë„
+    public float MinZoom; // ìµœì†Œ ì¤Œ ê±°ë¦¬
+    public float MaxZoom; // ìµœëŒ€ ì¤Œ ê±°ë¦¬
+    public float VelRot = 100; // íšŒì „ ì†ë„
+    private float ZoomActural = 1; // í˜„ì¬ ì¤Œ ë ˆë²¨
+    private float AlturaCam; // ì¹´ë©”ë¼ì˜ ë†’ì´
+    public float AlturaCamInput = 1; // ì‚¬ìš©ì ì…ë ¥ì— ì˜í•œ ì¹´ë©”ë¼ ë†’ì´ ì¡°ì • ê°’
+    public float Maxlutra = -10; // ì¹´ë©”ë¼ì˜ ìµœëŒ€ ë†’ì´ ì œí•œ
+    public float Minaltura = -0.5f; // ì¹´ë©”ë¼ì˜ ìµœì†Œ ë†’ì´ ì œí•œ
+    private float Rotinput; // íšŒì „ ì…ë ¥ ê°’
 
     private void Start()
     {
-        AlturaCam = PosCam.y; // ½ÃÀÛ ½Ã Ä«¸Ş¶ó ³ôÀÌ ÃÊ±âÈ­
-        Screen.lockCursor = true; // ¸¶¿ì½º Ä¿¼­¸¦ Àá±Ş´Ï´Ù (Ä¿¼­ ¼û±è)
+        AlturaCam = PosCam.y; // ì‹œì‘ ì‹œ ì¹´ë©”ë¼ ë†’ì´ ì´ˆê¸°í™”
+        Screen.lockCursor = true; // ë§ˆìš°ìŠ¤ ì»¤ì„œë¥¼ ì ê¸‰ë‹ˆë‹¤ (ì»¤ì„œ ìˆ¨ê¹€)
     }
 
     private void Update()
     {
-        // ¸¶¿ì½º ½ºÅ©·Ñ¿¡ µû¶ó ÁÜ ·¹º§À» Á¶Á¤ÇÕ´Ï´Ù.
+        // ë§ˆìš°ìŠ¤ ìŠ¤í¬ë¡¤ì— ë”°ë¼ ì¤Œ ë ˆë²¨ì„ ì¡°ì •í•©ë‹ˆë‹¤.
         ZoomActural -= Input.GetAxis("Mouse ScrollWheel") * VelZoom;
-        // ¸¶¿ì½º YÃà ÀÔ·Â¿¡ µû¶ó Ä«¸Ş¶ó ³ôÀÌ¸¦ Á¶ÀıÇÕ´Ï´Ù.
+        // ë§ˆìš°ìŠ¤ Yì¶• ì…ë ¥ì— ë”°ë¼ ì¹´ë©”ë¼ ë†’ì´ë¥¼ ì¡°ì ˆí•©ë‹ˆë‹¤.
         AlturaCam = -Input.GetAxis("Mouse Y") * 5 * Time.deltaTime;
-        AlturaCamInput -= AlturaCam; // ³ôÀÌ ÀÔ·Â °ªÀ» ´©ÀûÇÕ´Ï´Ù.
+        AlturaCamInput -= AlturaCam; // ë†’ì´ ì…ë ¥ ê°’ì„ ëˆ„ì í•©ë‹ˆë‹¤.
 
-        // Ä«¸Ş¶ó ³ôÀÌ¸¦ Á¦ÇÑ ¹üÀ§ ³»·Î °íÁ¤ÇÕ´Ï´Ù.
+        // ì¹´ë©”ë¼ ë†’ì´ë¥¼ ì œí•œ ë²”ìœ„ ë‚´ë¡œ ê³ ì •í•©ë‹ˆë‹¤.
         AlturaCamInput = Mathf.Clamp(AlturaCamInput, Maxlutra, Minaltura);
 
-        PosCam.y = AlturaCamInput; // Ä«¸Ş¶ó ³ôÀÌ¸¦ ¾÷µ¥ÀÌÆ®ÇÕ´Ï´Ù.
-        // ÁÜ ·¹º§À» Á¦ÇÑ ¹üÀ§ ³»·Î °íÁ¤ÇÕ´Ï´Ù.
+        PosCam.y = AlturaCamInput; // ì¹´ë©”ë¼ ë†’ì´ë¥¼ ì—…ë°ì´íŠ¸í•©ë‹ˆë‹¤.
+        // ì¤Œ ë ˆë²¨ì„ ì œí•œ ë²”ìœ„ ë‚´ë¡œ ê³ ì •í•©ë‹ˆë‹¤.
         ZoomActural = Mathf.Clamp(ZoomActural, MinZoom, MaxZoom);
 
-        // ¸¶¿ì½º XÃà ÀÔ·Â¿¡ µû¶ó È¸Àü ÀÔ·Â °ªÀ» Á¶ÀıÇÕ´Ï´Ù.
+        // ë§ˆìš°ìŠ¤ Xì¶• ì…ë ¥ì— ë”°ë¼ íšŒì „ ì…ë ¥ ê°’ì„ ì¡°ì ˆí•©ë‹ˆë‹¤.
         Rotinput -= Input.GetAxis("Mouse X") * VelRot * Time.deltaTime;
+
+        // ì¹´ë©”ë¼ ìœ„ì¹˜ë¥¼ ëŒ€ìƒ ê°ì²´ì— ëŒ€í•œ ì˜¤í”„ì…‹ìœ¼ë¡œ ì—…ë°ì´íŠ¸í•©ë‹ˆë‹¤.
+        transform.position = Object.position - PosCam * ZoomActural;
+        // ëŒ€ìƒ ê°ì²´ë¥¼ ë°”ë¼ë³´ë„ë¡ ì¹´ë©”ë¼ë¥¼ íšŒì „í•©ë‹ˆë‹¤.
+        transform.LookAt(Object.position);
+        // ëŒ€ìƒ ê°ì²´ ì£¼ìœ„ë¥¼ íšŒì „ ì…ë ¥ ê°’ì— ë”°ë¼ íšŒì „í•©ë‹ˆë‹¤.
+        transform.RotateAround(Object.position, Vector3.up, -Rotinput);
     }
 
     private void LateUpdate()
     {
-        // Ä«¸Ş¶ó À§Ä¡¸¦ ´ë»ó °´Ã¼¿¡ ´ëÇÑ ¿ÀÇÁ¼ÂÀ¸·Î ¾÷µ¥ÀÌÆ®ÇÕ´Ï´Ù.
-        transform.position = Object.position - PosCam * ZoomActural;
-        // ´ë»ó °´Ã¼¸¦ ¹Ù¶óº¸µµ·Ï Ä«¸Ş¶ó¸¦ È¸ÀüÇÕ´Ï´Ù.
-        transform.LookAt(Object.position);
-        // ´ë»ó °´Ã¼ ÁÖÀ§¸¦ È¸Àü ÀÔ·Â °ª¿¡ µû¶ó È¸ÀüÇÕ´Ï´Ù.
-        transform.RotateAround(Object.position, Vector3.up, -Rotinput);
+       
     }
+
+    
 }
