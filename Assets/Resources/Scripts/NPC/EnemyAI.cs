@@ -16,8 +16,8 @@ public class EnemyAI : MonoBehaviour
     private NPCColor npcColor;
     private NavMeshAgent nav;
     private float wanderTimer;
-    private Animator anim;
 
+    private Animator anim;
     
     
     private void Awake()
@@ -30,6 +30,12 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         wanderTimer = Random.Range(1f, 2f);
+        // AnimRandomStart();
+        
+        // 애니메이션 시작 시점을 무작위로 설정
+        float randomStartTime = Random.Range(0.0f, 1.0f); // 0과 1 사이의 무작위 값
+        anim.Play("walk", 0, randomStartTime); // "Walk"는 재생할 애니메이션 상태의 이름
+        SetAnimation(true, false); // 기본 상태로 걷는 애니메이션 활성화
     }
 
     private void Update()
@@ -37,6 +43,13 @@ public class EnemyAI : MonoBehaviour
         NPCStatusChange();
     }
 
+    private void AnimRandomStart()
+    {
+        // 애니메이션 시작 시점을 무작위로 설정
+        float randomStartTime = Random.Range(0.0f, 1.0f); // 0과 1 사이의 무작위 값
+        anim.Play("RUN", 0, randomStartTime); // "Walk"는 재생할 애니메이션 상태의 이름
+        SetAnimation(true, false); // 기본 상태로 걷는 애니메이션 활성화
+    }
     // 플레이어 컬러매치 상태에 따른 NPC 행동 변경
     private void NPCStatusChange()
     {
@@ -89,6 +102,7 @@ public class EnemyAI : MonoBehaviour
             nav.speed = moveSpeed;
             nav.SetDestination(newPos);
             wanderTimer = Random.Range(1f, 2f);
+            SetAnimation(true, false); // 걷는 애니메이션 활성화
         }
     }
 
@@ -98,6 +112,8 @@ public class EnemyAI : MonoBehaviour
         Vector3 newPos = transform.position + directionToPlayer.normalized * runDistance;
         nav.speed = runSpeed;
         nav.SetDestination(newPos);
+        // SetAnimation(false, true); // 뛰는 애니메이션 활성화
+        SetAnimation(true, false); // 걷는 애니메이션 활성화
     }
 
     void Chase()
@@ -106,6 +122,7 @@ public class EnemyAI : MonoBehaviour
         Vector3 newPos = transform.position + directionToPlayer.normalized * chaseDistance;
         nav.speed = chaseSpeed;
         nav.SetDestination(newPos);
+        SetAnimation(true, false); // 걷는 애니메이션 활성화
     }
 
     bool IsPlayerInRange()
@@ -151,5 +168,12 @@ public class EnemyAI : MonoBehaviour
         NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
 
         return navHit.position;
+    }
+    
+    
+    private void SetAnimation(bool isWalking, bool isRunning)
+    {
+        anim.SetBool("isWalking", isWalking);
+        anim.SetBool("isRunning", isRunning);
     }
 }

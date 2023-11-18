@@ -7,13 +7,13 @@ using UnityEngine.EventSystems;
 
 public class TPSPlayerController : MonoBehaviour
 {
-    [SerializeField] private LayerMask groundLayer; // 諛붾떏앸퀎섍린 꾪븳 덉씠留덉뒪
+    [SerializeField] private LayerMask groundLayer; // 바닥 식별을 위한 LayerMask
     [SerializeField] private Transform Character;
     [SerializeField] private Transform ViewCamera;
-    [SerializeField] private float movementSpeed = 5f; // 대룞 띾룄
-    [SerializeField] private float rotationSpeed = 10f; // 뚯쟾 띾룄
-    [SerializeField] private float jumpPower = 5f; // 먰봽 
-    [SerializeField] private float distanceToGround = 0.2f; // 諛붾떏怨쇱쓽 嫄곕━
+    [SerializeField] private float movementSpeed = 5f; // 이동 속도
+    [SerializeField] private float rotationSpeed = 10f; // 회전 속도
+    [SerializeField] private float jumpPower = 5f; // 점프 힘 
+    [SerializeField] private float distanceToGround = 0.2f; // 바닥과의 거리
     [SerializeField] private float Run = 7f;
 
   
@@ -21,7 +21,7 @@ public class TPSPlayerController : MonoBehaviour
     private Rigidbody rb;
     private bool _jump;
 
-    private const string JumpButton = "Jump"; // 먰봽 踰꾪듉
+    private const string JumpButton = "Jump"; // 점프 버튼
 
 
     //Sound
@@ -110,7 +110,7 @@ public class TPSPlayerController : MonoBehaviour
         }
     }
 
-    // 먰봽 낅젰泥섎━⑸땲
+    // 점프 입력 처리
     private void HandleJumpInput()
     {
         if (Input.GetButtonDown(JumpButton) && IsGrounded())
@@ -122,7 +122,7 @@ public class TPSPlayerController : MonoBehaviour
     }
 
     
-    // 臾쇰━ 湲곕컲 먰봽瑜섑뻾⑸땲
+    // 물리 기반 점프 수행
     private void PerformJump()
     {
         if (_jump)
@@ -172,7 +172,7 @@ public class TPSPlayerController : MonoBehaviour
 
 public static class VectorExtensions
 {
-    // 踰≫꽣瑜됲깂뷀빀덈떎. (Y異媛믪쓣 쒓굅)
+    // 벡터 평탄화(Y축 값 제거)
     public static Vector3 FlattenVector(this Vector3 vector)
     {
         return new Vector3(vector.x, 0f, vector.z).normalized;
