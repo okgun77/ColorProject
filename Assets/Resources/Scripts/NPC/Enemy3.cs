@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy2 : MonoBehaviour
+public class Enemy3 : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 0.1f;
     [SerializeField] private float runSpeed = 0.2f;
-    [SerializeField] private float runDistance = 5f; // Player와의 거리
+    [SerializeField] private float chaseSpeed = 0.3f;
+    [SerializeField] private float runDistance = 3f; // Player와의 거리
+    [SerializeField] private float chaseDistance = 3f; // Player를 쫓아가는 거리
     private NavMeshAgent nav;
     private float wanderTimer;
 
@@ -16,15 +18,17 @@ public class Enemy2 : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         wanderTimer = Random.Range(1f, 2f);
     }
+
     void Update()
     {
-        if (!IsPlayerInRange())
+        if (!IsPlayerInChaseRange())
         {
             Wander();
         }
         else
-        {
-            Flee();
+        {           
+        Chase();
+                     
         }
     }
 
@@ -38,14 +42,22 @@ public class Enemy2 : MonoBehaviour
             nav.speed = moveSpeed;
             nav.SetDestination(newPos);
             wanderTimer = Random.Range(1f, 2f);
-
         }
     }
+
     void Flee()
     {
         Vector3 directionToPlayer = transform.position - GetPlayerPosition();
         Vector3 newPos = transform.position + directionToPlayer.normalized * runDistance;
         nav.speed = runSpeed;
+        nav.SetDestination(newPos);
+    }
+
+    void Chase()
+    {
+        Vector3 directionToPlayer = GetPlayerPosition() - transform.position;
+        Vector3 newPos = transform.position + directionToPlayer.normalized * chaseDistance;
+        nav.speed = chaseSpeed;
         nav.SetDestination(newPos);
     }
 
@@ -59,6 +71,18 @@ public class Enemy2 : MonoBehaviour
         }
         return false;
     }
+
+    bool IsPlayerInChaseRange()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            float distance = Vector3.Distance(transform.position, player.transform.position);
+            return distance <= chaseDistance;
+        }
+        return false;
+    }
+
     Vector3 GetPlayerPosition()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");

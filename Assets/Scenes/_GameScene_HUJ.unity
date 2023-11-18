@@ -6126,58 +6126,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 343358500}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &343358503 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 4796169790788417365, guid: 89a7014c159e6a041ba2b1f8f9add9a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 343358500}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &343358504 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 4796169790788417364, guid: 89a7014c159e6a041ba2b1f8f9add9a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 343358500}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &343358505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343358502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65133d882457b8d4789e5218b63d3b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewAngle: 360
-  viewDistance: 3
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &343358506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343358502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edab0fd9a57fdbd4dafd732908ec638d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyName: 
-  hp: 0
-  walkSpeed: 1.5
-  runSpeed: 1.5
-  walkTime: 0.1
-  waitTime: 0.1
-  runTime: 1
-  rigid: {fileID: 343358504}
-  boxCol: {fileID: 343358503}
-  ChaseTime: 1
-  ChaseDelayTime: 1
 --- !u!195 &343358507
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6200,6 +6148,23 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &343358508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343358502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8d2de241aa0bf498ed26f1d51d25e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.1
+  runSpeed: 0.5
+  chaseSpeed: 0.5
+  runDistance: 3
+  chaseDistance: 3
 --- !u!1001 &346082101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13607,18 +13572,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 622867360}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &622867363 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 4796169790788417365, guid: 89a7014c159e6a041ba2b1f8f9add9a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 622867360}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &622867364 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 4796169790788417364, guid: 89a7014c159e6a041ba2b1f8f9add9a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 622867360}
-  m_PrefabAsset: {fileID: 0}
 --- !u!195 &622867365
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -13650,37 +13603,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 622867362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65133d882457b8d4789e5218b63d3b51, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b8d2de241aa0bf498ed26f1d51d25e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewAngle: 360
-  viewDistance: 3
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &622867367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 622867362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edab0fd9a57fdbd4dafd732908ec638d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyName: 
-  hp: 0
-  walkSpeed: 1.5
-  runSpeed: 1.5
-  walkTime: 0.1
-  waitTime: 0.1
-  runTime: 1
-  rigid: {fileID: 622867364}
-  boxCol: {fileID: 622867363}
-  ChaseTime: 1
-  ChaseDelayTime: 1
+  moveSpeed: 0.1
+  runSpeed: 0.5
+  chaseSpeed: 0.5
+  runDistance: 3
+  chaseDistance: 3
 --- !u!1001 &624546614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22414,18 +22344,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 915934397}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &915934400 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 4796169790788417365, guid: 89a7014c159e6a041ba2b1f8f9add9a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 915934397}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &915934401 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 4796169790788417364, guid: 89a7014c159e6a041ba2b1f8f9add9a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 915934397}
-  m_PrefabAsset: {fileID: 0}
 --- !u!195 &915934402
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -22457,37 +22375,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 915934399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65133d882457b8d4789e5218b63d3b51, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b8d2de241aa0bf498ed26f1d51d25e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewAngle: 360
-  viewDistance: 3
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &915934404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915934399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edab0fd9a57fdbd4dafd732908ec638d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyName: 
-  hp: 0
-  walkSpeed: 1.5
-  runSpeed: 1.5
-  walkTime: 0.1
-  waitTime: 0.1
-  runTime: 1
-  rigid: {fileID: 915934401}
-  boxCol: {fileID: 915934400}
-  ChaseTime: 1
-  ChaseDelayTime: 1
+  moveSpeed: 0.1
+  runSpeed: 0.5
+  chaseSpeed: 0.5
+  runDistance: 3
+  chaseDistance: 3
 --- !u!4 &919950864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7818468097830316218, guid: 0389ab7bd7ff0744781b22c952dfe6a8,
@@ -27403,8 +27298,18 @@ PrefabInstance:
       objectReference: {fileID: 1229714848}
     - target: {fileID: 7843973464957915135, guid: fe2f603ab7f678d43989f51b3eba7ef4,
         type: 3}
+      propertyPath: m_Speed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843973464957915135, guid: fe2f603ab7f678d43989f51b3eba7ef4,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843973464957915135, guid: fe2f603ab7f678d43989f51b3eba7ef4,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3440065765462722566, guid: fe2f603ab7f678d43989f51b3eba7ef4, type: 3}
@@ -27437,8 +27342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626d9ca12219ad94db26beb6307871a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  runSpeed: 10
+  moveSpeed: 0.1
+  runSpeed: 0.5
   runDistance: 5
 --- !u!1 &1303804311
 GameObject:
@@ -27455,7 +27360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1303804312
 Transform:
   m_ObjectHideFlags: 0
@@ -30423,58 +30328,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1719342459}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1719342462 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 4796169790788417365, guid: 89a7014c159e6a041ba2b1f8f9add9a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1719342459}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1719342463 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 4796169790788417364, guid: 89a7014c159e6a041ba2b1f8f9add9a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1719342459}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1719342464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719342461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65133d882457b8d4789e5218b63d3b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewAngle: 360
-  viewDistance: 3
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &1719342465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719342461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edab0fd9a57fdbd4dafd732908ec638d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyName: 
-  hp: 0
-  walkSpeed: 1.5
-  runSpeed: 1.5
-  walkTime: 0.1
-  waitTime: 0.1
-  runTime: 1
-  rigid: {fileID: 1719342463}
-  boxCol: {fileID: 1719342462}
-  ChaseTime: 1
-  ChaseDelayTime: 1
 --- !u!195 &1719342466
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -30497,6 +30350,23 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1719342467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719342461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8d2de241aa0bf498ed26f1d51d25e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.1
+  runSpeed: 0.5
+  chaseSpeed: 0.5
+  runDistance: 3
+  chaseDistance: 3
 --- !u!1001 &1750288332
 PrefabInstance:
   m_ObjectHideFlags: 0
