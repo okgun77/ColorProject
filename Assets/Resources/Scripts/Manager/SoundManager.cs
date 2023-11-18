@@ -78,15 +78,16 @@ public class SoundManager : MonoBehaviour
     [Header("게임오버 관련 사운드")]
     public string gamaOverSound;
     [Header("주인공 관련 사운드")]
-    public string PlayerWalkSound;
-  
+    public string PlayerRightWalk;
+    public string PlayerLeftWalk;
+    public string PlayerJumpSound;
     [Header("물통적 관련 사운드")]
     public string WaterWalkSound;
    
 
     [Header("색깔적 관련 사운드")]
-    public string ColorRunSound;
-    public string ColorWalkSound;
+    public string earncolorSound;
+    public string resetcolorSound;
 
 
 
