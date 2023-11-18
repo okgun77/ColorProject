@@ -13,7 +13,6 @@ public class PlayerColor : MonoBehaviour
 
     private NPCColor npcColor;
 
-    
     public void Init()
     {
         playerColors = new List<string>();
@@ -21,6 +20,7 @@ public class PlayerColor : MonoBehaviour
         UpdatePlayerColor();
     }
 
+    
     // 색상 습득 함수
     public void GetColor(string _colorNo)
     {
@@ -62,10 +62,10 @@ public class PlayerColor : MonoBehaviour
     private void UpdatePlayerColor()
     {
         if (isColorLocked) return; // 색상이 고정되었다면 업데이트하지 않음
-        
+
         // 현재 getColors 리스트의 내용 출력
         Debug.Log($"UpdatePlayerColor 호출 전 현재 getColors 리스트: {string.Join(", ", playerColors)}");
-        
+
         // 기본 색상으로 초기화
         Color colorToApply = Color.white;
 
@@ -103,15 +103,14 @@ public class PlayerColor : MonoBehaviour
         {
             renderer.material.color = colorToApply;
         }
-        
+
         // 적용할 색상 설정 후 Renderer에 적용
         SetColor(colorToApply);
-     
+
         // 색상 업데이트 후 UIManager의 UI 업데이트 메소드 호출
         uiManager.UpdateColorUI(playerColors);
     }
-    
-    
+
     
     // 플레이어 색상을 검은색으로 고정
     private void LockColorToBlack()
@@ -156,7 +155,6 @@ public class PlayerColor : MonoBehaviour
         
     }
 
-
     
     private void OnTriggerEnter(Collider _other)
     {
@@ -185,9 +183,6 @@ public class PlayerColor : MonoBehaviour
             }
         }
     }
-    
-    
-    
     
     
     // 주어진 색상 번호에 해당하는 Color 값을 반환하는 메소드

@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject loseScreen;
     [SerializeField] private GameObject colorMatchCheck;
-    
+
+    private bool isColorMatchSuccess = false;
     
     public static GameManager Instance { get; private set; }
     
@@ -53,8 +54,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 
-
-        
         timerManager.Init(elapseTime);
         
         // Application.targetFrameRate = 144;
@@ -113,7 +112,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-
     public void StartGame()
     {
         // 랜덤 타겟 색상 선택
@@ -150,7 +148,42 @@ public class GameManager : MonoBehaviour
         // 매칭 성공 인디케이터 비활성화
         uiManager.HideTargetColorMatchedIndicator();
     }
-
+    //
+    // public void EndGame()
+    // {
+    //     Debug.Log($"EndGame 호출 전 playerColors: {string.Join(", ", playerColor.GetCurrentColorList())}");
+    //
+    //     timerManager.StopTimer();
+    //
+    //     List<string> playerColorCodes = playerColor.GetCurrentColorList();
+    //
+    //     Debug.Log($"EndGame 호출 시 playerColors: {string.Join(", ", playerColorCodes)}");
+    //
+    //     string playerCombinedColorNo = string.Join("", playerColorCodes.OrderBy(c => c));
+    //     string targetColorNo = targetColorInfo.ColorNo;
+    //
+    //     Debug.Log($"플레이어 조합 색상: {playerCombinedColorNo}, 목표 색상: {targetColorNo}");
+    //
+    //     bool success = playerCombinedColorNo.Equals(targetColorNo);
+    //
+    //     if (success)
+    //     {
+    //         Debug.Log("컬러 매치 성공!!");
+    //         // colorMatchCheck.SetActive(true);
+    //         Screen.lockCursor = false;
+    //         winScreen.SetActive(true);
+    //         loseScreen.SetActive(false);
+    //     }
+    //     else
+    //     {
+    //         Debug.Log("컬러 매치 실패!!");
+    //         // 실패 화면 표시
+    //         Screen.lockCursor = false;
+    //         winScreen.SetActive(false);
+    //         loseScreen.SetActive(true);
+    //     }
+    // }
+    
     public void EndGame()
     {
         Debug.Log($"EndGame 호출 전 playerColors: {string.Join(", ", playerColor.GetCurrentColorList())}");
@@ -163,13 +196,13 @@ public class GameManager : MonoBehaviour
         
         string playerCombinedColorNo = string.Join("", playerColorCodes.OrderBy(c => c)); // 정렬하여 하나의 문자열로 결합
         string targetColorNo = targetColorInfo.ColorNo; // 목표 색상 번호
-
+    
         
         // Debug.Log($"(게임 종료) 플레이어 조합 색상: {playerCombinedColorNo}, Target color: {targetColorNo}");
         // Debug.Log($"(게임 종료) 플레이어 조합 색상: {playerCombinedColorNo}, 목표 색상: {targetColorNo}");
         
         bool success = playerCombinedColorNo.Equals(targetColorNo);
-
+    
         if(success)
         {
             Debug.Log("(게임 종료) 플레이어 색상조합 성공!");
@@ -209,33 +242,32 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("_MainMenuScene");
     }
 
+    
     public void ColorMatchCheck()
     {
-        Debug.Log($"ColorMatchCheck 호출 전 playerColors: {string.Join(", ", playerColor.GetCurrentColorList())}");
-        
         List<string> playerColorCodes = playerColor.GetCurrentColorList();
-        
-        Debug.Log($"ColorMatchCheck 호출 시 playerColors: {string.Join(", ", playerColorCodes)}");
-        
-        string playerCombinedColorNo = string.Join("", playerColorCodes.OrderBy(c => c)); // 정렬하여 하나의 문자열로 결합
-        string targetColorNo = targetColorInfo.ColorNo; // 목표 색상 번호
+        string playerCombinedColorNo = string.Join("", playerColorCodes.OrderBy(c => c));
+        string targetColorNo = targetColorInfo.ColorNo;
 
-        Debug.Log($"플레이어 컬러 코드!!!!!!!!!!!!!!: {string.Join(", ", playerColorCodes)}");
-        
-        
         Debug.Log($"플레이어 조합 색상: {playerCombinedColorNo}, 목표 색상: {targetColorNo}");
-        
 
         bool success = playerCombinedColorNo.Equals(targetColorNo);
 
-        if(success)
+        if (success)
         {
             Debug.Log("컬러 매치 성공!!");
-            
+            isColorMatchSuccess = true;
             colorMatchCheck.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("컬러 매치 실패");
+            isColorMatchSuccess = false;
+            colorMatchCheck.SetActive(false);
         }
     }
     
+
 }
 
 

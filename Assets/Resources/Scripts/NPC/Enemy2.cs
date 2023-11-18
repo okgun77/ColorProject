@@ -6,14 +6,17 @@ using UnityEngine.AI;
 public class Enemy2 : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float runSpeed = 10f;
-    [SerializeField] private float runDistance = 5f; // Player와의 거리
+    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float runSpeed = 3f;
+    [SerializeField] private float runDistance = 4f; // Player와의 거리
     private float wanderTimer;
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         wanderTimer = Random.Range(1f, 4f);
+        
+        // 이동 속도 초기화
+        navMeshAgent.speed = moveSpeed;
     }
     void Update()
     {
@@ -36,6 +39,9 @@ public class Enemy2 : MonoBehaviour
             Vector3 newPos = RandomNavSphere(transform.position, runDistance, -1);
             navMeshAgent.SetDestination(newPos);
             wanderTimer = Random.Range(1f, 2f);
+            
+            // 이동 속도 설정
+            navMeshAgent.speed = moveSpeed;
         }
     }
     void Flee()
@@ -43,6 +49,9 @@ public class Enemy2 : MonoBehaviour
         Vector3 directionToPlayer = transform.position - GetPlayerPosition();
         Vector3 newPos = transform.position + directionToPlayer.normalized * runDistance;
         navMeshAgent.SetDestination(newPos);
+        
+        // 이동 속도 설정
+        navMeshAgent.speed = moveSpeed;
     }
     bool IsPlayerInRange()
     {

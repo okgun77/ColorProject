@@ -2811,6 +2811,7 @@ GameObject:
   - component: {fileID: 7843973464957915135}
   - component: {fileID: 3210861108765211298}
   - component: {fileID: 6995500430395002934}
+  - component: {fileID: 6457824576857991007}
   m_Layer: 12
   m_Name: NPC_Animation
   m_TagString: NPC
@@ -2987,6 +2988,21 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 4096
+--- !u!114 &6457824576857991007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440065765462722564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626d9ca12219ad94db26beb6307871a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  runSpeed: 3
+  runDistance: 4
 --- !u!1 &3440065765516129706
 GameObject:
   m_ObjectHideFlags: 0
