@@ -86,15 +86,26 @@ public class TPSPlayerController : MonoBehaviour
         {
             Vector3 moveDirection = CalculateMoveDirection(moveInput);
             bool isRunning = Input.GetKey(KeyCode.LeftShift);
-            float currentSpeed = isRunning ? Run : movementSpeed; // LeftShift가 눌려있으면 Run 속도, 아니면 기본 이동 속도 사용
+            float currentSpeed = isRunning ? Run : movementSpeed;
 
             MoveCharacter(moveDirection, currentSpeed);
             RotateCharacter(moveDirection);
 
-            anim.SetBool("isRunning", isRunning); // 달리기 상태 애니메이션 업데이트
+            string currentSound = isRunning ? SoundManager.Instance.PlayerRightWalk : SoundManager.Instance.PlayerLeftWalk;
+
+            
+           // if (!SoundManager.Instance.IsPlaying(currentSound))
+            //{
+           //     SoundManager.Instance.PlaySE(currentSound);
+           // }
+
+            anim.SetBool("isRunning", isRunning);
         }
         else
         {
+            
+           // SoundManager.Instance.StopSE(SoundManager.Instance.PlayerRightWalk);
+            //SoundManager.Instance.StopSE(SoundManager.Instance.PlayerLeftWalk);
             anim.SetBool("isRunning", false);
         }
     }

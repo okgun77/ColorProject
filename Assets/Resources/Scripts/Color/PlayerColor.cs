@@ -246,8 +246,13 @@ public class PlayerColor : MonoBehaviour
             {
                 case NPCType.NPC_COLOR:
                     GetColor(npcColor.ColorNo);
+                    //습득 사운드
+                    SoundManager.Instance.PlaySE(SoundManager.Instance.earncolorSound);
                     break;
                 case NPCType.NPC_WATER:
+                    //리셋 사운드
+                    SoundManager.Instance.PlaySE(SoundManager.Instance.resetcolorSound);
+
                     ResetColor();
                     break;
             }
