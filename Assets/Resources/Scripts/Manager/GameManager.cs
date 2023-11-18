@@ -5,6 +5,8 @@ using TMPro;
 using System.Collections.Generic;
 using System.Linq;
 
+public enum EColorMatchStatus { MIX_ING, MIX_COMPLETE, MIX_FAIL }
+
 public class GameManager : MonoBehaviour
 {
     
@@ -19,12 +21,25 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerColor playerColor;
     private ColorBasicInfo targetColorInfo;
     private NPCColor npcColor;
+    private EnemyAI enemyAI;
 
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject loseScreen;
     [SerializeField] private GameObject colorMatchCheck;
 
     private bool isColorMatchSuccess = false;
+
+    private EColorMatchStatus colorMatchStatus = EColorMatchStatus.MIX_ING;
+
+    public EColorMatchStatus CurrentColorMatchStatus
+    {
+        get { return colorMatchStatus; }
+    }
+    
+    public bool IsColorMatchSuccess
+    {
+        get { return isColorMatchSuccess; }
+    }
     
     public static GameManager Instance { get; private set; }
     
@@ -48,7 +63,6 @@ public class GameManager : MonoBehaviour
         }
         
         playerColor.Init();
-        // npcColor.Init();
     }
 
     private void Start()
@@ -242,6 +256,47 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("_MainMenuScene");
     }
 
+    
+    // 컬러매칭중, 매칭실패, 매칭성공 상태 검사
+    public EColorMatchStatus GetCurrentColorMatchStatus()
+    {
+        List<string> playerColorCodes = playerColor.GetCurrentColorList();
+        string playerCombinedColorNo = string.Join("", playerColorCodes.OrderBy(c => c));
+        string targetColorNo = targetColorInfo.ColorNo;
+
+        // 성공적으로 목표 색상을 달성한 경우
+        if (playerCombinedColorNo.Equals(targetColorNo))
+        {
+            return EColorMatchStatus.MIX_COMPLETE;
+        }
+
+        // 플레이어 색상 조합이 목표 색상보다 길어진 경우 (실패)
+        if (playerCombinedColorNo.Length > targetColorNo.Length)
+        {
+            return EColorMatchStatus.MIX_FAIL;
+        }
+
+        // 목표 색상을 위해 필요한 색상들 생성
+        HashSet<string> requiredColors = new HashSet<string>();
+        for (int i = 0; i < targetColorNo.Length; i += 2)
+        {
+            requiredColors.Add(targetColorNo.Substring(i, 2));
+        }
+
+        // 플레이어가 습득한 색상 중 목표 색상에 필요하지 않은 색상이 있는지 확인
+        foreach (string color in playerColorCodes)
+        {
+            if (!requiredColors.Contains(color))
+            {
+                return EColorMatchStatus.MIX_FAIL;
+            }
+        }
+        
+        
+        // 아직 목표 색상을 달성하지 못한 경우
+        return EColorMatchStatus.MIX_ING;
+    }
+    
     
     public void ColorMatchCheck()
     {

@@ -12,6 +12,8 @@ public class NPCColor : MonoBehaviour
     // 프로퍼티
     public string ColorNo => colorNo;
     public NPCType Type => type;
+
+    
     
     // NPC의 기본 색상 설정
     private void Start()
