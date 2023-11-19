@@ -10234,11 +10234,11 @@ MonoBehaviour:
     m_Bits: 64
   Character: {fileID: 1558396592622711856}
   ViewCamera: {fileID: 0}
-  movementSpeed: 1.5
+  movementSpeed: 0.9
   rotationSpeed: 10
   jumpPower: 4
   distanceToGround: 0.2
-  Run: 2
+  Run: 1
   WalkSound: 
 --- !u!1 &1558396592634685505
 GameObject:

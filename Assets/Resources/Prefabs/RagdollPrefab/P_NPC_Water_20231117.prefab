@@ -2934,11 +2934,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec4d78d677a6c346ade578ed6c213ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
-  runSpeed: 0.8
-  chaseSpeed: 0.9
-  runDistance: 5
-  chaseDistance: 5
+  wanderSpeed: 0.3
+  fleeSpeed: 0.8
+  chaseSpeed: 1
+  runDistance: 3
+  chaseDistance: 2
 --- !u!1 &3440065765516129706
 GameObject:
   m_ObjectHideFlags: 0
