@@ -972,6 +972,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 2250702542300449911, guid: 8a7b6b477ad91db40adbf790261a366f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 022fa94109a56eb4abb0a10c141b7613, type: 2}
     - target: {fileID: 2315216937117439882, guid: 8a7b6b477ad91db40adbf790261a366f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1086,6 +1091,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147821346713721134, guid: 8a7b6b477ad91db40adbf790261a366f,
+        type: 3}
+      propertyPath: m_Name
+      value: CenterCylinder
       objectReference: {fileID: 0}
     - target: {fileID: 4147821346713721134, guid: 8a7b6b477ad91db40adbf790261a366f,
         type: 3}
@@ -15585,7 +15595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerManager: {fileID: 1678489859}
-  elapseTime: 20
+  elapseTime: 60
   uiManager: {fileID: 709475213}
   colorTable: {fileID: 1229714848}
   targetColorImage: {fileID: 1679496150}
