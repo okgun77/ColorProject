@@ -1,23 +1,12 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/_Import_Assets_/Hovl Studio/HSFiles/Textures/Flare21.png.meta
-guid: 947fe6f544d82394db98003a81460397
-========
 guid: 100221baada53b74489b25ac8b7e0120
->>>>>>>> main/11.20-™ì›-‘ì—…:Assets/_Import_Assets_/KriptoFX/MeshEffect/Textures/Noise.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-<<<<<<<< HEAD:Assets/_Import_Assets_/Hovl Studio/HSFiles/Textures/Flare21.png.meta
-  serializedVersion: 10
-  mipmaps:
-    mipMapMode: 0
-    enableMipMap: 0
-========
   serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
->>>>>>>> main/11.20-™ì›-‘ì—…:Assets/_Import_Assets_/KriptoFX/MeshEffect/Textures/Noise.png.meta
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -45,9 +34,9 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -100
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: -1
+    wrapV: -1
+    wrapW: -1
   nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
@@ -59,7 +48,7 @@ TextureImporter:
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 2
+  alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 0

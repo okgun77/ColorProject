@@ -212,37 +212,13 @@ public class PSMeshRendererUpdater : MonoBehaviour
     }
 
 
-    // void UpdateAlphaByProperties(string rendName, int materialNumber, Material mat, float alpha)
-    // {
-    //     foreach (var prop in colorProperties)
-    //     {
-    //         if (mat.HasProperty(prop))
-    //         {
-    //             var startAlpha = startAlphaColors[rendName + materialNumber + prop.ToString()];
-    //             var color = mat.GetColor(prop);
-    //             color.a = alpha * startAlpha;
-    //             mat.SetColor(prop, color);
-    //         }
-    //     }
-    // }
-
     void UpdateAlphaByProperties(string rendName, int materialNumber, Material mat, float alpha)
     {
         foreach (var prop in colorProperties)
         {
             if (mat.HasProperty(prop))
             {
-                string key = rendName + materialNumber + prop;
-
-                // 키가 사전에 존재하는지 확인
-                if (!startAlphaColors.ContainsKey(key))
-                {
-                    // 사전에 키가 없으면 로그를 출력하고 루프를 계속 진행
-                    Debug.LogWarning("Key not found in startAlphaColors: " + key);
-                    continue;
-                }
-
-                var startAlpha = startAlphaColors[key];
+                var startAlpha = startAlphaColors[rendName + materialNumber + prop.ToString()];
                 var color = mat.GetColor(prop);
                 color.a = alpha * startAlpha;
                 mat.SetColor(prop, color);
@@ -250,7 +226,6 @@ public class PSMeshRendererUpdater : MonoBehaviour
         }
     }
 
-    
     void GetStartAlphaByProperties(string rendName, int materialNumber, Material mat)
     {
         foreach (var prop in colorProperties)

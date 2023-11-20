@@ -1,19 +1,4 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/_Import_Assets_/Hovl Studio/HSFiles/Models/Conus.fbx.meta
-guid: 25ce058c1e3d07645ad3c004b15c262c
-ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: No Name
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Conus
-  externalObjects: {}
-  materials:
-    importMaterials: 0
-========
 guid: ccc5ad89a8470214c81f41c65811487b
 timeCreated: 1493998428
 licenseType: Store
@@ -27,7 +12,6 @@ ModelImporter:
     4300000: Plane001
   materials:
     importMaterials: 1
->>>>>>>> main/11.20-™ì›-‘ì—…:Assets/_Import_Assets_/KriptoFX/MeshEffect/DemoResources/Effects/Leave1.FBX.meta
     materialName: 0
     materialSearch: 1
   animations:
@@ -53,25 +37,13 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-<<<<<<<< HEAD:Assets/_Import_Assets_/Hovl Studio/HSFiles/Models/Conus.fbx.meta
-    importVisibility: 0
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
-========
-    importBlendShapes: 1
->>>>>>>> main/11.20-™ì›-‘ì—…:Assets/_Import_Assets_/KriptoFX/MeshEffect/DemoResources/Effects/Leave1.FBX.meta
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-<<<<<<<< HEAD:Assets/_Import_Assets_/Hovl Studio/HSFiles/Models/Conus.fbx.meta
-    preserveHierarchy: 0
-    indexFormat: 0
-========
->>>>>>>> main/11.20-™ì›-‘ì—…:Assets/_Import_Assets_/KriptoFX/MeshEffect/DemoResources/Effects/Leave1.FBX.meta
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -81,12 +53,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-<<<<<<<< HEAD:Assets/_Import_Assets_/Hovl Studio/HSFiles/Models/Conus.fbx.meta
-    normalCalculationMode: 4
-  importAnimation: 0
-========
   importAnimation: 1
->>>>>>>> main/11.20-™ì›-‘ì—…:Assets/_Import_Assets_/KriptoFX/MeshEffect/DemoResources/Effects/Leave1.FBX.meta
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

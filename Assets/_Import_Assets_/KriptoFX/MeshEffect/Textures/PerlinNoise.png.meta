@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/_Import_Assets_/Hovl Studio/HSFiles/Textures/Flare6.png.meta
-guid: fb60f4826d03c644c80d10aace44bfcb
-========
 guid: cd8abd51143aa5140aded186614aa040
->>>>>>>> main/11.20-ôÏõê-ëÏóÖ:Assets/_Import_Assets_/KriptoFX/MeshEffect/Textures/PerlinNoise.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -27,7 +23,6 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
-  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -36,12 +31,12 @@ TextureImporter:
   maxTextureSize: 512
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
-    aniso: 1
-    mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: -1
+    wrapV: -1
+    wrapW: -1
   nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
@@ -53,22 +48,15 @@ TextureImporter:
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 2
+  alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 0
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-<<<<<<<< HEAD:Assets/_Import_Assets_/Hovl Studio/HSFiles/Textures/Flare6.png.meta
-  ignorePngGamma: 0
-  applyGammaDecoding: 1
-========
->>>>>>>> main/11.20-ôÏõê-ëÏóÖ:Assets/_Import_Assets_/KriptoFX/MeshEffect/Textures/PerlinNoise.png.meta
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
