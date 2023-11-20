@@ -18,6 +18,9 @@ public class CameraCT : MonoBehaviour
     public float Minaltura = -0.5f; // 카메라의 최소 높이 제한
     private float Rotinput; // 회전 입력 값
 
+    [Header("Camera Sensitivity")]
+    public float rotationSensitivity = 1.0f; // 회전 감도
+    public float heightSensitivity = 1.0f; // 높이 조절 감도
     private void Start()
     {
         AlturaCam = PosCam.y; // 시작 시 카메라 높이 초기화
@@ -51,6 +54,9 @@ public class CameraCT : MonoBehaviour
 
         PosCam.y = AlturaCamInput; // 카메라 높이를 업데이트합니다.
 
+        AlturaCam = -Input.GetAxis("Mouse Y") * heightSensitivity * Time.deltaTime;
+        // 회전 감도 적용
+        Rotinput -= Input.GetAxis("Mouse X") * VelRot * rotationSensitivity * Time.deltaTime;
         // 마우스 X축 입력에 따라 회전 입력 값을 조절합니다.
         Rotinput -= Input.GetAxis("Mouse X") * VelRot * Time.deltaTime;
 

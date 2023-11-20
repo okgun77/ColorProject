@@ -75,20 +75,30 @@ public class SoundManager : MonoBehaviour
 
     [Range(0f, 1f)]
     public float sfxVolume = 1f;
-    [Header("게임오버 관련 사운드")]
-    public string gamaOverSound;
+    [Header("게임 관련 사운드")]
+    public string gamaFailSound;
+    public string TimeSound;
+    public string gamesuccessSound;
+    public string ClickSound1;
+    public string ClickSound2;
+    public string ClickSound3;
+    public string ClickSound4;
+    public string errorClick;
     [Header("주인공 관련 사운드")]
     public string PlayerRightWalk;
     public string PlayerLeftWalk;
     public string PlayerJumpSound;
-    [Header("물통적 관련 사운드")]
-    public string WaterWalkSound;
-   
-
-    [Header("색깔적 관련 사운드")]
+    [Header("물통 적 관련 사운드")]
+  
+    public string waterscreamsound;
+    public string WaterresetcolorSound;
+    public string HitSound1;
+    [Header("색깔  관련 사운드")]
     public string earncolorSound;
-    public string resetcolorSound;
-
+    public string ColorresetcolorSound;
+    
+    public string colorscreamsound;
+    public string HitSound2;
 
 
 

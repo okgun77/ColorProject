@@ -56,11 +56,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneNames:
-  - _GameScene
+  - _MainMenuScene
+  - _GameScene_OYS1
   bgmClips:
-  - {fileID: 8300000, guid: 5cdef37a9adec764b8883cd95705821a, type: 3}
-  fadeInTime: 1
-  fadeOutTime: 1
+  - {fileID: 8300000, guid: a8a34e604a3be9b43bdec4fe38cec9a4, type: 3}
+  - {fileID: 8300000, guid: cfc35f41e5436c04ca13402d985bbe04, type: 3}
+  fadeInTime: 5
+  fadeOutTime: 5
   audioSourceEffects:
   - {fileID: 7503225952508820712}
   - {fileID: 7503225952508820713}
@@ -88,25 +90,78 @@ MonoBehaviour:
   - name: PlayerLeftWalk
     clip: {fileID: 8300000, guid: 0ca9a90866bc4c34994cd4291b309a20, type: 3}
     volume: 0
-  - name: 
-    clip: {fileID: 0}
+  - name: PlayerJumpSound
+    clip: {fileID: 8300000, guid: 3fdd68189725dca4888b4b9a8511eb47, type: 3}
     volume: 0
-  - name: 
-    clip: {fileID: 0}
+  - name: ColorChanage
+    clip: {fileID: 8300000, guid: a73ed610fd4348445a10ab3dfdd4295b, type: 3}
+    volume: 0
+  - name: ColorresetcolorSound
+    clip: {fileID: 8300000, guid: 475f9ba8130929142827decc36616bcf, type: 3}
+    volume: 0
+  - name: WaterresetcolorSound
+    clip: {fileID: 8300000, guid: 589fa8c5782c41d4997ba1962e4784f0, type: 3}
+    volume: 0
+  - name: GameFailSound
+    clip: {fileID: 8300000, guid: ec74dacf1e4bc5045a9f9f7f50d1b5bf, type: 3}
+    volume: 0
+  - name: ColorScreamSound
+    clip: {fileID: 8300000, guid: 16c628d1346cc3845b19b8739e31b538, type: 3}
+    volume: 0
+  - name: WaterScreamSound
+    clip: {fileID: 8300000, guid: fb92426e2a9e7b540872416e2e8e9b2b, type: 3}
+    volume: 0
+  - name: TimeSound
+    clip: {fileID: 8300000, guid: caebdfafab442ee499718fa7e2035106, type: 3}
+    volume: 0
+  - name: GameSucessSound
+    clip: {fileID: 8300000, guid: 8452f985d00bc8040bc55d3e6557ac87, type: 3}
+    volume: 0
+  - name: ClickSound1
+    clip: {fileID: 8300000, guid: c9bb676bfc176264db1f56e00eee2120, type: 3}
+    volume: 0
+  - name: ClickSound2
+    clip: {fileID: 8300000, guid: 2efb18cd75d2d4543a78b69f23527ec1, type: 3}
+    volume: 0
+  - name: ClickSound3
+    clip: {fileID: 8300000, guid: 884a72a8b2166274dbf694a1c2de1942, type: 3}
+    volume: 0
+  - name: ClickSound4
+    clip: {fileID: 8300000, guid: 2a3b806faf684bf47bec6087f1ef45dd, type: 3}
+    volume: 0
+  - name: errorClick
+    clip: {fileID: 8300000, guid: d19d98d523a66324cbb08038eb9a7703, type: 3}
+    volume: 0
+  - name: HitSound1
+    clip: {fileID: 8300000, guid: 36f03f4d5ed172e4499c08964f0d4c02, type: 3}
+    volume: 0
+  - name: HitSound2
+    clip: {fileID: 8300000, guid: d6768c3c8c9fa0049bf714bd0536f777, type: 3}
     volume: 0
   bgmSounds:
   - name: 
     clip: {fileID: 0}
     volume: 0
-  bgmVolume: 0.1
+  bgmVolume: 0.7
   sfxVolume: 1
-  gamaOverSound: 
+  gamaFailSound: GameFailSound
+  TimeSound: TimeSound
+  gamesuccessSound: GameSucessSound
+  ClickSound1: ClickSound1
+  ClickSound2: ClickSound2
+  ClickSound3: ClickSound3
+  ClickSound4: ClickSound4
+  errorClick: errorClick
   PlayerRightWalk: PlayerRightWalk
   PlayerLeftWalk: PlayerLeftWalk
-  PlayerJumpSound: 
-  WaterWalkSound: 
-  ColorRunSound: 
-  ColorWalkSound: 
+  PlayerJumpSound: PlayerJumpSound
+  waterscreamsound: WaterScreamSound
+  WaterresetcolorSound: WaterresetcolorSound
+  HitSound1: HitSound1
+  earncolorSound: ColorChanage
+  ColorresetcolorSound: ColorresetcolorSound
+  colorscreamsound: ColorScreamSound
+  HitSound2: HitSound2
 --- !u!82 &7503225952508820715
 AudioSource:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class DisableScripts : MonoBehaviour
     private List<GameObject> objectsToDisable;
 
     private bool knockedDown = false;
+    private bool isFirstWASDPressed = false;
     // 각 컴포넌트의 활성화 상태를 저장하기 위한 구조체
     private struct ComponentState
     {
@@ -24,6 +25,11 @@ public class DisableScripts : MonoBehaviour
 
     void Update()
     {
+        if (!isFirstWASDPressed && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
+        {
+            isFirstWASDPressed = true; // 플래그 설정
+            DisableState(); // 함수 호출
+        }
         if (Input.GetKeyDown(KeyCode.G) || knockedDown)
         {
             DisableState();
@@ -69,7 +75,7 @@ public class DisableScripts : MonoBehaviour
 
             originalStates[obj] = state;
         }
-        DisableState();
+        
     }
 
     private void OnCollisionEnter(Collision collision)
