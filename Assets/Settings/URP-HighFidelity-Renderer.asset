@@ -40,9 +40,7 @@ MonoBehaviour:
       type: 3}
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
-  - {fileID: 6394471006511101297}
-  - {fileID: 92985600130975100}
-  m_RendererFeatureMap: adc0de57c6d2eee571f5a04580b9bd587c850821e9594a01
+  m_RendererFeatureMap: adc0de57c6d2eee5
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -137,7 +135,6 @@ MonoBehaviour:
     filterSettings:
       RenderQueueType: 0
       LayerMask:
-        serializedVersion: 2
         m_Bits: 4294967295
       PassNames:
       - MKToonOutline
@@ -159,5 +156,4 @@ MonoBehaviour:
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
   _layerMask:
-    serializedVersion: 2
     m_Bits: 4294967295

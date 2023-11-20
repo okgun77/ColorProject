@@ -120,7 +120,6 @@ public class PlayerColor : MonoBehaviour
     }
     
     // 지정된 색상으로 플레이어의 모든 Renderer를 업데이트
-    
     private void SetColor(Color _color)
     {
         foreach (var renderer in playerRenderers)
