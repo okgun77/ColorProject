@@ -46,6 +46,7 @@ public class MainSceneManager : MonoBehaviour
 
     public void StartGame()
     {
+        // DestroyUnnecessaryObjects();
         SceneManager.LoadScene("_GameScene");
     }
 
@@ -94,5 +95,17 @@ public class MainSceneManager : MonoBehaviour
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
+    }
+    
+    void DestroyUnnecessaryObjects()
+    {
+        // 예: 특정 태그를 가진 모든 오브젝트를 찾아 파괴
+        foreach (var obj in GameObject.FindGameObjectsWithTag("DestroyOnLoad"))
+        {
+            Destroy(obj);
+        }
+
+        // 또는 DontDestroyOnLoad로 설정된 오브젝트를 파괴
+        // 이러한 오브젝트는 별도의 관리가 필요
     }
 }

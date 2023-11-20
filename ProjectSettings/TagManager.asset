@@ -11,6 +11,7 @@ TagManager:
   - RotateObject
   - NPC
   - KnockDownCube
+  - DestroyOnLoad
   layers:
   - Default
   - TransparentFX
