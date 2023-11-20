@@ -10094,6 +10094,7 @@ GameObject:
   - component: {fileID: 3711125712400423684}
   - component: {fileID: 2810972701336241669}
   - component: {fileID: 1558396592622711857}
+  - component: {fileID: 2587561518443375316}
   m_Layer: 12
   m_Name: Player_Animation
   m_TagString: Player
@@ -10136,7 +10137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkParticles: {fileID: 1558396592226551380}
   fastParticles: {fileID: 1558396591847618590}
-  jumpParticles: {fileID: 1558396593240256615}
 --- !u!95 &1558396592622711868
 Animator:
   serializedVersion: 5
@@ -10217,6 +10217,7 @@ MonoBehaviour:
   - {fileID: 3263189742348656224}
   colorTable: {fileID: 0}
   uiManager: {fileID: 0}
+  playerEffect: {fileID: 2587561518443375316}
 --- !u!114 &1558396592622711857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10240,6 +10241,19 @@ MonoBehaviour:
   distanceToGround: 0.2
   Run: 1
   WalkSound: 
+--- !u!114 &2587561518443375316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558396592622711859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a009c3c7e25cced42a9c1c36204925dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystem: {fileID: 0}
 --- !u!1 &1558396592634685505
 GameObject:
   m_ObjectHideFlags: 0
@@ -17224,7 +17238,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: b72d7387868c1fe42a28d53d2652e6ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17312,7 +17326,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: b72d7387868c1fe42a28d53d2652e6ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18061,6 +18075,14 @@ PrefabInstance:
       propertyPath: MeshObject
       value: 
       objectReference: {fileID: 5570638398775196348}
+    - target: {fileID: 1572434752527398, guid: a1f480689c2691e4ca60d7b61ac55cff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636569550339344, guid: a1f480689c2691e4ca60d7b61ac55cff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 199551148153928438, guid: a1f480689c2691e4ca60d7b61ac55cff,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -18164,6 +18186,14 @@ PrefabInstance:
       propertyPath: MeshObject
       value: 
       objectReference: {fileID: 6947070097611898083}
+    - target: {fileID: 1572434752527398, guid: a1f480689c2691e4ca60d7b61ac55cff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636569550339344, guid: a1f480689c2691e4ca60d7b61ac55cff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 199551148153928438, guid: a1f480689c2691e4ca60d7b61ac55cff,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
