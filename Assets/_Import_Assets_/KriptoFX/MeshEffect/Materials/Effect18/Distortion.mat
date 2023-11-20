@@ -76,14 +76,22 @@ Material:
     - _Cutout: 0.252
     - _CutoutThreshold: 0.006
     - _DetailNormalMapScale: 1
+<<<<<<<< HEAD:Assets/_Import_Assets_/KriptoFX/MeshEffect/Materials/Effect10/Distortion.mat
+    - _Distortion: -25
+========
     - _Distortion: -30
+>>>>>>>> main/11.20-™ì›-‘ì—…:Assets/_Import_Assets_/KriptoFX/MeshEffect/Materials/Effect18/Distortion.mat
     - _DstBlend: 0
     - _FresnelDistort: 1500
     - _FresnelPow: 5
     - _FresnelR0: 0.04
     - _Glossiness: 0.5
     - _Height: 0.1
+<<<<<<<< HEAD:Assets/_Import_Assets_/KriptoFX/MeshEffect/Materials/Effect10/Distortion.mat
+    - _InvFade: 5
+========
     - _InvFade: 10
+>>>>>>>> main/11.20-™ì›-‘ì—…:Assets/_Import_Assets_/KriptoFX/MeshEffect/Materials/Effect18/Distortion.mat
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
