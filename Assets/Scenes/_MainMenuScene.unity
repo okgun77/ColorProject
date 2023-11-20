@@ -3821,6 +3821,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7503225952508820714, guid: 5707b093959b1d74b95279df9065ec2c,
+        type: 3}
+      propertyPath: sceneNames.Array.data[1]
+      value: _GameScene
+      objectReference: {fileID: 0}
     - target: {fileID: 7503225952508820717, guid: 5707b093959b1d74b95279df9065ec2c,
         type: 3}
       propertyPath: m_RootOrder

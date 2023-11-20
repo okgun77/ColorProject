@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TimerManager timerManager;
     [SerializeField] private float elapseTime;
     [SerializeField] private UIManager uiManager;
+    [SerializeField] private CountDownManager countDownManager;
 
     [SerializeField] private ColorTable colorTable;
     [SerializeField] private Image targetColorImage;
@@ -67,16 +68,19 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        
+        if (countDownManager != null)
+        {
+            countDownManager.CountDownStart(); // 카운트다운 시작
+        }
+        else
+        {
+            Debug.LogError("카운트다운 매니저 등록 안되어있음!!");
+        }
 
         timerManager.Init(elapseTime);
+        Time.timeScale = 0f;
         
-        // Application.targetFrameRate = 144;
-        // QualitySettings.vSyncCount = 1;
-            
-        // 이미 SerializeField를 통해 할당했으므로 이 줄은 필요 없습니다.
-        // timerManager = GetComponent<TimerManager>();
-    
-        // 대신, timerManager가 할당되었는지 확인합니다.
         if (timerManager == null)
         {
             Debug.LogError("TimerManager is not assigned in the inspector!");
@@ -101,6 +105,12 @@ public class GameManager : MonoBehaviour
         //     // 목표 색상 매칭 성공 시 UI 업데이트
         //     uiManager.ShowTargetColorMatchedIndicator();
         // }
+    }
+    
+    public void StartGameAfterCountdown()
+    {
+        Time.timeScale = 1f;
+        StartGame();
     }
     
     public void TogglePause()
@@ -128,6 +138,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        
         // 랜덤 타겟 색상 선택
         targetColorInfo = colorTable.GetRandomTargetColor();
         if (targetColorInfo != null) // Null 체크
@@ -161,6 +172,7 @@ public class GameManager : MonoBehaviour
         
         // 매칭 성공 인디케이터 비활성화
         uiManager.HideTargetColorMatchedIndicator();
+        // Time.timeScale = 1;
     }
     
     public void EndGame()
