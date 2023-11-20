@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/_MainMenuScene.unity
     guid: c6f4805204c0a9446bb45259a2f857bf
   - enabled: 1
-    path: Assets/Scenes/_GameScene.unity
+    path: Assets/Scenes/_GameScene YunseokTest.unity
     guid: 0af3033f8db04bc4ba073a8a377b05dd
   m_configObjects: {}
