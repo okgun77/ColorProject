@@ -6,12 +6,9 @@ using System.Linq;
 public class ColorTable : MonoBehaviour
 {
     // 색상 정보를 저장하는 리스트
-    [SerializeField]
-    private List<ColorBasicInfo> basicColors; // 기본 색상 목록
-    [SerializeField]
-    private List<ColorBasicInfo> targetColors; // 목표 색상 목록
-    [SerializeField]
-    private List<ColorBasicInfo> mixColors; // 섞인 결과 색상 목록
+    [SerializeField] private List<ColorBasicInfo> basicColors; // 기본 색상 목록
+    [SerializeField] private List<ColorBasicInfo> targetColors; // 목표 색상 목록
+    [SerializeField] private List<ColorBasicInfo> mixColors; // 섞인 결과 색상 목록
 
     // 색상 번호로 기본 색상을 검색
     public ColorBasicInfo GetBasicColor(string _colorNo)

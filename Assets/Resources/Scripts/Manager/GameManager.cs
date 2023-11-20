@@ -162,41 +162,6 @@ public class GameManager : MonoBehaviour
         // 매칭 성공 인디케이터 비활성화
         uiManager.HideTargetColorMatchedIndicator();
     }
-    //
-    // public void EndGame()
-    // {
-    //     Debug.Log($"EndGame 호출 전 playerColors: {string.Join(", ", playerColor.GetCurrentColorList())}");
-    //
-    //     timerManager.StopTimer();
-    //
-    //     List<string> playerColorCodes = playerColor.GetCurrentColorList();
-    //
-    //     Debug.Log($"EndGame 호출 시 playerColors: {string.Join(", ", playerColorCodes)}");
-    //
-    //     string playerCombinedColorNo = string.Join("", playerColorCodes.OrderBy(c => c));
-    //     string targetColorNo = targetColorInfo.ColorNo;
-    //
-    //     Debug.Log($"플레이어 조합 색상: {playerCombinedColorNo}, 목표 색상: {targetColorNo}");
-    //
-    //     bool success = playerCombinedColorNo.Equals(targetColorNo);
-    //
-    //     if (success)
-    //     {
-    //         Debug.Log("컬러 매치 성공!!");
-    //         // colorMatchCheck.SetActive(true);
-    //         Screen.lockCursor = false;
-    //         winScreen.SetActive(true);
-    //         loseScreen.SetActive(false);
-    //     }
-    //     else
-    //     {
-    //         Debug.Log("컬러 매치 실패!!");
-    //         // 실패 화면 표시
-    //         Screen.lockCursor = false;
-    //         winScreen.SetActive(false);
-    //         loseScreen.SetActive(true);
-    //     }
-    // }
     
     public void EndGame()
     {
@@ -211,17 +176,15 @@ public class GameManager : MonoBehaviour
         string playerCombinedColorNo = string.Join("", playerColorCodes.OrderBy(c => c)); // 정렬하여 하나의 문자열로 결합
         string targetColorNo = targetColorInfo.ColorNo; // 목표 색상 번호
     
-        
-        // Debug.Log($"(게임 종료) 플레이어 조합 색상: {playerCombinedColorNo}, Target color: {targetColorNo}");
-        // Debug.Log($"(게임 종료) 플레이어 조합 색상: {playerCombinedColorNo}, 목표 색상: {targetColorNo}");
-        
         bool success = playerCombinedColorNo.Equals(targetColorNo);
     
         if(success)
         {
             Debug.Log("(게임 종료) 플레이어 색상조합 성공!");
             // 성공 화면 표시
-            Screen.lockCursor = false;
+            // Screen.lockCursor = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             winScreen.SetActive(true);
             loseScreen.SetActive(false);
         }
@@ -229,7 +192,9 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("(게임 종료) 플레이어 색상조합 실패!");
             // 실패 화면 표시
-            Screen.lockCursor = false;
+            // Screen.lockCursor = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             winScreen.SetActive(false);
             loseScreen.SetActive(true);
         }
@@ -291,7 +256,6 @@ public class GameManager : MonoBehaviour
                 return EColorMatchStatus.MIX_FAIL;
             }
         }
-        
         
         // 아직 목표 색상을 달성하지 못한 경우
         return EColorMatchStatus.MIX_ING;

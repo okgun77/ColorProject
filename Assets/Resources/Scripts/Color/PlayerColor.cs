@@ -7,7 +7,9 @@ public class PlayerColor : MonoBehaviour
     [SerializeField] private Renderer[] playerRenderers; // 플레이어의 Renderer 컴포넌트 배열
     [SerializeField] private ColorTable colorTable; // 색상 테이블
     [SerializeField] private UIManager uiManager; // UIManager
-    
+
+    [SerializeField] private PlayerEffectController playerEffect; 
+
     private List<string> playerColors = new List<string>(); // 플레이어가 습득한 색상 번호 목록
     private bool isColorLocked; // 색상 고정
 
@@ -32,7 +34,6 @@ public class PlayerColor : MonoBehaviour
             Debug.Log($"색상 추가 건너뜀 (고정됨 또는 이미 존재함): {_colorNo}");
             return;
         }
-            
 
         playerColors.Add(_colorNo);
         Debug.Log($"색상 {_colorNo} 추가 후 playerColors: {string.Join(", ", playerColors)}");
@@ -171,16 +172,24 @@ public class PlayerColor : MonoBehaviour
                 case NPCType.NPC_COLOR:
                     GetColor(npcColor.ColorNo);
                     //습득 사운드
+                    effectPlay();
                     SoundManager.Instance.PlaySE(SoundManager.Instance.earncolorSound);
                     break;
                 case NPCType.NPC_WATER:
                     //리셋 사운드
+                    effectPlay();
                     SoundManager.Instance.PlaySE(SoundManager.Instance.resetcolorSound);
 
                     ResetColor();
                     break;
             }
         }
+    }
+
+    void effectPlay()
+    {
+        // 파티클 시스템의 인덱스를 지정하여 정지 (여기서는 0번째 파티클)
+        playerEffect.PlayParticle(0);
     }
     
     
