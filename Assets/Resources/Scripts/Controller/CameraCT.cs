@@ -23,6 +23,14 @@ public class CameraCT : MonoBehaviour
         AlturaCam = PosCam.y; // 시작 시 카메라 높이 초기화
         Screen.lockCursor = true; // 마우스 커서를 잠급니다 (커서 숨김)
         targetZoom = ZoomActural;
+        // 캐릭터의 앞 방향을 계산합니다.
+        Vector3 forward = Object.forward;
+        // 캐릭터의 앞 방향으로 카메라를 오프셋합니다.
+        transform.position = Object.position - forward * PosCam.z;
+        // 카메라의 높이를 설정합니다.
+        transform.position = new Vector3(transform.position.x, AlturaCamInput, transform.position.z);
+        // 캐릭터를 바라보도록 카메라를 회전합니다.
+        transform.LookAt(Object.position);
     }
 
     private void Update()
