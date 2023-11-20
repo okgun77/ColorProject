@@ -7,10 +7,17 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:Assets/_Import_Assets_/KriptoFX/MeshEffect/Materials/Effect12/Mesh_MeshEffect.mat
+  m_Name: Mesh_MeshEffect
+  m_Shader: {fileID: 4800000, guid: 33ab0d28c1b9ece43ac408f2e4ad16b1, type: 3}
+  m_ShaderKeywords: _ALPHATEST_ON _EMISSION
+  m_LightmapFlags: 1
+========
   m_Name: Distortion
   m_Shader: {fileID: 4800000, guid: 972a05a1fafc1c54d8287892f2a939b6, type: 3}
   m_ShaderKeywords: USE_ALPHA_CLIPING USE_SOFT_PARTICLES
   m_LightmapFlags: 5
+>>>>>>>> main/11.20-™ì›-‘ì—…:Assets/_Import_Assets_/KriptoFX/MeshEffect/Materials/Effect5/Distortion.mat
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2999
@@ -48,8 +55,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 100221baada53b74489b25ac8b7e0120, type: 3}
+        m_Scale: {x: 1, y: 0.8}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -67,17 +74,34 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaClip: 5
     - _BumpAmt: 20
     - _BumpScale: 1
+<<<<<<<< HEAD:Assets/_Import_Assets_/KriptoFX/MeshEffect/Materials/Effect12/Mesh_MeshEffect.mat
+    - _ColorStrength: 0.39
+    - _Cutoff: 0.45
+========
     - _CullMode: 0
     - _Cutoff: 0.5
     - _Cutout: 1
     - _CutoutThreshold: 0.015
+>>>>>>>> main/11.20-™ì›-‘ì—…:Assets/_Import_Assets_/KriptoFX/MeshEffect/Materials/Effect5/Distortion.mat
     - _DetailNormalMapScale: 1
     - _Distortion: -35
     - _DstBlend: 0
+<<<<<<<< HEAD:Assets/_Import_Assets_/KriptoFX/MeshEffect/Materials/Effect12/Mesh_MeshEffect.mat
+    - _GlossMapScale: 1
+    - _Glossiness: 0.85
+    - _GlossyReflections: 1
+    - _InvFade: 3
+    - _Metallic: 0.75
+    - _Mode: 1
+========
     - _FresnelDistort: 1500
     - _FresnelPow: 5
     - _FresnelR0: 0.04
@@ -86,6 +110,7 @@ Material:
     - _InvFade: 10
     - _Metallic: 0
     - _Mode: 0
+>>>>>>>> main/11.20-™ì›-‘ì—…:Assets/_Import_Assets_/KriptoFX/MeshEffect/Materials/Effect5/Distortion.mat
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RefractiveStrength: 0
@@ -102,6 +127,14 @@ Material:
     - _ZWrite: 1
     - _ZWriteMode: 0
     m_Colors:
+<<<<<<<< HEAD:Assets/_Import_Assets_/KriptoFX/MeshEffect/Materials/Effect12/Mesh_MeshEffect.mat
+    - _Color: {r: 1, g: 0.69908714, b: 0.051470578, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MainColor: {r: 1, g: 0.6470588, b: 0.11764705, a: 1}
+    - _SpecColor: {r: 1, g: 0.8892495, b: 0.42647058, a: 1}
+    - _SpeedDistort: {r: 0, g: -4, b: -1.5, a: 1}
+    - _TintColor: {r: 0, g: 0, b: 0, a: 1}
+========
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CutoutColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
@@ -109,3 +142,4 @@ Material:
     - _HeightUVScrollDistort: {r: 8, g: 12, b: 0, a: 0}
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _TintColor: {r: 0.8602941, g: 0.5885075, b: 0.2973075, a: 0.559}
+>>>>>>>> main/11.20-™ì›-‘ì—…:Assets/_Import_Assets_/KriptoFX/MeshEffect/Materials/Effect5/Distortion.mat
