@@ -13,6 +13,7 @@ public class copymotion : MonoBehaviour
    
     void Start()
     {
+        
         RePlacetarget();
     }
 
@@ -29,4 +30,5 @@ public class copymotion : MonoBehaviour
         initialPositionOffset = ragdollObject.position - animationObject.position;
         initialRotationOffset = Quaternion.Inverse(animationObject.rotation) * ragdollObject.rotation;
     }
+   
 }
