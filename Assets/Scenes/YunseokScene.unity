@@ -9160,7 +9160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555e813f409a4fa4392159eaab5749e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 1705479568}
+  Object: {fileID: 0}
   PosCam: {x: -5, y: -237, z: -3.65}
   VelZoom: 2
   MinZoom: 0.1
@@ -9169,6 +9169,8 @@ MonoBehaviour:
   AlturaCamInput: 1
   Maxlutra: -10
   Minaltura: -0.5
+  rotationSensitivity: 1
+  heightSensitivity: 1
 --- !u!114 &1361844696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11133,12 +11135,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: 7fd51db4d4b5cfe4c889c8181851ec23, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7fd51db4d4b5cfe4c889c8181851ec23, type: 3}
---- !u!4 &1705479568 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4764162904202151468, guid: f00f05023929ad445a5cdb27aa102b89,
-    type: 3}
-  m_PrefabInstance: {fileID: 4764162902421135273}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1714818468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13722,6 +13718,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "P_Player \uCD5C\uC885\uBC84\uC83C \uB808\uADF8\uB3CC - 11.20"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764162903427825218, guid: f00f05023929ad445a5cdb27aa102b89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4764162903427825221, guid: f00f05023929ad445a5cdb27aa102b89,
         type: 3}
