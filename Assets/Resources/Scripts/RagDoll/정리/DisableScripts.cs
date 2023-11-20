@@ -13,7 +13,10 @@ public class DisableScripts : MonoBehaviour
     {
         public bool animatorEnabled;
         public bool rigidbodyConstraintsEnabled;
+        public bool rigidbodyIsKinematic;
+        public bool rigidbodyUseGravity;
         public bool copyMotionEnabled;
+        public bool tpsPlayerControllerEnabled;
     }
 
     // 원래 컴포넌트 상태를 저장하는 딕셔너리
@@ -26,8 +29,13 @@ public class DisableScripts : MonoBehaviour
             DisableState();
         }
     }
+    private void Awake()
+    {
+       
+    }
     void Start()
     {
+        
         // 초기 상태 저장
         foreach (var obj in objectsToDisable)
         {
@@ -44,6 +52,7 @@ public class DisableScripts : MonoBehaviour
             {
                 // RigidbodyConstraints.None이 아니라면 제약 조건이 활성화된 것으로 간주
                 state.rigidbodyConstraintsEnabled = rigidbody.constraints != RigidbodyConstraints.None;
+                rigidbody.isKinematic = false; 
             }
 
             var copyMotion = obj.GetComponent<copymotion>();
@@ -52,8 +61,15 @@ public class DisableScripts : MonoBehaviour
                 state.copyMotionEnabled = copyMotion.enabled;
             }
 
+            var tpsPlayerController = obj.GetComponent<TPSPlayerController>();
+            if (tpsPlayerController != null)
+            {
+                state.tpsPlayerControllerEnabled = tpsPlayerController.enabled;
+            }
+
             originalStates[obj] = state;
         }
+        DisableState();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -63,7 +79,7 @@ public class DisableScripts : MonoBehaviour
             DisableState();
         }
     }
-    private void DisableState()
+    public void DisableState()
     {
         foreach (var obj in objectsToDisable)
         {
@@ -77,12 +93,19 @@ public class DisableScripts : MonoBehaviour
             if (rigidbody != null && rigidbody.constraints != RigidbodyConstraints.None)
             {
                 rigidbody.constraints = RigidbodyConstraints.None;
+                rigidbody.isKinematic = false; // Kinematic을 비활성화
+                rigidbody.useGravity = true;   // UseGravity를 활성화
             }
 
             var copyMotion = obj.GetComponent<copymotion>();
             if (copyMotion != null && copyMotion.enabled)
             {
                 copyMotion.enabled = false;
+            }
+            var tpsPlayerController = obj.GetComponent<TPSPlayerController>();
+            if (tpsPlayerController != null)
+            {
+                tpsPlayerController.enabled = false; // TPSPlayerController 비활성화
             }
         }
        
@@ -123,17 +146,26 @@ public class DisableScripts : MonoBehaviour
             }
 
             var rigidbody = obj.GetComponent<Rigidbody>();
-            if (rigidbody != null && state.rigidbodyConstraintsEnabled)
+            if (rigidbody != null)
             {
-                
-                rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-                rigidbody.constraints = RigidbodyConstraints.FreezePosition;
+                rigidbody.constraints = state.rigidbodyConstraintsEnabled ?
+                                        RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition :
+                                        RigidbodyConstraints.None;
+
+                rigidbody.isKinematic = state.rigidbodyIsKinematic;
+                rigidbody.useGravity = state.rigidbodyUseGravity;
+                rigidbody.useGravity = true;   // UseGravity를 활성화
             }
 
             var copyMotion = obj.GetComponent<copymotion>();
             if (copyMotion != null && state.copyMotionEnabled)
             {
                 copyMotion.enabled = true;
+            }
+            var tpsPlayerController = obj.GetComponent<TPSPlayerController>();
+            if (tpsPlayerController != null && state.tpsPlayerControllerEnabled)
+            {
+                tpsPlayerController.enabled = true; // TPSPlayerController 활성화
             }
         }
     }
