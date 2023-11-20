@@ -35,6 +35,7 @@ public class DisableScripts : MonoBehaviour
     }
     void Start()
     {
+        
         // 초기 상태 저장
         foreach (var obj in objectsToDisable)
         {
@@ -68,7 +69,7 @@ public class DisableScripts : MonoBehaviour
 
             originalStates[obj] = state;
         }
-       
+        DisableState();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -78,7 +79,7 @@ public class DisableScripts : MonoBehaviour
             DisableState();
         }
     }
-    private void DisableState()
+    public void DisableState()
     {
         foreach (var obj in objectsToDisable)
         {

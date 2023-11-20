@@ -19,7 +19,7 @@ public class TPSPlayerController : MonoBehaviour
   
     private Animator anim;
     private Rigidbody rb;
-    private CopyAnim copyanim;
+  
     private bool _jump;
 
     private const string JumpButton = "Jump"; // 먰봽 踰꾪듉
@@ -31,13 +31,15 @@ public class TPSPlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        copyanim = GetComponent<CopyAnim>();
-        
     }
 
-    private void Update()
+    private void Start()
     {
         
+    }
+    private void Update()
+    {
+       
         HandleMovementInput();
         HandleJumpInput();
 
