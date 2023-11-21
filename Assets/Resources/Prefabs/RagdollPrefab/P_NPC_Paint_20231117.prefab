@@ -3668,6 +3668,7 @@ GameObject:
   - component: {fileID: 5629023632170690720}
   - component: {fileID: 6834997144674801157}
   - component: {fileID: 6725746485582148690}
+  - component: {fileID: 9143601618847666372}
   m_Layer: 15
   m_Name: NPC_Ragdoll
   m_TagString: Untagged
@@ -3817,6 +3818,23 @@ MonoBehaviour:
   - {fileID: 3440065764668301159}
   - {fileID: 3440065764030468846}
   - {fileID: 3440065765224491673}
+--- !u!114 &9143601618847666372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440065765814609286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8fe823fb9ef8b4b838106b98c819c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copy:
+  - {fileID: 3440065765516129684}
+  - {fileID: 3440065764668301164}
+  - {fileID: 3440065764030468840}
+  - {fileID: 3440065765224491675}
 --- !u!1001 &767573670458179069
 PrefabInstance:
   m_ObjectHideFlags: 0

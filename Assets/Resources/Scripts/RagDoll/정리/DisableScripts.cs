@@ -25,11 +25,11 @@ public class DisableScripts : MonoBehaviour
 
     void Update()
     {
-        if (!isFirstWASDPressed && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
-        {
-            isFirstWASDPressed = true; // 플래그 설정
-            DisableState(); // 함수 호출
-        }
+        //if (!isFirstWASDPressed && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
+        //{
+        //    isFirstWASDPressed = true; // 플래그 설정
+        //    DisableState(); // 함수 호출
+        //}
         if (Input.GetKeyDown(KeyCode.G) || knockedDown)
         {
             DisableState();
