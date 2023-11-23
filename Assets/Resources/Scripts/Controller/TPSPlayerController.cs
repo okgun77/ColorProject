@@ -24,6 +24,8 @@ public class TPSPlayerController : MonoBehaviour
 
     private const string JumpButton = "Jump"; // 먰봽 踰꾪듉
 
+    public GameObject copyGo = null;
+
 
     //Sound
     public string WalkSound;
@@ -31,12 +33,17 @@ public class TPSPlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+
+        //copymotion[] motions = copyGo.GetComponentsInChildren<copymotion>();
+        //foreach (copymotion cm in motions)
+        //    cm.Init();
     }
 
     private void Start()
     {
-        
+
     }
+
     private void Update()
     {
        

@@ -5525,7 +5525,7 @@ PrefabInstance:
     - target: {fileID: 1558396591751000621, guid: be9a3c40194505440aae9134ea4a7e7d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1558396591751000621, guid: be9a3c40194505440aae9134ea4a7e7d,
         type: 3}
@@ -5587,6 +5587,11 @@ PrefabInstance:
       propertyPath: Run
       value: 1.8
       objectReference: {fileID: 0}
+    - target: {fileID: 1558396592622711857, guid: be9a3c40194505440aae9134ea4a7e7d,
+        type: 3}
+      propertyPath: copyGo
+      value: 
+      objectReference: {fileID: 1653585501}
     - target: {fileID: 1558396592622711857, guid: be9a3c40194505440aae9134ea4a7e7d,
         type: 3}
       propertyPath: ViewCamera
@@ -5652,6 +5657,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 1558396593079185986, guid: be9a3c40194505440aae9134ea4a7e7d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1558396593079185988, guid: be9a3c40194505440aae9134ea4a7e7d,
         type: 3}
       propertyPath: m_IsActive
@@ -5676,6 +5686,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558396593228412290, guid: be9a3c40194505440aae9134ea4a7e7d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1558396593228412292, guid: be9a3c40194505440aae9134ea4a7e7d,
         type: 3}
@@ -8787,7 +8802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &819417799
 Transform:
   m_ObjectHideFlags: 0
@@ -11780,6 +11795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationObject: {fileID: 1495109804}
   ragdollObject: {fileID: 1183536367}
+  getTr: {fileID: 0}
 --- !u!153 &1183536370
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -13568,6 +13584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationObject: {fileID: 22925937}
   ragdollObject: {fileID: 1314713868}
+  getTr: {fileID: 0}
 --- !u!153 &1314713870
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -16450,6 +16467,12 @@ Transform:
   m_Father: {fileID: 1267189198}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1653585501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3443769278691002046, guid: be9a3c40194505440aae9134ea4a7e7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 521211321}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1660192948
 GameObject:
   m_ObjectHideFlags: 0
@@ -19653,6 +19676,7 @@ MonoBehaviour:
   jumpPower: 5
   distanceToGround: 0.2
   Run: 3
+  copyGo: {fileID: 0}
   WalkSound: 
 --- !u!114 &1977622032
 MonoBehaviour:
@@ -20194,6 +20218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationObject: {fileID: 523551587}
   ragdollObject: {fileID: 2051882246}
+  getTr: {fileID: 0}
 --- !u!153 &2051882248
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -20811,6 +20836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationObject: {fileID: 1289154313}
   ragdollObject: {fileID: 2104643767}
+  getTr: {fileID: 0}
 --- !u!153 &2104643769
 ConfigurableJoint:
   m_ObjectHideFlags: 0

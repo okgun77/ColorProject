@@ -8,7 +8,8 @@ public class Test : MonoBehaviour
 
     private void Start()
     {
-        Invoke("TestInit",1f);
+        //Invoke("TestInit",1f);
+        TestInit();
     }
 
     private void TestInit()

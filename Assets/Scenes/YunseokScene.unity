@@ -2653,6 +2653,7 @@ MonoBehaviour:
   jumpPower: 5
   distanceToGround: 0.2
   Run: 1.8
+  copyGo: {fileID: 0}
   WalkSound: 
 --- !u!95 &360073766
 Animator:
@@ -3232,6 +3233,12 @@ Transform:
   m_Father: {fileID: 133806671}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &458043167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3443769278691002046, guid: be9a3c40194505440aae9134ea4a7e7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1748570579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &476255352 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7827896613639157510, guid: 7fd51db4d4b5cfe4c889c8181851ec23,
@@ -4515,6 +4522,7 @@ MonoBehaviour:
   jumpPower: 5
   distanceToGround: 0.2
   Run: 4
+  copyGo: {fileID: 0}
   WalkSound: 
 --- !u!65 &629817736
 BoxCollider:
@@ -5855,6 +5863,7 @@ MonoBehaviour:
   jumpPower: 5
   distanceToGround: 0.2
   Run: 1.8
+  copyGo: {fileID: 0}
   WalkSound: 
 --- !u!95 &785291490
 Animator:
@@ -7787,6 +7796,7 @@ MonoBehaviour:
   jumpPower: 5
   distanceToGround: 0.2
   Run: 1.8
+  copyGo: {fileID: 0}
   WalkSound: 
 --- !u!95 &1012944180
 Animator:
@@ -9978,7 +9988,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505187199}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb8fe823fb9ef8b4b838106b98c819c0, type: 3}
   m_Name: 
@@ -11568,6 +11578,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1558396592622711857, guid: be9a3c40194505440aae9134ea4a7e7d,
         type: 3}
+      propertyPath: copyGo
+      value: 
+      objectReference: {fileID: 458043167}
+    - target: {fileID: 1558396592622711857, guid: be9a3c40194505440aae9134ea4a7e7d,
+        type: 3}
       propertyPath: ViewCamera
       value: 
       objectReference: {fileID: 1361844694}
@@ -12090,6 +12105,7 @@ MonoBehaviour:
   jumpPower: 5
   distanceToGround: 0.2
   Run: 1.8
+  copyGo: {fileID: 0}
   WalkSound: 
 --- !u!65 &1829496419
 BoxCollider:
@@ -17292,6 +17308,7 @@ MonoBehaviour:
   jumpPower: 4
   distanceToGround: 0.2
   Run: 1.8
+  copyGo: {fileID: 0}
   WalkSound: 
 --- !u!4 &6697655502631027526
 Transform:
@@ -17428,6 +17445,7 @@ MonoBehaviour:
   jumpPower: 4
   distanceToGround: 0.2
   Run: 1.8
+  copyGo: {fileID: 0}
   WalkSound: 
 --- !u!65 &6697655502643188551
 BoxCollider:
@@ -23444,6 +23462,7 @@ MonoBehaviour:
   jumpPower: 5
   distanceToGround: 0.2
   Run: 3
+  copyGo: {fileID: 0}
   WalkSound: 
 --- !u!1 &7162159845221869988
 GameObject:
@@ -28274,6 +28293,7 @@ MonoBehaviour:
   jumpPower: 5
   distanceToGround: 0.2
   Run: 4
+  copyGo: {fileID: 0}
   WalkSound: 
 --- !u!114 &7619672726990542645
 MonoBehaviour:

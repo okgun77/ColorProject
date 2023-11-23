@@ -772,6 +772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationObject: {fileID: 3440065764396149824}
   ragdollObject: {fileID: 3440065764030468847}
+  getTr: {fileID: 3144201035053548715}
 --- !u!1 &3440065764044467235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,6 +1692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationObject: {fileID: 3440065765446664049}
   ragdollObject: {fileID: 3440065764668301155}
+  getTr: {fileID: 3144201035053548715}
 --- !u!1 &3440065764723674069
 GameObject:
   m_ObjectHideFlags: 0
@@ -2419,6 +2421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationObject: {fileID: 3440065763975473586}
   ragdollObject: {fileID: 3440065765224491674}
+  getTr: {fileID: 3144201035053548715}
 --- !u!1 &3440065765230436905
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,6 +2816,7 @@ GameObject:
   - component: {fileID: 7783637439875643323}
   - component: {fileID: 7843973464957915135}
   - component: {fileID: 8194252916911501969}
+  - component: {fileID: 3144201035053548715}
   m_Layer: 12
   m_Name: NPC_Animation
   m_TagString: NPC
@@ -2943,6 +2947,19 @@ MonoBehaviour:
   chaseSpeed: 1.5
   runDistance: 3
   chaseDistance: 2
+--- !u!114 &3144201035053548715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440065765462722564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418e4c8a9b177b045a16e40c1535e29b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInit: 0
 --- !u!1 &3440065765516129706
 GameObject:
   m_ObjectHideFlags: 0
@@ -3118,6 +3135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationObject: {fileID: 3440065764021886501}
   ragdollObject: {fileID: 3440065765516129707}
+  getTr: {fileID: 3144201035053548715}
 --- !u!1 &3440065765522443766
 GameObject:
   m_ObjectHideFlags: 0
@@ -3669,6 +3687,7 @@ GameObject:
   - component: {fileID: 6834997144674801157}
   - component: {fileID: 6725746485582148690}
   - component: {fileID: 9143601618847666372}
+  - component: {fileID: 8932521348558415831}
   m_Layer: 15
   m_Name: NPC_Ragdoll
   m_TagString: Untagged
@@ -3825,7 +3844,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3440065765814609286}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb8fe823fb9ef8b4b838106b98c819c0, type: 3}
   m_Name: 
@@ -3835,6 +3854,19 @@ MonoBehaviour:
   - {fileID: 3440065764668301164}
   - {fileID: 3440065764030468840}
   - {fileID: 3440065765224491675}
+--- !u!114 &8932521348558415831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440065765814609286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344ed9bed0793ba4d9a96d603dbea6a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourTr: {fileID: 3440065765462722565}
 --- !u!1001 &767573670458179069
 PrefabInstance:
   m_ObjectHideFlags: 0

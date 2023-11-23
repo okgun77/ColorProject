@@ -14,26 +14,44 @@ public class copymotion : MonoBehaviour
 
     private Rigidbody Rb;
 
+    public GetTransform getTr = null;
+
+    private bool isInit = false;
+
     //void Start()
     //{
     //    Rb = GetComponent<Rigidbody>();
     //    if (!Test) 
     //    { 
     //    RePlacetarget();
-            
+
     //    }
-        
+
     //}
 
-   
+    private void Start()
+    {
+        Init();
+        //Invoke("OnInit", 1f);
+    }
+
+    private void OnInit()
+    {
+        isInit = true;
+    }
+
+
     void Update()
     {
         //if (!Test)
         //{
         //    Debug.Log("animation"+ animationObject.position);
         //    Debug.Log("ragdoll" + ragdollObject.position);
-        //    ragdollObject.position = animationObject.position + initialPositionOffset;
-        //    ragdollObject.rotation = animationObject.rotation * initialRotationOffset;
+        //if (isInit)
+        // {
+        ragdollObject.localPosition = animationObject.localPosition;// + initialPositionOffset;
+        ragdollObject.localRotation = animationObject.localRotation;// * initialRotationOffset;
+       // }
            
 
         //}
@@ -50,15 +68,15 @@ public class copymotion : MonoBehaviour
     public void Init()
     {
         RePlacetarget();
-        StartCoroutine(UpdateRagdollpostion());
+        //StartCoroutine(UpdateRagdollpostion());
     }
 
     private IEnumerator UpdateRagdollpostion()
     {
         while (true)
         {
-            Debug.Log("animation" + animationObject.position);
-            Debug.Log("ragdoll" + ragdollObject.position);
+            //Debug.Log("animation" + animationObject.position);
+            //Debug.Log("ragdoll" + ragdollObject.position);
             ragdollObject.position = animationObject.position + initialPositionOffset;
             ragdollObject.rotation = animationObject.rotation * initialRotationOffset;
             yield return null;

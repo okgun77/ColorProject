@@ -47,11 +47,11 @@ public class DisableScripts : MonoBehaviour
         {
             ComponentState state = new ComponentState();
 
-            var animator = obj.GetComponent<Animator>();
-            if (animator != null)
-            {
-                state.animatorEnabled = animator.enabled;
-            }
+            //var animator = obj.GetComponent<Animator>();
+            //if (animator != null)
+            //{
+            //    state.animatorEnabled = animator.enabled;
+            //}
 
             var rigidbody = obj.GetComponent<Rigidbody>();
             if (rigidbody != null)
@@ -67,11 +67,11 @@ public class DisableScripts : MonoBehaviour
                 state.copyMotionEnabled = copyMotion.enabled;
             }
 
-            var tpsPlayerController = obj.GetComponent<TPSPlayerController>();
-            if (tpsPlayerController != null)
-            {
-                state.tpsPlayerControllerEnabled = tpsPlayerController.enabled;
-            }
+            //var tpsPlayerController = obj.GetComponent<TPSPlayerController>();
+            //if (tpsPlayerController != null)
+            //{
+            //    state.tpsPlayerControllerEnabled = tpsPlayerController.enabled;
+            //}
 
             originalStates[obj] = state;
         }
@@ -89,11 +89,11 @@ public class DisableScripts : MonoBehaviour
     {
         foreach (var obj in objectsToDisable)
         {
-            var animator = obj.GetComponent<Animator>();
-            if (animator != null && animator.enabled)
-            {
-                animator.enabled = false;
-            }
+            //var animator = obj.GetComponent<Animator>();
+            //if (animator != null && animator.enabled)
+            //{
+            //    animator.enabled = false;
+            //}
 
             var rigidbody = obj.GetComponent<Rigidbody>();
             if (rigidbody != null && rigidbody.constraints != RigidbodyConstraints.None)
@@ -108,11 +108,11 @@ public class DisableScripts : MonoBehaviour
             {
                 copyMotion.enabled = false;
             }
-            var tpsPlayerController = obj.GetComponent<TPSPlayerController>();
-            if (tpsPlayerController != null)
-            {
-                tpsPlayerController.enabled = false; // TPSPlayerController 비활성화
-            }
+            //var tpsPlayerController = obj.GetComponent<TPSPlayerController>();
+            //if (tpsPlayerController != null)
+            //{
+            //    tpsPlayerController.enabled = false; // TPSPlayerController 비활성화
+            //}
         }
        
         StartCoroutine(StunDuration(3f));
