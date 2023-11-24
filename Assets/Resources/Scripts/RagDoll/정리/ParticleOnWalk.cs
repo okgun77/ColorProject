@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ParticleOnWalk : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem walkParticles; // ê±·ëŠ” ™ì•ˆ ˜ì˜¬ Œí‹°œìŠ¤
-    [SerializeField] private ParticleSystem fastParticles; // ë¹ ë¥´ê²€ì§ì¼ ˜ì˜¬ Œí‹°œìŠ¤
-    //[SerializeField] private ParticleSystem jumpParticles; // í”„˜ì˜¬ Œí‹°œìŠ¤
+    [SerializeField] private ParticleSystem walkParticles; // °È´Â ?¾È ?¿Ã ?Æ¼?½º
+    [SerializeField] private ParticleSystem fastParticles; // ºü¸£°ËÁ÷ÀÏ ?¿Ã ?Æ¼?½º
+    //[SerializeField] private ParticleSystem jumpParticles; // ?ÇÁ?¿Ã ?Æ¼?½º
 
     private bool isJumping;
     private TPSPlayerController characterController;
@@ -22,13 +22,13 @@ public class ParticleOnWalk : MonoBehaviour
 
     private void Update()
     {
-        // ìºë¦­°ê …ì— ¿ì•„ ˆê³  €ì§ì´ì¤‘ì¸ì§€ •ì¸
+        // Ä³¸¯?? ?¿¡ ?¾Æ ?°í ?Á÷ÀÌÁßÀÎÁö ?ÀÎ
         bool grounded = characterController.IsGrounded();
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         bool moving = (horizontalInput != 0 || verticalInput != 0);
 
-        // …ì— ¿ì•„ ˆê³  €ì§ì´ì¤‘ì¼ Œí‹°¬ìƒ
+        // ?¿¡ ?¾Æ ?°í ?Á÷ÀÌÁßÀÏ ?Æ¼?»ı
         if (grounded && moving)
         {
             if (!isWalking)
@@ -68,14 +68,14 @@ public class ParticleOnWalk : MonoBehaviour
                 isRunning = false;
             }
         }
-        // ìºë¦­°ê …ì— ¿ì Šì•˜ê³ í”„ ì¤‘ì´ „ë‹ˆ¼ë©´ í”„ Œí‹°¬ìƒ
+        // Ä³¸¯?? ?¿¡ ?? ?¾Ò? ?ÇÁ ÁßÀÌ ?´Ï?¸é ?ÇÁ ?Æ¼?»ı
         if (!grounded && !isJumping)
         {
            // jumpParticles.Play();
             isJumping = true;
         }
 
-        // ìºë¦­°ê …ì— ¿ì•˜ê³ í”„ íƒœ¼ë©´ í”„ Œí‹°ì¤‘ì
+        // Ä³¸¯?? ?¿¡ ?¾Ò? ?ÇÁ ?ÅÂ?¸é ?ÇÁ ?Æ¼Áß?
         if (grounded && isJumping)
         {
            // jumpParticles.Stop();

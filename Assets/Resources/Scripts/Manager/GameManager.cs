@@ -119,11 +119,15 @@ public class GameManager : MonoBehaviour
         if (isPaused)
         {
             Time.timeScale = 0f; // 게임 시간을 정지합니다.
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             uiManager.ShowPauseMenu(); // 일시 정지 메뉴를 표시합니다.
         }
         else
         {
             Time.timeScale = 1f; // 게임 시간을 재개합니다.
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             uiManager.HidePauseMenu(); // 일시 정지 메뉴를 숨깁니다.
         }
     }

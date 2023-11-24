@@ -178,7 +178,8 @@ public class PlayerColor : MonoBehaviour
                 case NPCType.NPC_WATER:
                     //리셋 사운드
                     effectPlay();
-                    SoundManager.Instance.PlaySE(SoundManager.Instance.ColorresetcolorSound);
+                    SoundManager.Instance.PlaySE(SoundManager.Instance.earncolorSound);
+                    // SoundManager.Instance.PlaySE(SoundManager.Instance.ColorresetcolorSound);
 
                     ResetColor();
                     break;
