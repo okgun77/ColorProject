@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
         {
             StartGame();
         }
-        
+        TestInit();
     }
 
     private void Update()
@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
     public void StartGameAfterCountdown()
     {
         Time.timeScale = 1f;
-        TestInit();
+       
         StartGame();
     }
     

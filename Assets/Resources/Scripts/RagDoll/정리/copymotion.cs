@@ -40,7 +40,10 @@ public class copymotion : MonoBehaviour
         isInit = true;
     }
 
-   
+    private void Update()
+    {
+
+    }
 
     private void RePlacetarget()
     {
