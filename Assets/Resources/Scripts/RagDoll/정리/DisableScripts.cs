@@ -6,7 +6,7 @@ public class DisableScripts : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> objectsToDisable;
-    private copymotion copy;
+    public copymotion[] copy;
     private bool knockedDown = false;
     private bool isFirstWASDPressed = false;
     // 각 컴포넌트의 활성화 상태를 저장하기 위한 구조체
@@ -18,6 +18,7 @@ public class DisableScripts : MonoBehaviour
         public bool rigidbodyUseGravity;
         public bool copyMotionEnabled;
         public bool tpsPlayerControllerEnabled;
+        public bool NaviMash;
     }
 
     // 원래 컴포넌트 상태를 저장하는 딕셔너리
@@ -33,12 +34,13 @@ public class DisableScripts : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G) || knockedDown)
         {
             DisableState();
-            copy.StopAllCoroutines();
+            foreach (copymotion C in copy)
+                C.PauseCoroutine();
         }
     }
     private void Awake()
     {
-       
+       copy = GetComponentsInChildren<copymotion>();
     }
     void Start()
     {
@@ -75,6 +77,8 @@ public class DisableScripts : MonoBehaviour
             }
 
             originalStates[obj] = state;
+
+           
         }
         
     }
@@ -174,6 +178,8 @@ public class DisableScripts : MonoBehaviour
             {
                 tpsPlayerController.enabled = true; // TPSPlayerController 활성화
             }
+            foreach (copymotion C in copy)
+                C.ResumeCoroutine();
         }
     }
 }

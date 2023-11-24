@@ -18,6 +18,8 @@ public class copymotion : MonoBehaviour
 
     private bool isInit = false;
 
+    private bool isCoroutineRunning = false; // 코루틴 실행 상태 추적
+    private Coroutine ragdollCoroutine; // 실행 중인 코루틴 참조
     //void Start()
     //{
     //    Rb = GetComponent<Rigidbody>();
@@ -55,21 +57,39 @@ public class copymotion : MonoBehaviour
     public void Init()
     {
         RePlacetarget();
-        StartCoroutine(UpdateRagdollpostion());
+        ragdollCoroutine = StartCoroutine(UpdateRagdollpostion()); // 코루틴 저장
+        isCoroutineRunning = true;
     }
 
     private IEnumerator UpdateRagdollpostion()
     {
         yield return null;
-        while (true)
+        while (isCoroutineRunning)
         {
             //Debug.Log("animation" + animationObject.position);
             //Debug.Log("ragdoll" + ragdollObject.position);
-            ragdollObject.localPosition = animationObject.localPosition;
-            ragdollObject.localRotation = animationObject.localRotation;
+            //ragdollObject.localPosition = animationObject.localPosition;
+            //ragdollObject.localRotation = animationObject.localRotation;
             ragdollObject.position = animationObject.position + initialPositionOffset;
             ragdollObject.rotation = animationObject.rotation * initialRotationOffset;
             yield return null;
+        }
+    }
+    public void PauseCoroutine()
+    {
+        if (isCoroutineRunning)
+        {
+            StopCoroutine(ragdollCoroutine); // 코루틴 중지
+            isCoroutineRunning = false;
+        }
+    }
+
+    public void ResumeCoroutine()
+    {
+        if (!isCoroutineRunning)
+        {
+            ragdollCoroutine = StartCoroutine(UpdateRagdollpostion()); // 코루틴 재시작
+            isCoroutineRunning = true;
         }
     }
 }
