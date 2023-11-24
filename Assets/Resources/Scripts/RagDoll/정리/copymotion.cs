@@ -32,7 +32,7 @@ public class copymotion : MonoBehaviour
     private void Start()
     {
         Init();
-        //Invoke("OnInit", 1f);
+        
     }
 
     private void OnInit()
@@ -40,23 +40,7 @@ public class copymotion : MonoBehaviour
         isInit = true;
     }
 
-
-    void Update()
-    {
-        //if (!Test)
-        //{
-        //    Debug.Log("animation"+ animationObject.position);
-        //    Debug.Log("ragdoll" + ragdollObject.position);
-        //if (isInit)
-        // {
-        ragdollObject.localPosition = animationObject.localPosition;// + initialPositionOffset;
-        ragdollObject.localRotation = animationObject.localRotation;// * initialRotationOffset;
-       // }
-           
-
-        //}
-        
-    }
+   
 
     private void RePlacetarget()
     {
@@ -68,15 +52,18 @@ public class copymotion : MonoBehaviour
     public void Init()
     {
         RePlacetarget();
-        //StartCoroutine(UpdateRagdollpostion());
+        StartCoroutine(UpdateRagdollpostion());
     }
 
     private IEnumerator UpdateRagdollpostion()
     {
+        yield return null;
         while (true)
         {
             //Debug.Log("animation" + animationObject.position);
             //Debug.Log("ragdoll" + ragdollObject.position);
+            ragdollObject.localPosition = animationObject.localPosition;
+            ragdollObject.localRotation = animationObject.localRotation;
             ragdollObject.position = animationObject.position + initialPositionOffset;
             ragdollObject.rotation = animationObject.rotation * initialRotationOffset;
             yield return null;

@@ -24,11 +24,10 @@ public class TPSPlayerController : MonoBehaviour
 
     private const string JumpButton = "Jump"; // 먰봽 踰꾪듉
 
-    public GameObject copyGo = null;
+    
 
 
-    //Sound
-    public string WalkSound;
+   
     private void Awake()
     {
         anim = GetComponent<Animator>();
