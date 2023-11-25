@@ -9,7 +9,7 @@ public enum EColorMatchStatus { MIX_ING, MIX_COMPLETE, MIX_FAIL }
 
 public class GameManager : MonoBehaviour
 {
-    
+    [SerializeField] public copymotion[] copy;
     [SerializeField] private TimerManager timerManager;
     [SerializeField] private float elapseTime;
     [SerializeField] private UIManager uiManager;
@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     private bool isColorMatchSuccess = false;
 
     private EColorMatchStatus colorMatchStatus = EColorMatchStatus.MIX_ING;
+
+
 
     public EColorMatchStatus CurrentColorMatchStatus
     {
@@ -68,7 +70,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        copy = FindObjectsOfType<copymotion>();
+
         if (countDownManager != null)
         {
             countDownManager.CountDownStart(); // 카운트다운 시작
@@ -89,7 +92,7 @@ public class GameManager : MonoBehaviour
         {
             StartGame();
         }
-        
+        TestInit();
     }
 
     private void Update()
@@ -110,6 +113,7 @@ public class GameManager : MonoBehaviour
     public void StartGameAfterCountdown()
     {
         Time.timeScale = 1f;
+       
         StartGame();
     }
     
@@ -301,8 +305,14 @@ public class GameManager : MonoBehaviour
             colorMatchCheck.SetActive(false);
         }
     }
-    
 
+    private void TestInit()
+    {
+        foreach (var v in copy)
+        {
+            v.Init();
+        }
+    }
 }
 
 
