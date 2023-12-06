@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject loseScreen;
     [SerializeField] private GameObject colorMatchCheck;
 
+    [SerializeField] SoundManager soundManager;
+    
     private bool isColorMatchSuccess = false;
 
     private EColorMatchStatus colorMatchStatus = EColorMatchStatus.MIX_ING;
@@ -122,6 +124,7 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             uiManager.ShowPauseMenu(); // 일시 정지 메뉴를 표시합니다.
+            soundManager.audioSourceBgm.Pause();
         }
         else
         {
@@ -129,6 +132,7 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             uiManager.HidePauseMenu(); // 일시 정지 메뉴를 숨깁니다.
+            soundManager.audioSourceBgm.UnPause();
         }
     }
 

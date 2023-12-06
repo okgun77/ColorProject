@@ -26,7 +26,7 @@ public class SoundManager : MonoBehaviour
 
     private Dictionary<string, AudioClip> sceneToBGMMap = new Dictionary<string, AudioClip>(); // 씬 이름을 키로 사용하여 BGM 클립을 저장할 딕셔너리
 
-    static public SoundManager Instance;                                    // 어디서도 접근 가능하게 
+    public static SoundManager Instance;                                    // 어디서도 접근 가능하게 
     private int[] effectSoundIndices;
 
     private float targetBGMVolume; // 목표 BGM 볼륨 값 저장
@@ -164,7 +164,6 @@ public class SoundManager : MonoBehaviour
             audioSourceBgm.clip = bgm;
             audioSourceBgm.volume = bgmVolume;
             audioSourceBgm.Play();
-
         }
         else
         {
