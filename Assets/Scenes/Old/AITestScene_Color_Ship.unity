@@ -2150,6 +2150,8 @@ MonoBehaviour:
   AlturaCamInput: 1
   Maxlutra: -10
   Minaltura: -0.5
+  rotationSensitivity: 1
+  heightSensitivity: 1
 --- !u!1001 &286236868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4611,6 +4613,7 @@ MonoBehaviour:
   - 240
   speedChangeTime: 2
   rb: {fileID: 546895254}
+  rotationAxis: {x: 0, y: 1, z: 0}
 --- !u!54 &546895254
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5628,6 +5631,7 @@ MonoBehaviour:
   requiredColorDisplays:
   - {fileID: 2098935755}
   - {fileID: 1026839044}
+  targetColorCompletedIndicator: {fileID: 0}
 --- !u!4 &709475214
 Transform:
   m_ObjectHideFlags: 0
@@ -13755,14 +13759,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4313b6b613f11498882c376cda12c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  copy: []
   timerManager: {fileID: 1678489859}
   elapseTime: 180
   uiManager: {fileID: 709475213}
+  countDownManager: {fileID: 0}
   colorTable: {fileID: 1229714848}
   targetColorImage: {fileID: 1679496150}
   playerColor: {fileID: 232174330}
   winScreen: {fileID: 1660192948}
   loseScreen: {fileID: 1471118447}
+  colorMatchCheck: {fileID: 0}
+  soundManager: {fileID: 0}
   timeText: {fileID: 179953954}
   gameOverScreen: {fileID: 2010684652}
 --- !u!4 &2085392202

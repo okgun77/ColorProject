@@ -1850,6 +1850,8 @@ MonoBehaviour:
   AlturaCamInput: 1
   Maxlutra: -10
   Minaltura: -0.5
+  rotationSensitivity: 1
+  heightSensitivity: 1
 --- !u!1 &286905926
 GameObject:
   m_ObjectHideFlags: 0
@@ -8626,15 +8628,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4313b6b613f11498882c376cda12c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  copy: []
   timerManager: {fileID: 1678489859}
   elapseTime: 120
   uiManager: {fileID: 709475213}
+  countDownManager: {fileID: 0}
   colorTable: {fileID: 1229714848}
   targetColorImage: {fileID: 1679496150}
   playerColor: {fileID: 232174330}
   winScreen: {fileID: 1660192948}
   loseScreen: {fileID: 1471118447}
   colorMatchCheck: {fileID: 378725482}
+  soundManager: {fileID: 0}
   timeText: {fileID: 179953954}
   gameOverScreen: {fileID: 2010684652}
 --- !u!4 &2085392202

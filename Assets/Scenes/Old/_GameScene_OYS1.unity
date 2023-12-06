@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17846385, g: 0.22345817, b: 0.30545372, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5490,7 +5490,6 @@ MonoBehaviour:
   jumpPower: 3
   distanceToGround: 0.2
   Run: 1.8
-  WalkSound: 
 --- !u!1 &535659240
 GameObject:
   m_ObjectHideFlags: 0
@@ -15593,15 +15592,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4313b6b613f11498882c376cda12c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  copy: []
   timerManager: {fileID: 1678489859}
   elapseTime: 20
   uiManager: {fileID: 709475213}
+  countDownManager: {fileID: 0}
   colorTable: {fileID: 1229714848}
   targetColorImage: {fileID: 1679496150}
   playerColor: {fileID: 1800299566}
   winScreen: {fileID: 1660192948}
   loseScreen: {fileID: 1471118447}
   colorMatchCheck: {fileID: 378725482}
+  soundManager: {fileID: 0}
   timeText: {fileID: 179953954}
   gameOverScreen: {fileID: 2010684652}
 --- !u!4 &2085392202

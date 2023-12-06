@@ -20477,6 +20477,7 @@ MonoBehaviour:
   winScreen: {fileID: 1660192948}
   loseScreen: {fileID: 1471118447}
   colorMatchCheck: {fileID: 378725482}
+  soundManager: {fileID: 0}
   timeText: {fileID: 179953954}
   gameOverScreen: {fileID: 2010684652}
 --- !u!4 &2085392202
