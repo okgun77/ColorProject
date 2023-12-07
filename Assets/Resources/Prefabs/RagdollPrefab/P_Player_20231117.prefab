@@ -15113,7 +15113,6 @@ MonoBehaviour:
   jumpPower: 4
   distanceToGround: 0.2
   Run: 1
-  WalkSound: 
 --- !u!114 &2587561518443375316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20804,6 +20803,7 @@ MonoBehaviour:
   - {fileID: 3358503382025332256}
   - {fileID: 8719759491541578006}
   - {fileID: 1558396592622711859}
+  copy: []
 --- !u!1 &2769084473346641917
 GameObject:
   m_ObjectHideFlags: 0
@@ -21206,6 +21206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationObject: {fileID: 1558396593079742053}
   ragdollObject: {fileID: 1986049052274674295}
+  getTr: {fileID: 0}
 --- !u!1 &3443769278691002046
 GameObject:
   m_ObjectHideFlags: 0
@@ -22058,6 +22059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationObject: {fileID: 1558396592771237255}
   ragdollObject: {fileID: 999431846743302317}
+  getTr: {fileID: 0}
 --- !u!1 &5570638398775196348
 GameObject:
   m_ObjectHideFlags: 0
@@ -27327,6 +27329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationObject: {fileID: 1558396592729253455}
   ragdollObject: {fileID: 7986703830189635981}
+  getTr: {fileID: 0}
 --- !u!1 &7343446105426292098
 GameObject:
   m_ObjectHideFlags: 0
@@ -27760,6 +27763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationObject: {fileID: 1558396593296951359}
   ragdollObject: {fileID: 1450796829295220672}
+  getTr: {fileID: 0}
 --- !u!1 &9099189516101097719
 GameObject:
   m_ObjectHideFlags: 0
