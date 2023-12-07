@@ -14964,7 +14964,7 @@ GameObject:
   - component: {fileID: 3711125712400423684}
   - component: {fileID: 2810972701336241669}
   - component: {fileID: 1558396592622711857}
-  - component: {fileID: 2587561518443375316}
+  - component: {fileID: 7533420816206868765}
   m_Layer: 12
   m_Name: Player_Animation
   m_TagString: Player
@@ -15090,7 +15090,7 @@ MonoBehaviour:
   - {fileID: 3263189742348656224}
   colorTable: {fileID: 0}
   uiManager: {fileID: 0}
-  playerEffect: {fileID: 2587561518443375316}
+  playerEffect: {fileID: 0}
 --- !u!114 &1558396592622711857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15113,7 +15113,7 @@ MonoBehaviour:
   jumpPower: 4
   distanceToGround: 0.2
   Run: 1
---- !u!114 &2587561518443375316
+--- !u!114 &7533420816206868765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15122,10 +15122,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1558396592622711859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a009c3c7e25cced42a9c1c36204925dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 90a30056b9528b043a0f79357010f48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 4848315108033540506}
+  speed: 5
 --- !u!1 &1558396592634685505
 GameObject:
   m_ObjectHideFlags: 0
@@ -28085,12 +28085,6 @@ PrefabInstance:
 --- !u!4 &4748714048835962774 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4953497897028252, guid: ae2b13f9ecf0d2444b46bdcb21f42ce3,
-    type: 3}
-  m_PrefabInstance: {fileID: 4753350853007117578}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &4848315108033540506 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198131504142204048, guid: ae2b13f9ecf0d2444b46bdcb21f42ce3,
     type: 3}
   m_PrefabInstance: {fileID: 4753350853007117578}
   m_PrefabAsset: {fileID: 0}
