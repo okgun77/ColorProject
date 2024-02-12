@@ -26,7 +26,7 @@ public class SoundManager : MonoBehaviour
 
     private Dictionary<string, AudioClip> sceneToBGMMap = new Dictionary<string, AudioClip>(); // 씬 이름을 키로 사용하여 BGM 클립을 저장할 딕셔너리
 
-    public static SoundManager Instance;                                    // 어디서도 접근 가능하게 
+    public static SoundManager Instance;                                    // 싱글톤 
     private int[] effectSoundIndices;
 
     private float targetBGMVolume; // 목표 BGM 볼륨 값 저장
@@ -75,7 +75,7 @@ public class SoundManager : MonoBehaviour
 
     [Range(0f, 1f)]
     public float sfxVolume = 1f;
-    [Header("게임 관련 사운드")]
+    [Header("[Game Audio]")]
     public string gamaFailSound;
     public string TimeSound;
     public string gamesuccessSound;
@@ -84,16 +84,16 @@ public class SoundManager : MonoBehaviour
     public string ClickSound3;
     public string ClickSound4;
     public string errorClick;
-    [Header("주인공 관련 사운드")]
+    [Header("[Player Audio]")]
     public string PlayerRightWalk;
     public string PlayerLeftWalk;
     public string PlayerJumpSound;
-    [Header("물통 적 관련 사운드")]
+    [Header("[NPC_Water_Audio]")]
   
     public string waterscreamsound;
     public string WaterresetcolorSound;
     public string HitSound1;
-    [Header("색깔  관련 사운드")]
+    [Header("NPC_Color_Audio")]
     public string earncolorSound;
     public string ColorresetcolorSound;
     

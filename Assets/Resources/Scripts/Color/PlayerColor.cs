@@ -53,9 +53,9 @@ public class PlayerColor : MonoBehaviour
     // 플레이어가 현재 가진 색상 번호 리스트를 반환하는 메소드
     public List<string> GetCurrentColorList()
     {
-        Debug.Log($"GetCurrentColorList 호출 전 playerColors 리스트: {string.Join(", ", playerColors)}");
+        // Debug.Log($"GetCurrentColorList 호출 전 playerColors 리스트: {string.Join(", ", playerColors)}");
         var currentColorList = new List<string>(playerColors);
-        Debug.Log($"GetCurrentColorList 호출 후 currentColorList 반환 리스트: {string.Join(", ", currentColorList)}");
+        // Debug.Log($"GetCurrentColorList 호출 후 currentColorList 반환 리스트: {string.Join(", ", currentColorList)}");
         return currentColorList;        
     }
 
