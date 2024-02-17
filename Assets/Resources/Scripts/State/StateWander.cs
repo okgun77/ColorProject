@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,10 +8,6 @@ public class StateWander : IState
     private Animator anim;
     private Transform playerTr;
 
-
-    private float checkTime = 2f;
-    private float timer;
-
     public StateWander(StateManager _stateManager, NavMeshAgent _nav, Animator _anim, Transform _playerTr)
     {
         stateManager = _stateManager;
@@ -21,7 +15,6 @@ public class StateWander : IState
         anim = _anim;
         playerTr = _playerTr;
     }
-
 
     public void OnEnter()
     {
@@ -31,14 +24,9 @@ public class StateWander : IState
 
     public void OnUpdate()
     {
-        if (timer > checkTime)
+        if (nav.remainingDistance < 0.5f)
         {
             nav.SetDestination(GetRandomDestination());
-            timer = 0f;
-        }
-        else
-        {
-            timer += Time.deltaTime;
         }
     }
 
@@ -47,14 +35,12 @@ public class StateWander : IState
         anim.SetBool("IsMoving", false);
     }
 
-
     private Vector3 GetRandomDestination()
     {
         Vector3 randomDirection = Random.insideUnitSphere * 10;
         randomDirection += stateManager.transform.position;
         NavMeshHit hit;
         NavMesh.SamplePosition(randomDirection, out hit, 10, 1);
-        Vector3 finalPosition = hit.position;
-        return finalPosition;
+        return hit.position;
     }
 }

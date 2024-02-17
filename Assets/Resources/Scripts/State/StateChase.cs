@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -28,7 +26,6 @@ public class StateChase : IState
 
     public void OnExit()
     {
-        // Cleanup logic if needed
+
     }
 }
-

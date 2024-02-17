@@ -1,36 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class StateManager : MonoBehaviour
 {
-    public IState curState;
-    public EnemyAI enemyAI;
-    public NavMeshAgent nav;
-    public Animator anim;
-    public Transform playerTr;
+    public IState currentState;
+    public NavMeshAgent navAgent;
+    public Animator animator;
+    public Transform playerTransform;
 
-    private void Start()
+    void Start()
     {
-        enemyAI = GetComponent<EnemyAI>();
-        nav = GetComponent<NavMeshAgent>();
-        anim = GetComponent<Animator>();
-        curState = new StateWander(this, nav, anim, playerTr);
-        curState.OnEnter();
+        navAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+        currentState = new StateWander(this, navAgent, animator, playerTransform);
+        currentState.OnEnter();
     }
 
-    private void Update()
+    void Update()
     {
-        curState.OnUpdate();
+        currentState.OnUpdate();
     }
 
     public void ChangeState(IState _newState)
     {
-        curState.OnExit();
-        curState = _newState;
-        curState.OnEnter();
+        currentState.OnExit();
+        currentState = _newState;
+        currentState.OnEnter();
     }
-
-
 }
