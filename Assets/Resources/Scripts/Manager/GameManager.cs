@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("카운트다운 매니저 등록 안되어있음!!");
+            // Debug.LogError("카운트다운 매니저 등록 안되어있음!!");
         }
 
         timerManager.Init(elapseTime);
@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         
         if (timerManager == null)
         {
-            Debug.LogError("TimerManager is not assigned in the inspector!");
+            // Debug.LogError("TimerManager is not assigned in the inspector!");
         }
         else
         {
@@ -189,14 +189,14 @@ public class GameManager : MonoBehaviour
     
     public void EndGame()
     {
-        Debug.Log($"EndGame 호출 전 playerColors: {string.Join(", ", playerColor.GetCurrentColorList())}");
-        
+        // Debug.Log($"EndGame 호출 전 playerColors: {string.Join(", ", playerColor.GetCurrentColorList())}");
+
         timerManager.StopTimer(); // 타이머 중지
         
         List<string> playerColorCodes = playerColor.GetCurrentColorList();
-        
-        Debug.Log($"EndGame 호출 시 playerColors: {string.Join(", ", playerColorCodes)}");
-        
+
+        // Debug.Log($"EndGame 호출 시 playerColors: {string.Join(", ", playerColorCodes)}");
+
         string playerCombinedColorNo = string.Join("", playerColorCodes.OrderBy(c => c)); // 정렬하여 하나의 문자열로 결합
         string targetColorNo = targetColorInfo.ColorNo; // 목표 색상 번호
     
@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour
     
         if(success)
         {
-            Debug.Log("(게임 종료) 플레이어 색상조합 성공!");
+            // Debug.Log("(게임 종료) 플레이어 색상조합 성공!");
             // 성공 화면 표시
             // Screen.lockCursor = false;
             Cursor.lockState = CursorLockMode.None;
@@ -214,7 +214,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("(게임 종료) 플레이어 색상조합 실패!");
+            // Debug.Log("(게임 종료) 플레이어 색상조합 실패!");
             // 실패 화면 표시
             // Screen.lockCursor = false;
             Cursor.lockState = CursorLockMode.None;
@@ -292,19 +292,19 @@ public class GameManager : MonoBehaviour
         string playerCombinedColorNo = string.Join("", playerColorCodes.OrderBy(c => c));
         string targetColorNo = targetColorInfo.ColorNo;
 
-        Debug.Log($"플레이어 조합 색상: {playerCombinedColorNo}, 목표 색상: {targetColorNo}");
+        // Debug.Log($"플레이어 조합 색상: {playerCombinedColorNo}, 목표 색상: {targetColorNo}");
 
         bool success = playerCombinedColorNo.Equals(targetColorNo);
 
         if (success)
         {
-            Debug.Log("컬러 매치 성공!!");
+            // Debug.Log("컬러 매치 성공!!");
             isColorMatchSuccess = true;
             colorMatchCheck.SetActive(true);
         }
         else
         {
-            Debug.Log("컬러 매치 실패");
+            // Debug.Log("컬러 매치 실패");
             isColorMatchSuccess = false;
             colorMatchCheck.SetActive(false);
         }

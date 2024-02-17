@@ -7,9 +7,9 @@ public class PlayerEffectController : MonoBehaviour
     // 특정 인덱스의 파티클 플레이
     public void PlayParticle(int index)
     {
-            Debug.Log("Particle System Play!");
+        // Debug.Log("Particle System Play!");
 
-            particleSystem.Play();
+        particleSystem.Play();
     }
 
     // 특정 인덱스의 파티클 정지

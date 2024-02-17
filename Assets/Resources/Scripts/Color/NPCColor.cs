@@ -32,7 +32,7 @@ public class NPCColor : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Color No not found in color table: " + colorNo);
+            // Debug.LogWarning("Color No not found in color table: " + colorNo);
         }
     }
 }

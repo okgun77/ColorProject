@@ -150,11 +150,11 @@ public class SoundManager : MonoBehaviour
                         return;
                     }
                 }
-                Debug.Log("모든 가용 AudioSource가 사용중입니다.");
+                // Debug.Log("모든 가용 AudioSource가 사용중입니다.");
                 return;
             }
         }
-        Debug.Log(_name + "사운드가 soundmanager에 등록되지 않았습니다.");
+        // Debug.Log(_name + "사운드가 soundmanager에 등록되지 않았습니다.");
     }
 
     public void PlayBE(string sceneName)
@@ -167,7 +167,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.Log(sceneName + "에 대한 BGM이 SoundManager에 등록되지 않았습니다.");
+            // Debug.Log(sceneName + "에 대한 BGM이 SoundManager에 등록되지 않았습니다.");
         }
     }
     public void StopAllSE() //전부다 멈추기
@@ -188,7 +188,7 @@ public class SoundManager : MonoBehaviour
                 return;
             }
         }
-        Debug.Log("재생중인" + _name + "사운드가 없습니다.");
+        // Debug.Log("재생중인" + _name + "사운드가 없습니다.");
     }
 
     private void OnDestroy()
@@ -199,16 +199,16 @@ public class SoundManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Scene loaded: " + scene.name);
+        // Debug.Log("Scene loaded: " + scene.name);
 
         if (sceneToBGMMap.ContainsKey(scene.name))
         {
-            Debug.Log("Playing BGM for scene: " + scene.name);
+            // Debug.Log("Playing BGM for scene: " + scene.name);
             PlayBE(scene.name); // 새로운 BGM을 페이드인으로 시작합니다.
         }
         else
         {
-            Debug.Log("No BGM found for scene: " + scene.name);
+            // Debug.Log("No BGM found for scene: " + scene.name);
             audioSourceBgm.Stop(); // 해당 씬의 BGM이 없으면 BGM을 중지
         }
     }

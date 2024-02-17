@@ -1,21 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class StateFlee : BaseState
+public class StateFlee : IState
 {
-    public override void EnterState()
+    private StateManager stateManager;
+    private NavMeshAgent nav;
+    private Transform playerTr;
+
+    public StateFlee(StateManager _stateManager, NavMeshAgent _nav, Transform _playerTr)
     {
-        // 도망 중 상태 진입 시 수행할 동작
+        stateManager = _stateManager;
+        nav = _nav;
+        playerTr = _playerTr;
     }
 
-    public override void UpdateState()
+    public void OnEnter()
     {
-        // 도망 중 상태에서 수행할 업데이트 동작
+        Vector3 fleeDirection = (stateManager.transform.position - playerTr.position).normalized * 10;
+        Vector3 fleePosition = stateManager.transform.position + fleeDirection;
+        nav.SetDestination(fleePosition);
     }
 
-    public override void ExitState()
+    public void OnUpdate()
     {
-        // 도망 중 상태에서 나갈 때 수행할 동작
+        
+    }
+
+    public void OnExit()
+    {
+        
     }
 }
+

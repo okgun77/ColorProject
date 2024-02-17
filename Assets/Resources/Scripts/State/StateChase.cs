@@ -1,21 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class StateChase : BaseState
+public class StateChase : IState
 {
-    public override void EnterState()
+    private StateManager stateManager;
+    private NavMeshAgent nav;
+    private Transform playerTr;
+
+    public StateChase(StateManager _stateManager, NavMeshAgent _nav, Transform _playerTr)
     {
-        // 추적 중 상태 진입 시 수행할 동작
+        stateManager = _stateManager;
+        nav = _nav;
+        playerTr = _playerTr;
     }
 
-    public override void UpdateState()
+    public void OnEnter()
     {
-        // 추적 중 상태에서 수행할 업데이트 동작
+        nav.SetDestination(playerTr.position);
     }
 
-    public override void ExitState()
+    public void OnUpdate()
     {
-        // 추적 중 상태에서 나갈 때 수행할 동작
+        nav.SetDestination(playerTr.position);
+    }
+
+    public void OnExit()
+    {
+        // Cleanup logic if needed
     }
 }
+

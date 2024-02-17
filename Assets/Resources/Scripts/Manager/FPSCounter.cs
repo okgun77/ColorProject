@@ -13,7 +13,7 @@ public class FPSCounter : MonoBehaviour
     {
         if (!framerateText)
         {
-            Debug.Log("FPSCounter needs a Text component!");
+            // Debug.Log("FPSCounter needs a Text component!");
             enabled = false;
             return;
         }
