@@ -26,17 +26,17 @@ public class PlayerColor : MonoBehaviour
     // 색상 습득 함수
     public void GetColor(string _colorNo)
     {
-        Debug.Log($"GetColor 호출 전 playerColors: {string.Join(", ", playerColors)}");
+        // Debug.Log($"GetColor 호출 전 playerColors: {string.Join(", ", playerColors)}");
         
         // 색상이 검은색으로 고정되었다면 새로운 색상 추가를 하지 않음
         if (isColorLocked || playerColors.Contains(_colorNo)) // 이미 가진 색상인지 확인
         {
-            Debug.Log($"색상 추가 건너뜀 (고정됨 또는 이미 존재함): {_colorNo}");
+            // Debug.Log($"색상 추가 건너뜀 (고정됨 또는 이미 존재함): {_colorNo}");
             return;
         }
 
         playerColors.Add(_colorNo);
-        Debug.Log($"색상 {_colorNo} 추가 후 playerColors: {string.Join(", ", playerColors)}");
+        // Debug.Log($"색상 {_colorNo} 추가 후 playerColors: {string.Join(", ", playerColors)}");
         
         if (playerColors.Count >= 5) // 색상 수가 5개 이상이면 검은색으로 설정
         {
@@ -65,7 +65,7 @@ public class PlayerColor : MonoBehaviour
         if (isColorLocked) return; // 색상이 고정되었다면 업데이트하지 않음
 
         // 현재 getColors 리스트의 내용 출력
-        Debug.Log($"UpdatePlayerColor 호출 전 현재 getColors 리스트: {string.Join(", ", playerColors)}");
+        // Debug.Log($"UpdatePlayerColor 호출 전 현재 getColors 리스트: {string.Join(", ", playerColors)}");
 
         // 기본 색상으로 초기화
         Color colorToApply = Color.white;
@@ -143,7 +143,7 @@ public class PlayerColor : MonoBehaviour
     public void ResetColor()
     {
         // 초기화 전 로그
-        Debug.Log($"ResetColor 호출 전 playerColors: {string.Join(", ", playerColors)}");
+        // Debug.Log($"ResetColor 호출 전 playerColors: {string.Join(", ", playerColors)}");
         
         isColorLocked = false; // 색상 고정 해제
         playerColors.Clear();
@@ -151,7 +151,7 @@ public class PlayerColor : MonoBehaviour
         uiManager.UpdateColorUI(playerColors);
         
         // 초기화 후 로그
-        Debug.Log($"ResetColor 호출 후 playerColors: {string.Join(", ", playerColors)}");
+        // Debug.Log($"ResetColor 호출 후 playerColors: {string.Join(", ", playerColors)}");
         
     }
 
@@ -163,7 +163,7 @@ public class PlayerColor : MonoBehaviour
             npcColor = _other.GetComponent<NPCColor>();
             if (npcColor == null)
             {
-                Debug.Log("NPCColor 없음 " + _other.name);
+                // Debug.Log("NPCColor 없음 " + _other.name);
                 return;
             }
 
@@ -206,7 +206,7 @@ public class PlayerColor : MonoBehaviour
         else
         {
             // 색상 정보가 없는 경우 기본 색상 반환
-            Debug.LogWarning($"Color No not found in color table: {_colorNo}");
+            // Debug.LogWarning($"Color No not found in color table: {_colorNo}");
             return Color.white; // 색상 정보가 없으면 흰색 반환
         }
     }
@@ -218,7 +218,7 @@ public class PlayerColor : MonoBehaviour
         string targetColorNo = _targetColor.ColorNo;
 
         // 목표 색상과 플레이어 조합 색상 출력
-        Debug.Log($"목표색상: {targetColorNo}, 플레이어 조합 색상: {playerCombinedColorNo}");
+        // Debug.Log($"목표색상: {targetColorNo}, 플레이어 조합 색상: {playerCombinedColorNo}");
     }
 
     

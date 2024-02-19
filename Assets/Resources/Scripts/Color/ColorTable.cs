@@ -51,7 +51,7 @@ public class ColorTable : MonoBehaviour
     {
         if (targetColors.Count == 0)
         {
-            Debug.LogError("Target colors list is empty.");
+            // Debug.LogError("Target colors list is empty.");
             return null; // 또는 기본 ColorBasicInfo 반환
         }
         int randomIndex = Random.Range(0, targetColors.Count);

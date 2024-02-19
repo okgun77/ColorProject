@@ -3079,6 +3079,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7843973464957915135, guid: fe2f603ab7f678d43989f51b3eba7ef4,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194252916911501969, guid: fe2f603ab7f678d43989f51b3eba7ef4,
+        type: 3}
+      propertyPath: runDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3440065765462722566, guid: fe2f603ab7f678d43989f51b3eba7ef4, type: 3}
     - {fileID: 4455935132878386527, guid: fe2f603ab7f678d43989f51b3eba7ef4, type: 3}
@@ -4701,6 +4711,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843973464957915135, guid: fe2f603ab7f678d43989f51b3eba7ef4,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194252916911501969, guid: fe2f603ab7f678d43989f51b3eba7ef4,
+        type: 3}
+      propertyPath: runDistance
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3440065765462722566, guid: fe2f603ab7f678d43989f51b3eba7ef4, type: 3}
@@ -9502,6 +9522,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7843973464957915135, guid: fe2f603ab7f678d43989f51b3eba7ef4,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194252916911501969, guid: fe2f603ab7f678d43989f51b3eba7ef4,
+        type: 3}
+      propertyPath: runDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3440065765462722566, guid: fe2f603ab7f678d43989f51b3eba7ef4, type: 3}
     - {fileID: 4455935132878386527, guid: fe2f603ab7f678d43989f51b3eba7ef4, type: 3}
@@ -12514,6 +12544,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843973464957915135, guid: fe2f603ab7f678d43989f51b3eba7ef4,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194252916911501969, guid: fe2f603ab7f678d43989f51b3eba7ef4,
+        type: 3}
+      propertyPath: runDistance
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3440065765462722566, guid: fe2f603ab7f678d43989f51b3eba7ef4, type: 3}

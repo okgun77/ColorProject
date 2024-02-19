@@ -66,12 +66,12 @@ public class TPSPlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            Debug.Log("LeftShift pressed");
+            // Debug.Log("LeftShift pressed");
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            Debug.Log("LeftShift released");
+            // Debug.Log("LeftShift released");
         }
        
     }
