@@ -64,18 +64,9 @@ public class StateChase : IState
         // Chase 상태 종료 시 필요한 로직
     }
 
-
     private void Chase()
     {
-        float distanceToPlayer = Vector3.Distance(agent.transform.position, playerTransform.position);
-        if (distanceToPlayer <= chaseDistance)
-        {
-            agent.SetDestination(playerTransform.position); // 플레이어 추적
-            setAnimation(true, false); // 걷는 애니메이션 활성화
-        }
-        else
-        {
-            // 추적 거리 밖이면 다른 행동을 취할 수 있습니다.
-        }
+        agent.SetDestination(playerTransform.position);
+        setAnimation(true, false);
     }
 }

@@ -70,7 +70,7 @@ public class StateFlee : IState
         Vector3 fleeDirection = directionAwayFromPlayer.normalized * runDistance;
         Vector3 newPos = agent.transform.position + fleeDirection;
         agent.SetDestination(newPos);
-        setAnimation(true, false); // Assume this sets the correct animation for fleeing
+        setAnimation(true, false);
     }
 
 }

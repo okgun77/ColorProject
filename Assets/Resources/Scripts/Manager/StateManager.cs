@@ -58,16 +58,13 @@ public class StateManager
             {
                 ChangeState(stateFlee);
             }
-            else if ((colorMatchStatus == EColorMatchStatus.MIX_COMPLETE || colorMatchStatus == EColorMatchStatus.MIX_FAIL) && distanceToPlayer <= enemyAI.ChaseDistance)
+            else if ((colorMatchStatus == EColorMatchStatus.MIX_COMPLETE || colorMatchStatus == EColorMatchStatus.MIX_FAIL)
+                      && distanceToPlayer <= enemyAI.ChaseDistance)
             {
                 ChangeState(stateChase);
             }
-            else
-            {
-                ChangeState(stateWander);
-            }
+            else { ChangeState(stateWander); }
         }
-
         // NPCWater의 경우
         else if (enemyAI.NpcColor.Type == NPCType.NPC_WATER)
         {
@@ -75,26 +72,24 @@ public class StateManager
             {
                 ChangeState(stateFlee);
             }
-            else if ((colorMatchStatus == EColorMatchStatus.MIX_ING || colorMatchStatus == EColorMatchStatus.MIX_COMPLETE) && distanceToPlayer <= enemyAI.ChaseDistance)
+            else if ((colorMatchStatus == EColorMatchStatus.MIX_ING || colorMatchStatus == EColorMatchStatus.MIX_COMPLETE)
+                      && distanceToPlayer <= enemyAI.ChaseDistance)
             {
                 ChangeState(stateChase);
             }
-            else
-            {
-                ChangeState(stateWander);
-            }
+            else { ChangeState(stateWander);}
         }
     }
 
-    private bool ShouldFlee(EColorMatchStatus colorMatchStatus, float distanceToPlayer)
-    {
-        return (colorMatchStatus == EColorMatchStatus.MIX_ING && distanceToPlayer <= enemyAI.RunDistance) ||
-               (enemyAI.NpcColor.Type == NPCType.NPC_WATER && colorMatchStatus == EColorMatchStatus.MIX_FAIL && distanceToPlayer <= enemyAI.RunDistance);
-    }
+    //private bool ShouldFlee(EColorMatchStatus colorMatchStatus, float distanceToPlayer)
+    //{
+    //    return (colorMatchStatus == EColorMatchStatus.MIX_ING && distanceToPlayer <= enemyAI.RunDistance) ||
+    //           (enemyAI.NpcColor.Type == NPCType.NPC_WATER && colorMatchStatus == EColorMatchStatus.MIX_FAIL && distanceToPlayer <= enemyAI.RunDistance);
+    //}
 
-    private bool ShouldChase(EColorMatchStatus colorMatchStatus, float distanceToPlayer)
-    {
-        return ((colorMatchStatus == EColorMatchStatus.MIX_COMPLETE || colorMatchStatus == EColorMatchStatus.MIX_FAIL) && distanceToPlayer <= enemyAI.ChaseDistance) ||
-               (enemyAI.NpcColor.Type == NPCType.NPC_COLOR && (colorMatchStatus == EColorMatchStatus.MIX_ING || colorMatchStatus == EColorMatchStatus.MIX_COMPLETE) && distanceToPlayer <= enemyAI.ChaseDistance);
-    }
+    //private bool ShouldChase(EColorMatchStatus colorMatchStatus, float distanceToPlayer)
+    //{
+    //    return ((colorMatchStatus == EColorMatchStatus.MIX_COMPLETE || colorMatchStatus == EColorMatchStatus.MIX_FAIL) && distanceToPlayer <= enemyAI.ChaseDistance) ||
+    //           (enemyAI.NpcColor.Type == NPCType.NPC_COLOR && (colorMatchStatus == EColorMatchStatus.MIX_ING || colorMatchStatus == EColorMatchStatus.MIX_COMPLETE) && distanceToPlayer <= enemyAI.ChaseDistance);
+    //}
 }

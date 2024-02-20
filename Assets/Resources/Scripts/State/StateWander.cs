@@ -30,7 +30,7 @@ public class StateWander : IState
     public void OnEnter()
     {
         agent.speed = wanderSpeed;
-        SetNewDestination();
+        Wander();
         stateIndicator.UpdateStateText("Wander");
     }
 
@@ -39,7 +39,7 @@ public class StateWander : IState
         timer += Time.deltaTime;
         if (timer >= checkTime || agent.remainingDistance < 0.5f)
         {
-            SetNewDestination();
+            Wander();
             timer = 0f;
         }
 
@@ -52,7 +52,7 @@ public class StateWander : IState
         // Wander 상태 종료 시 필요한 로직
     }
 
-    private void SetNewDestination()
+    private void Wander()
     {
         Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * wanderRadius + agent.transform.position;
         NavMeshHit hit;

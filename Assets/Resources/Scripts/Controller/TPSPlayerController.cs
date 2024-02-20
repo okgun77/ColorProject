@@ -7,13 +7,13 @@ using UnityEngine.EventSystems;
 
 public class TPSPlayerController : MonoBehaviour
 {
-    [SerializeField] private LayerMask groundLayer; // 諛붾떏 앸퀎꾪븳 LayerMask
+    [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform Character;
     [SerializeField] private Transform ViewCamera;
-    [SerializeField] private float movementSpeed = 5f; // 대룞 띾룄
-    [SerializeField] private float rotationSpeed = 10f; // 뚯쟾 띾룄
-    [SerializeField] private float jumpPower = 5f; // 먰봽 
-    [SerializeField] private float distanceToGround = 0.2f; // 諛붾떏怨쇱쓽 嫄곕━
+    [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private float jumpPower = 5f;
+    [SerializeField] private float distanceToGround = 0.2f;
     [SerializeField] private float Run = 7f;
 
   
@@ -22,7 +22,7 @@ public class TPSPlayerController : MonoBehaviour
   
     private bool _jump;
 
-    private const string JumpButton = "Jump"; // 먰봽 踰꾪듉
+    private const string JumpButton = "Jump";
 
     
 
@@ -51,7 +51,6 @@ public class TPSPlayerController : MonoBehaviour
 
         //if (isMoving)
         //{
-        //    // 吏곸엫媛먯섎㈃ 吏곸엫 諛⑺뼢怨꾩궛섍퀬 罹먮┃곕 吏곸엯덈떎.
         //    Vector3 moveDirection = CalculateMoveDirection(moveInput);
         //    MoveCharacter(moveDirection);
         //    WalkSound = SoundManager.Instance.PlayerWalkSound;
@@ -59,7 +58,6 @@ public class TPSPlayerController : MonoBehaviour
         //}
         //else
         //{
-        //    // 吏곸엫놁쓣 寃쎌슦 꾩슂泥섎━瑜⑸땲( 嫄룸뒗 뚮━ 뺤 .
         //    WalkSound = SoundManager.Instance.PlayerWalkSound;
         //    SoundManager.Instance.StopSE(WalkSound);
         //}
@@ -115,7 +113,7 @@ public class TPSPlayerController : MonoBehaviour
         else
         {
             
-           // SoundManager.Instance.StopSE(SoundManager.Instance.PlayerRightWalk);
+            // SoundManager.Instance.StopSE(SoundManager.Instance.PlayerRightWalk);
             //SoundManager.Instance.StopSE(SoundManager.Instance.PlayerLeftWalk);
             anim.SetBool("isRunning", false);
         }
@@ -127,24 +125,23 @@ public class TPSPlayerController : MonoBehaviour
         if (Input.GetButtonDown(JumpButton) && IsGrounded())
         {
             _jump = true;
-            anim.SetBool("isJumping", true); // 癒곕늄 뽰삂 醫딅빍筌롫뗄좎뮇苑
+            anim.SetBool("isJumping", true);
         }
 
     }
 
     
-    // 臾쇰━ 湲곕컲 먰봽 섑뻾
     private void PerformJump()
     {
         if (_jump)
         {
             rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
             _jump = false;
-            anim.SetBool("isJumping", true); // 먰봽瑜쒖옉좊땲硫붿씠곹깭瑜ㅼ젙
+            anim.SetBool("isJumping", true);
         }
         else
         {
-            anim.SetBool("isJumping", false); // 罹먮┃곌 낆뿉 우쑝硫먰봽 좊땲硫붿씠곹깭瑜댁젣
+            anim.SetBool("isJumping", false);
         }
 
     }
@@ -183,7 +180,6 @@ public class TPSPlayerController : MonoBehaviour
 
 public static class VectorExtensions
 {
-    // 踰≫꽣 됲깂Y異媛쒓굅)
     public static Vector3 FlattenVector(this Vector3 vector)
     {
         return new Vector3(vector.x, 0f, vector.z).normalized;

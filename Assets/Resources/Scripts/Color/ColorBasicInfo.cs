@@ -15,7 +15,8 @@ public class ColorBasicInfo
     public Color ColorValue => colorValue;
 
     // RGB 정수 값을 사용하는 생성자
-    public ColorBasicInfo(string _code, string _no, string _name, int _r, int _g, int _b)
+    public ColorBasicInfo(string _code, string _no, string _name,
+                          byte _r, byte _g, byte _b)
     {
         colorCode = _code;
         colorNo = _no;

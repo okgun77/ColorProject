@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 [System.Serializable]
+
+
 public class ColorTable : MonoBehaviour
 {
     // 색상 정보를 저장하는 리스트
@@ -51,8 +53,7 @@ public class ColorTable : MonoBehaviour
     {
         if (targetColors.Count == 0)
         {
-            // Debug.LogError("Target colors list is empty.");
-            return null; // 또는 기본 ColorBasicInfo 반환
+            return null;
         }
         int randomIndex = Random.Range(0, targetColors.Count);
         return targetColors[randomIndex];
