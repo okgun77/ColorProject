@@ -1,18 +1,34 @@
+using UnityEngine;
 public class StateManager
 {
     private IState currentState;
+    private IState stateWander;
+    private IState stateFlee;
+    private IState stateChase;
+
+
     private EnemyAI enemyAI;
+    
 
 
     // StateManager 생성자
-    public StateManager(EnemyAI _enemyAI, IState _stateFlee, IState _stateChase)
+    public StateManager(EnemyAI _enemyAI, IState _stateWander, IState _stateFlee, IState _stateChase)
     {
         this.enemyAI = _enemyAI;
+        this.stateWander = _stateWander;
+        this.stateFlee = _stateFlee;
+        this.stateChase = _stateChase;
+
+        currentState = stateWander;
+
     }
 
     public void ChangeState(IState _newState)
     {
-        currentState?.OnExit();
+        if (currentState != null)
+        {
+            currentState.OnExit();
+        }
         currentState = _newState;
         currentState.OnEnter();
     }
@@ -20,40 +36,56 @@ public class StateManager
     public void UpdateState()
     {
         currentState?.OnUpdate();
-
-        // 예제: 상태 전환 로직을 여기에 구현
-        StateCheck();
+        CheckTransitions();
     }
 
-    private void StateCheck()
+    private void CheckTransitions()
     {
         if (enemyAI == null) return;
 
-        // 여기에서 EnemyAI의 상태를 확인하여 상태 전환을 결정합니다.
-        // 예: 플레이어와의 거리에 따라 상태 변경
+        float distanceToPlayer = Vector3.Distance(enemyAI.transform.position, enemyAI.PlayerTransform.position);
         var colorMatchStatus = GameManager.Instance.GetCurrentColorMatchStatus();
+
         switch (enemyAI.NpcColor.Type)
         {
             case NPCType.NPC_COLOR:
-                if (colorMatchStatus == EColorMatchStatus.MIX_ING)
-                {
-                    ChangeState(enemyAI.GetStateFlee()); // Flee 상태로 전환
-                }
-                else if (colorMatchStatus == EColorMatchStatus.MIX_COMPLETE || colorMatchStatus == EColorMatchStatus.MIX_FAIL)
-                {
-                    ChangeState(enemyAI.GetStateChase()); // Chase 상태로 전환
-                }
+                HandleNpcColorTransitions(colorMatchStatus, distanceToPlayer);
                 break;
             case NPCType.NPC_WATER:
-                if (colorMatchStatus == EColorMatchStatus.MIX_FAIL)
-                {
-                    ChangeState(enemyAI.GetStateFlee()); // Flee 상태로 전환
-                }
-                else
-                {
-                    ChangeState(enemyAI.GetStateChase()); // Chase 상태로 전환
-                }
+                HandleNpcWaterTransitions(colorMatchStatus, distanceToPlayer);
                 break;
+        }
+    }
+
+    private void HandleNpcColorTransitions(EColorMatchStatus _colorMatchStatus, float _distanceToPlayer)
+    {
+        if (_colorMatchStatus == EColorMatchStatus.MIX_ING && _distanceToPlayer <= enemyAI.RunDistance)
+        {
+            ChangeState(stateFlee);
+        }
+        else if ((_colorMatchStatus == EColorMatchStatus.MIX_COMPLETE || _colorMatchStatus == EColorMatchStatus.MIX_FAIL) && _distanceToPlayer <= enemyAI.ChaseDistance)
+        {
+            ChangeState(stateChase);
+        }
+        else
+        {
+            ChangeState(stateWander);
+        }
+    }
+
+    private void HandleNpcWaterTransitions(EColorMatchStatus _colorMatchStatus, float _distanceToPlayer)
+    {
+        if (_colorMatchStatus == EColorMatchStatus.MIX_FAIL && _distanceToPlayer <= enemyAI.RunDistance)
+        {
+            ChangeState(stateFlee);
+        }
+        else if ((_colorMatchStatus == EColorMatchStatus.MIX_ING || _colorMatchStatus == EColorMatchStatus.MIX_COMPLETE) && _distanceToPlayer <= enemyAI.ChaseDistance)
+        {
+            ChangeState(stateChase);
+        }
+        else
+        {
+            ChangeState(stateWander);
         }
     }
 

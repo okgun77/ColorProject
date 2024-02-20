@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float chaseSpeed = 0.3f;   // 추적할 때 속도
     [SerializeField] private float runDistance = 3f;    // 도망 거리
     [SerializeField] private float chaseDistance = 3f;  // 추적 거리
-    [SerializeField] private float wanderRadius = 10;
+    [SerializeField] private float wanderRadius = 10;   // 배회 반경
 
 
     public float WanderSpeed => wanderSpeed;
@@ -30,11 +30,13 @@ public class EnemyAI : MonoBehaviour
     private Animator anim;
     private Transform playerTransform;
 
+    public Transform PlayerTransform => playerTransform;
+
+    private StateManager stateManager;
     private StateWander stateWander;
     private StateFlee stateFlee;
     private StateChase stateChase;
-    private StateManager stateManager;
-    private NPCStateDisplay stateDisplay;
+    private NPCStateIndicator stateIndicator;
 
 
     
@@ -44,15 +46,16 @@ public class EnemyAI : MonoBehaviour
         npcColor = GetComponent<NPCColor>();
         anim = GetComponent<Animator>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        stateIndicator = GetComponentInChildren<NPCStateIndicator>();
 
 
         // 상태 객체 초기화
-        stateWander = new StateWander(nav, wanderSpeed, SetAnimation, wanderRadius, stateDisplay);
-        stateFlee = new StateFlee(nav, playerTransform, runDistance, fleeSpeed, SetAnimation);
-        stateChase = new StateChase(nav, playerTransform, chaseDistance, chaseSpeed, SetAnimation);
+        stateWander = new StateWander(nav, wanderSpeed, SetAnimation, wanderRadius, stateIndicator);
+        stateFlee = new StateFlee(nav, playerTransform, runDistance, fleeSpeed, SetAnimation, stateIndicator);
+        stateChase = new StateChase(nav, playerTransform, chaseDistance, chaseSpeed, SetAnimation, stateIndicator);
 
         // StateManager 초기화
-        stateManager = new StateManager(this, stateFlee, stateChase);
+        stateManager = new StateManager(this, stateWander, stateFlee, stateChase);
     }
 
     private void Start()
