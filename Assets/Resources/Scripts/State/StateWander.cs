@@ -63,6 +63,7 @@ public class StateWander : IState
     private void CheckTransitions()
     {
         // StateManager를 사용하여 현재 상황에 맞는 상태 전환 로직 구현
+        if (stateManager == null) return;
         stateManager.CheckTransitions();
     }
 

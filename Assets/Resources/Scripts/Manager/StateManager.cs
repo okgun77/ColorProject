@@ -39,55 +39,49 @@ public class StateManager
         CheckTransitions();
     }
 
-    private void CheckTransitions()
+    public IState GetStateWander()
+    {
+        return stateWander;
+    }
+
+    public void CheckTransitions()
     {
         if (enemyAI == null) return;
 
         float distanceToPlayer = Vector3.Distance(enemyAI.transform.position, enemyAI.PlayerTransform.position);
         var colorMatchStatus = GameManager.Instance.GetCurrentColorMatchStatus();
 
-        switch (enemyAI.NpcColor.Type)
+        // 조건에 따라 상태 전환 로직 구현
+        if (currentState == stateWander)
         {
-            case NPCType.NPC_COLOR:
-                HandleNpcColorTransitions(colorMatchStatus, distanceToPlayer);
-                break;
-            case NPCType.NPC_WATER:
-                HandleNpcWaterTransitions(colorMatchStatus, distanceToPlayer);
-                break;
+            if (ShouldFlee(colorMatchStatus, distanceToPlayer))
+            {
+                ChangeState(stateFlee);
+            }
+            else if (ShouldChase(colorMatchStatus, distanceToPlayer))
+            {
+                ChangeState(stateChase);
+            }
         }
-    }
-
-    private void HandleNpcColorTransitions(EColorMatchStatus _colorMatchStatus, float _distanceToPlayer)
-    {
-        if (_colorMatchStatus == EColorMatchStatus.MIX_ING && _distanceToPlayer <= enemyAI.RunDistance)
+        else if (currentState == stateFlee && distanceToPlayer > enemyAI.RunDistance)
         {
-            ChangeState(stateFlee);
+            ChangeState(stateWander);
         }
-        else if ((_colorMatchStatus == EColorMatchStatus.MIX_COMPLETE || _colorMatchStatus == EColorMatchStatus.MIX_FAIL) && _distanceToPlayer <= enemyAI.ChaseDistance)
-        {
-            ChangeState(stateChase);
-        }
-        else
+        else if (currentState == stateChase && distanceToPlayer > enemyAI.ChaseDistance)
         {
             ChangeState(stateWander);
         }
     }
 
-    private void HandleNpcWaterTransitions(EColorMatchStatus _colorMatchStatus, float _distanceToPlayer)
+    private bool ShouldFlee(EColorMatchStatus colorMatchStatus, float distanceToPlayer)
     {
-        if (_colorMatchStatus == EColorMatchStatus.MIX_FAIL && _distanceToPlayer <= enemyAI.RunDistance)
-        {
-            ChangeState(stateFlee);
-        }
-        else if ((_colorMatchStatus == EColorMatchStatus.MIX_ING || _colorMatchStatus == EColorMatchStatus.MIX_COMPLETE) && _distanceToPlayer <= enemyAI.ChaseDistance)
-        {
-            ChangeState(stateChase);
-        }
-        else
-        {
-            ChangeState(stateWander);
-        }
+        return (colorMatchStatus == EColorMatchStatus.MIX_ING && distanceToPlayer <= enemyAI.RunDistance) ||
+               (enemyAI.NpcColor.Type == NPCType.NPC_WATER && colorMatchStatus == EColorMatchStatus.MIX_FAIL && distanceToPlayer <= enemyAI.RunDistance);
     }
 
-
+    private bool ShouldChase(EColorMatchStatus colorMatchStatus, float distanceToPlayer)
+    {
+        return ((colorMatchStatus == EColorMatchStatus.MIX_COMPLETE || colorMatchStatus == EColorMatchStatus.MIX_FAIL) && distanceToPlayer <= enemyAI.ChaseDistance) ||
+               (enemyAI.NpcColor.Type == NPCType.NPC_COLOR && (colorMatchStatus == EColorMatchStatus.MIX_ING || colorMatchStatus == EColorMatchStatus.MIX_COMPLETE) && distanceToPlayer <= enemyAI.ChaseDistance);
+    }
 }
