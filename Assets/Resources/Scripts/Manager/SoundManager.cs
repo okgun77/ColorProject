@@ -100,9 +100,6 @@ public class SoundManager : MonoBehaviour
     public string colorscreamsound;
     public string HitSound2;
 
-
-
-
     private void Update()
     {
 
