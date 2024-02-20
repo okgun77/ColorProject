@@ -31,6 +31,8 @@ public class NPCStateIndicator : MonoBehaviour
 
             Vector3 targetPosition = new Vector3(cameraTransform.position.x, this.transform.position.y, cameraTransform.position.z);
             this.transform.LookAt(targetPosition);
+
+            this.transform.Rotate(0f, 180f, 0f);
         }
     }
 }
