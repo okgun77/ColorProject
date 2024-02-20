@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPCStateIndicator : MonoBehaviour
 {
-    public TextMeshProUGUI statusText; // 상태를 표시할 TextMeshProUGUI
+    [SerializeField] private TextMeshProUGUI statusText; // 상태를 표시할 TextMeshProUGUI
+    [SerializeField] private Image panelImage;
+
     private Transform cameraTransform; // 메인 카메라의 Transform
 
     private void Start()
@@ -18,6 +21,7 @@ public class NPCStateIndicator : MonoBehaviour
         if (statusText != null)
         {
             statusText.text = _newState;
+            UpdatePanelColor(_newState);
         }
     }
 
@@ -33,6 +37,26 @@ public class NPCStateIndicator : MonoBehaviour
             this.transform.LookAt(targetPosition);
 
             this.transform.Rotate(0f, 180f, 0f);
+        }
+    }
+
+    private void UpdatePanelColor(string state)
+    {
+        // Change the panel color based on the state
+        switch (state)
+        {
+            case "Wander":
+                panelImage.color = Color.blue;
+                break;
+            case "Chase":
+                panelImage.color = Color.red;
+                break;
+            case "Flee":
+                panelImage.color = Color.magenta; // Using magenta as an approximation of pink
+                break;
+            default:
+                panelImage.color = Color.white; // Default color if the state doesn't match
+                break;
         }
     }
 }

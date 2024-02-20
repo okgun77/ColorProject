@@ -6,11 +6,11 @@ public class copymotion : MonoBehaviour
 {
     //[SerializeField] public bool Test;
 
-    public Transform animationObject; // �니메이�용 객체Transform
-    public Transform ragdollObject;   // �그객체Transform
+    public Transform animationObject; // 좊땲硫붿씠섏슜 媛앹껜Transform
+    public Transform ragdollObject;   // 덇렇媛앹껜Transform
 
-    private Vector3 initialPositionOffset; // 초기 �치 �프
-    private Quaternion initialRotationOffset; // 초기 �전 �프
+    private Vector3 initialPositionOffset; // 珥덇린 꾩튂 ㅽ봽
+    private Quaternion initialRotationOffset; // 珥덇린 뚯쟾 ㅽ봽
 
     private Rigidbody Rb;
 
@@ -18,8 +18,8 @@ public class copymotion : MonoBehaviour
 
     private bool isInit = false;
 
-    private bool isCoroutineRunning = false; // 코루�행 �태 추적
-    private Coroutine ragdollCoroutine; // �행 중인 코루참조
+    private bool isCoroutineRunning = false; // 肄붾（ㅽ뻾 곹깭 異붿쟻
+    private Coroutine ragdollCoroutine; // ㅽ뻾 以묒씤 肄붾（李몄“
     //void Start()
     //{
     //    Rb = GetComponent<Rigidbody>();
@@ -57,7 +57,7 @@ public class copymotion : MonoBehaviour
     public void Init()
     {
         RePlacetarget();
-        ragdollCoroutine = StartCoroutine(UpdateRagdollpostion()); // 코루�
+        ragdollCoroutine = StartCoroutine(UpdateRagdollpostion()); // 肄붾（
         isCoroutineRunning = true;
     }
 
@@ -79,7 +79,7 @@ public class copymotion : MonoBehaviour
     {
         if (isCoroutineRunning)
         {
-            StopCoroutine(ragdollCoroutine); // 코루중�
+            StopCoroutine(ragdollCoroutine); // 肄붾（以묒
             isCoroutineRunning = false;
         }
     }
@@ -88,7 +88,7 @@ public class copymotion : MonoBehaviour
     {
         if (!isCoroutineRunning)
         {
-            ragdollCoroutine = StartCoroutine(UpdateRagdollpostion()); // 코루�시
+            ragdollCoroutine = StartCoroutine(UpdateRagdollpostion()); // 肄붾（ъ떆
             isCoroutineRunning = true;
         }
     }

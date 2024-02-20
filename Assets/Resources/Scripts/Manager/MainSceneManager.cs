@@ -5,7 +5,6 @@ using TMPro;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 
 public class MainSceneManager : MonoBehaviour

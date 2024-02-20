@@ -51,25 +51,38 @@ public class StateManager
         float distanceToPlayer = Vector3.Distance(enemyAI.transform.position, enemyAI.PlayerTransform.position);
         var colorMatchStatus = GameManager.Instance.GetCurrentColorMatchStatus();
 
-        // 조건에 따라 상태 전환 로직 구현
-        if (currentState == stateWander)
+        // NPCColor의 경우
+        if (enemyAI.NpcColor.Type == NPCType.NPC_COLOR)
         {
-            if (ShouldFlee(colorMatchStatus, distanceToPlayer))
+            if (colorMatchStatus == EColorMatchStatus.MIX_ING && distanceToPlayer <= enemyAI.RunDistance)
             {
                 ChangeState(stateFlee);
             }
-            else if (ShouldChase(colorMatchStatus, distanceToPlayer))
+            else if ((colorMatchStatus == EColorMatchStatus.MIX_COMPLETE || colorMatchStatus == EColorMatchStatus.MIX_FAIL) && distanceToPlayer <= enemyAI.ChaseDistance)
             {
                 ChangeState(stateChase);
             }
+            else
+            {
+                ChangeState(stateWander);
+            }
         }
-        else if (currentState == stateFlee && distanceToPlayer > enemyAI.RunDistance)
+
+        // NPCWater의 경우
+        else if (enemyAI.NpcColor.Type == NPCType.NPC_WATER)
         {
-            ChangeState(stateWander);
-        }
-        else if (currentState == stateChase && distanceToPlayer > enemyAI.ChaseDistance)
-        {
-            ChangeState(stateWander);
+            if (colorMatchStatus == EColorMatchStatus.MIX_FAIL && distanceToPlayer <= enemyAI.RunDistance)
+            {
+                ChangeState(stateFlee);
+            }
+            else if ((colorMatchStatus == EColorMatchStatus.MIX_ING || colorMatchStatus == EColorMatchStatus.MIX_COMPLETE) && distanceToPlayer <= enemyAI.ChaseDistance)
+            {
+                ChangeState(stateChase);
+            }
+            else
+            {
+                ChangeState(stateWander);
+            }
         }
     }
 
