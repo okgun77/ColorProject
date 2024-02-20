@@ -50,9 +50,9 @@ public class EnemyAI : MonoBehaviour
 
 
         // 상태 객체 초기화
-        stateWander = new StateWander(nav, wanderSpeed, SetAnimation, wanderRadius, stateIndicator);
-        stateFlee = new StateFlee(nav, playerTransform, runDistance, fleeSpeed, SetAnimation, stateIndicator);
-        stateChase = new StateChase(nav, playerTransform, chaseDistance, chaseSpeed, SetAnimation, stateIndicator);
+        stateWander = new StateWander(nav, wanderSpeed, SetAnimation, wanderRadius, stateIndicator, stateManager);
+        stateFlee = new StateFlee(nav, playerTransform, runDistance, fleeSpeed, SetAnimation, stateIndicator, stateManager);
+        stateChase = new StateChase(nav, playerTransform, chaseDistance, chaseSpeed, SetAnimation, stateIndicator, stateManager);
 
         // StateManager 초기화
         stateManager = new StateManager(this, stateWander, stateFlee, stateChase);
