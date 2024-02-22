@@ -68,7 +68,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Target color display is not set in the inspector");
+            // Debug.LogError("Target color display is not set in the inspector");
         }
     }
 
