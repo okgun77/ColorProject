@@ -52,6 +52,10 @@ public class StateManager
         var colorMatchStatus = GameManager.Instance.GetCurrentColorMatchStatus();
 
         // NPCColor의 경우
+        // Player 색상 혼합중 : Flee
+        // Player 색상 혼합실패, 혼합성공 : Chase
+        // 향후 개선사항 : 현재는 색상 상관없이 일괄적으로 도망가거나 쫓아가는데,
+        //               목표색상에 필요한 색상과 필요없는 색상을 구분해서 행동패턴 개선
         if (enemyAI.NpcColor.Type == NPCType.NPC_COLOR)
         {
             if (colorMatchStatus == EColorMatchStatus.MIX_ING && distanceToPlayer <= enemyAI.RunDistance)
@@ -66,6 +70,9 @@ public class StateManager
             else { ChangeState(stateWander); }
         }
         // NPCWater의 경우
+        // Player 색상 혼합중, 혼합성공 : Chase
+        // Player 색상 혼합실패 : Flee
+        // 추적거리 밖 : Wander
         else if (enemyAI.NpcColor.Type == NPCType.NPC_WATER)
         {
             if (colorMatchStatus == EColorMatchStatus.MIX_FAIL && distanceToPlayer <= enemyAI.RunDistance)
@@ -81,15 +88,4 @@ public class StateManager
         }
     }
 
-    //private bool ShouldFlee(EColorMatchStatus colorMatchStatus, float distanceToPlayer)
-    //{
-    //    return (colorMatchStatus == EColorMatchStatus.MIX_ING && distanceToPlayer <= enemyAI.RunDistance) ||
-    //           (enemyAI.NpcColor.Type == NPCType.NPC_WATER && colorMatchStatus == EColorMatchStatus.MIX_FAIL && distanceToPlayer <= enemyAI.RunDistance);
-    //}
-
-    //private bool ShouldChase(EColorMatchStatus colorMatchStatus, float distanceToPlayer)
-    //{
-    //    return ((colorMatchStatus == EColorMatchStatus.MIX_COMPLETE || colorMatchStatus == EColorMatchStatus.MIX_FAIL) && distanceToPlayer <= enemyAI.ChaseDistance) ||
-    //           (enemyAI.NpcColor.Type == NPCType.NPC_COLOR && (colorMatchStatus == EColorMatchStatus.MIX_ING || colorMatchStatus == EColorMatchStatus.MIX_COMPLETE) && distanceToPlayer <= enemyAI.ChaseDistance);
-    //}
 }

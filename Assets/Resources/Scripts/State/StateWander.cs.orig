@@ -1,0 +1,145 @@
+<<<<<<< HEAD
+using System;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class StateWander : IState
+{
+    private NavMeshAgent agent;
+    private float wanderSpeed;
+    private Action<bool, bool> setAnimation;
+    private NPCStateIndicator stateIndicator;
+    private StateManager stateManager;
+
+    private float checkTime = 2f;   // 목표지점 갱신 주기
+    private float timer = 0f;
+    private float wanderRadius;   // 방황 범위
+
+    
+
+
+    public StateWander(NavMeshAgent _agent, float _wanderSpeed, Action<bool, bool> _setAnimation, float _wanderRadius, NPCStateIndicator _stateIndicator, StateManager _stateManager)
+    {
+        this.agent = _agent;
+        this.wanderSpeed = _wanderSpeed;
+        this.setAnimation = _setAnimation;
+        this.wanderRadius = _wanderRadius;
+        this.stateIndicator = _stateIndicator;
+        this.stateManager = _stateManager;
+    }
+
+    public void OnEnter()
+    {
+        agent.speed = wanderSpeed;
+        Wander();
+        stateIndicator.UpdateStateText("Wander");
+    }
+
+    public void OnUpdate()
+    {
+        timer += Time.deltaTime;
+        if (timer >= checkTime || agent.remainingDistance < 0.5f)
+        {
+            Wander();
+            timer = 0f;
+        }
+
+        // 여기에 플레이어와의 거리 체크 및 상태 전환 로직 추가
+        CheckTransitions();
+    }
+
+    public void OnExit()
+    {
+        // Wander 상태 종료 시 필요한 로직
+    }
+
+    private void Wander()
+    {
+        Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * wanderRadius + agent.transform.position;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomDirection, out hit, wanderRadius, -1);
+        agent.SetDestination(hit.position);
+    }
+
+    private void CheckTransitions()
+    {
+        // StateManager를 사용하여 현재 상황에 맞는 상태 전환 로직 구현
+        if (stateManager == null) return;
+        stateManager.CheckTransitions();
+    }
+
+    // 무작위 위치를 생성하는 함수
+    private Vector3 RandomNavSphere(Vector3 _origin, float _dist, int _layermask)
+    {
+        Vector3 randDirection = UnityEngine.Random.insideUnitSphere * _dist;
+        randDirection += _origin;
+
+        NavMeshHit navHit;
+
+        NavMesh.SamplePosition(randDirection, out navHit, _dist, _layermask);
+
+        Debug.Log($"Random Direction: {randDirection}, Final Position: {navHit.position}");
+
+        return navHit.position;
+    }
+
+}
+=======
+using UnityEngine;
+
+public class StateWander : IState
+{
+    private readonly EnemyAI npc;
+    private float wanderTimer;
+
+    public StateWander(EnemyAI _npc)
+    {
+        this.npc = _npc;
+    }
+
+    public void Enter()
+    {
+        npc.Nav.speed = npc.WanderSpeed;
+        wanderTimer = Random.Range(1f, 2f);
+    }
+
+    public void Execute()
+    {
+        wanderTimer -= Time.deltaTime;
+        if (wanderTimer <= 0)
+        {
+            Debug.Log("NPC Wander!!");
+            Vector3 newPos = RandomNavSphere(npc.transform.position, npc.RunDistance, -1);
+            npc.Nav.SetDestination(newPos);
+            wanderTimer = Random.Range(1f, 2f);
+        }
+        
+        // 색상 매칭 상태와 NPC 타입에 따른 상태 전환 로직 추가
+        EColorMatchStatus colorMatchStatus = GameManager.Instance.GetCurrentColorMatchStatus();
+        if (npc.NpcColor.Type == NPCType.NPC_COLOR && (colorMatchStatus == EColorMatchStatus.MIX_ING || colorMatchStatus == EColorMatchStatus.MIX_COMPLETE || colorMatchStatus == EColorMatchStatus.MIX_FAIL))
+        {
+            npc.ChangeState(new StateChase(npc));
+        }
+        else if (npc.NpcColor.Type == NPCType.NPC_WATER && colorMatchStatus == EColorMatchStatus.MIX_FAIL)
+        {
+            npc.ChangeState(new StateFlee(npc));
+        }
+    }
+
+    public void Exit()
+    {
+        // 상태 종료.
+    }
+
+    private Vector3 RandomNavSphere(Vector3 _origin, float dist, int _layermask)
+    {
+        Vector3 randDirection = Random.insideUnitSphere * dist;
+        randDirection += _origin;
+
+        UnityEngine.AI.NavMeshHit navHit;
+        UnityEngine.AI.NavMesh.SamplePosition(randDirection, out navHit, dist, _layermask);
+
+        return navHit.position;
+    }
+}
+>>>>>>> d73e1774dd043556c203b0b5a7fca56cff9b69f6

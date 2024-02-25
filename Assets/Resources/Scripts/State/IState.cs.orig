@@ -1,0 +1,16 @@
+<<<<<<< HEAD
+public interface IState
+{
+    void OnEnter();
+    void OnUpdate();
+    void OnExit();
+}
+=======
+
+public interface IState
+{
+    void Enter();
+    void Execute();
+    void Exit();
+}
+>>>>>>> d73e1774dd043556c203b0b5a7fca56cff9b69f6
